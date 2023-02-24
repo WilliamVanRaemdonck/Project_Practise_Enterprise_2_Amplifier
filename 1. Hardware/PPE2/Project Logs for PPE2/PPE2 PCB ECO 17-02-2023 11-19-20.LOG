@@ -1,0 +1,15 @@
+Change Component Designator: OldDesignator=SB9 NewDesignator=SB_5V
+Change Component Designator: OldDesignator=SB10 NewDesignator=SB_9V
+Change Component Designator: OldDesignator=SB11 NewDesignator=SB_15V
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Change Room Name: Old Name=Designator_4 New Name=Designator
+Change Room Name: Old Name=Designator_5 New Name=Designator
+Change Room Name: Old Name=Designator_6 New Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

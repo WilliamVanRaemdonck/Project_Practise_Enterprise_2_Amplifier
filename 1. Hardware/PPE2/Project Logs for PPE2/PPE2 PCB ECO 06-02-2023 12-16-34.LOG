@@ -1,0 +1,306 @@
+Removed Member From Class: ClassName=Designator Member=Bass
+Removed Member From Class: ClassName=Designator Member=C3
+Removed Member From Class: ClassName=Designator Member=C7
+Removed Member From Class: ClassName=Designator Member=C11
+Removed Member From Class: ClassName=Designator Member=C12
+Removed Member From Class: ClassName=Designator Member=C13
+Removed Member From Class: ClassName=Designator Member=C14
+Removed Member From Class: ClassName=Designator Member=C15
+Removed Member From Class: ClassName=Designator Member=C16
+Removed Member From Class: ClassName=Designator Member=C17
+Removed Member From Class: ClassName=Designator Member=C18
+Removed Member From Class: ClassName=Designator Member=C19
+Removed Member From Class: ClassName=Designator Member=C20
+Removed Member From Class: ClassName=Designator Member=C21
+Removed Member From Class: ClassName=Designator Member=C22
+Removed Member From Class: ClassName=Designator Member=C23
+Removed Member From Class: ClassName=Designator Member=C24
+Removed Member From Class: ClassName=Designator Member=C25
+Removed Member From Class: ClassName=Designator Member=C26
+Removed Member From Class: ClassName=Designator Member=C27
+Removed Member From Class: ClassName=Designator Member=C28
+Removed Member From Class: ClassName=Designator Member=C50
+Removed Member From Class: ClassName=Designator Member=C51
+Removed Member From Class: ClassName=Designator Member=C52
+Removed Member From Class: ClassName=Designator Member=C53
+Removed Member From Class: ClassName=Designator Member=C54
+Removed Member From Class: ClassName=Designator Member=C55
+Removed Member From Class: ClassName=Designator Member=C56
+Removed Member From Class: ClassName=Designator Member=C57
+Removed Member From Class: ClassName=Designator Member=C58
+Removed Member From Class: ClassName=Designator Member=C59
+Removed Member From Class: ClassName=Designator Member=C60
+Removed Member From Class: ClassName=Designator Member=C61
+Removed Member From Class: ClassName=Designator Member=C62
+Removed Member From Class: ClassName=Designator Member=C63
+Removed Member From Class: ClassName=Designator Member=C64
+Removed Member From Class: ClassName=Designator Member=C65
+Removed Member From Class: ClassName=Designator Member=C66
+Removed Member From Class: ClassName=Designator Member=C67
+Removed Member From Class: ClassName=Designator Member=C68
+Removed Member From Class: ClassName=Designator Member=C69
+Removed Member From Class: ClassName=Designator Member=C70
+Removed Member From Class: ClassName=Designator Member=C71
+Removed Member From Class: ClassName=Designator Member=C72
+Removed Member From Class: ClassName=Designator Member=C73
+Removed Member From Class: ClassName=Designator Member=DS Header
+Removed Member From Class: ClassName=Designator Member=Gain
+Removed Member From Class: ClassName=Designator Member=H2
+Removed Member From Class: ClassName=Designator Member=IC1
+Removed Member From Class: ClassName=Designator Member=IC2
+Removed Member From Class: ClassName=Designator Member=IC4
+Removed Member From Class: ClassName=Designator Member=IC5
+Removed Member From Class: ClassName=Designator Member=ICSP
+Removed Member From Class: ClassName=Designator Member=INPUT1
+Removed Member From Class: ClassName=Designator Member=INPUT2
+Removed Member From Class: ClassName=Designator Member=INPUT3
+Removed Member From Class: ClassName=Designator Member=INPUT4
+Removed Member From Class: ClassName=Designator Member=J3
+Removed Member From Class: ClassName=Designator Member=L1
+Removed Member From Class: ClassName=Designator Member=L6
+Removed Member From Class: ClassName=Designator Member=L7
+Removed Member From Class: ClassName=Designator Member=LED1
+Removed Member From Class: ClassName=Designator Member=LED2
+Removed Member From Class: ClassName=Designator Member=LED3
+Removed Member From Class: ClassName=Designator Member=LED4
+Removed Member From Class: ClassName=Designator Member=LED5
+Removed Member From Class: ClassName=Designator Member=LED6
+Removed Member From Class: ClassName=Designator Member=LED7
+Removed Member From Class: ClassName=Designator Member=LED8
+Removed Member From Class: ClassName=Designator Member=Mid_Range
+Removed Member From Class: ClassName=Designator Member=MUTE_LR
+Removed Member From Class: ClassName=Designator Member=MUTE_M
+Removed Member From Class: ClassName=Designator Member=OUTPUT SELECT
+Removed Member From Class: ClassName=Designator Member=R1
+Removed Member From Class: ClassName=Designator Member=R2
+Removed Member From Class: ClassName=Designator Member=R3
+Removed Member From Class: ClassName=Designator Member=R4
+Removed Member From Class: ClassName=Designator Member=R5
+Removed Member From Class: ClassName=Designator Member=R6
+Removed Member From Class: ClassName=Designator Member=R7
+Removed Member From Class: ClassName=Designator Member=R8
+Removed Member From Class: ClassName=Designator Member=R14
+Removed Member From Class: ClassName=Designator Member=R16
+Removed Member From Class: ClassName=Designator Member=R18
+Removed Member From Class: ClassName=Designator Member=R20
+Removed Member From Class: ClassName=Designator Member=R25
+Removed Member From Class: ClassName=Designator Member=R26
+Removed Member From Class: ClassName=Designator Member=R27
+Removed Member From Class: ClassName=Designator Member=R28
+Removed Member From Class: ClassName=Designator Member=R29
+Removed Member From Class: ClassName=Designator Member=R30
+Removed Member From Class: ClassName=Designator Member=R31
+Removed Member From Class: ClassName=Designator Member=R32
+Removed Member From Class: ClassName=Designator Member=R33
+Removed Member From Class: ClassName=Designator Member=R34
+Removed Member From Class: ClassName=Designator Member=SB1
+Removed Member From Class: ClassName=Designator Member=SB2
+Removed Member From Class: ClassName=Designator Member=SB3
+Removed Member From Class: ClassName=Designator Member=SB4
+Removed Member From Class: ClassName=Designator Member=SB5
+Removed Member From Class: ClassName=Designator Member=SB6
+Removed Member From Class: ClassName=Designator Member=SB7
+Removed Member From Class: ClassName=Designator Member=SB8
+Removed Member From Class: ClassName=Designator Member=Trebble
+Removed Member From Class: ClassName=Designator Member=Volume
+Change Component Designator: OldDesignator=DS Header NewDesignator=Display Header
+Added Component: Designator=BR1(GBJ3510_T0_00601)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.panjit.com.tw/upload/datasheet/GBJ3510.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "24.6mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "PANJIT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "GBJ3510_T0_00601"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "241-GBJ3510_T0_00601"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Panjit/GBJ3510_T0_00601?qs=tlsG%2FOw5FFggsibJfWBTvQ%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C74(6-0805_N)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1nF"; VariantName = "[No Variations]"
+Added Component: Designator=C75(6-0805_N)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C76(CAPPRD750W80D1825H3750)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "UFW1V472MHD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ufw1v472mhd/nichicon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.nichicon.co.jp/english/products/pdfs/e-ufw.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "37.5mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Nichicon"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "UFW1V472MHD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "647-UFW1V472MHD"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Nichicon/UFW1V472MHD?qs=kArNe9LFxXnJL9rvReZXrQ%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C77(6-0805_N)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nf"; VariantName = "[No Variations]"
+Added Component: Designator=C78(6-0805_N)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nf"; VariantName = "[No Variations]"
+Added Component: Designator=C79(6-0805_N)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1nF"; VariantName = "[No Variations]"
+Added Component: Designator=C80(6-0805_N)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C81(6-0805_M)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Polarized Capacitor (Radial); 2 Leads"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RB7.6-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "330nf"; VariantName = "[No Variations]"
+Added Component: Designator=C82(6-0805_M)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Polarized Capacitor (Radial); 2 Leads"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RB7.6-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "330nf"; VariantName = "[No Variations]"
+Added Component: Designator=C83(6-0805_M)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Polarized Capacitor (Radial); 2 Leads"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RB7.6-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=C84(6-0805_M)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Polarized Capacitor (Radial); 2 Leads"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RB7.6-15"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Added Component: Designator=HS1(Heatsink)
+Added Component: Designator=HS2(Heatsink)
+Added Component: Designator=IC6(TO254P482X997X2018-3P)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "MC7809CTG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/mc7809ctg/on-semiconductor?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.onsemi.com/pub/Collateral/MC7800-D.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "4.82mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "onsemi"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "MC7809CTG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "863-MC7809CTG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/onsemi/MC7809CTG?qs=%252B9%2Fcbd0IE0RZOsET7SgWUA%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=IC7(TO254P482X997X2018-3P)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "MC7809CTG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/mc7809ctg/on-semiconductor?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.onsemi.com/pub/Collateral/MC7800-D.PDF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "4.82mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "onsemi"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "MC7809CTG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "863-MC7809CTG"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/onsemi/MC7809CTG?qs=%252B9%2Fcbd0IE0RZOsET7SgWUA%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=J4(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=BR1-4
+Added Pin To Net: NetName=GND Pin=C70-2
+Added Pin To Net: NetName=GND Pin=C71-2
+Added Pin To Net: NetName=9V Pin=C74-1
+Added Pin To Net: NetName=GND Pin=C74-2
+Added Pin To Net: NetName=9V Pin=C75-1
+Added Pin To Net: NetName=GND Pin=C75-2
+Added Pin To Net: NetName=GND Pin=C76-2
+Added Pin To Net: NetName=GND Pin=C77-2
+Added Pin To Net: NetName=GND Pin=C78-2
+Added Pin To Net: NetName=5V Pin=C79-1
+Added Pin To Net: NetName=GND Pin=C79-2
+Added Pin To Net: NetName=5V Pin=C80-1
+Added Pin To Net: NetName=GND Pin=C80-2
+Added Pin To Net: NetName=GND Pin=C81-2
+Added Pin To Net: NetName=9V Pin=C82-1
+Added Pin To Net: NetName=GND Pin=C82-2
+Added Pin To Net: NetName=9V Pin=C83-1
+Added Pin To Net: NetName=GND Pin=C83-2
+Added Pin To Net: NetName=5V Pin=C84-1
+Added Pin To Net: NetName=GND Pin=C84-2
+Added Pin To Net: NetName=GND Pin=IC6-2
+Added Pin To Net: NetName=9V Pin=IC6-3
+Added Pin To Net: NetName=9V Pin=IC7-1
+Added Pin To Net: NetName=GND Pin=IC7-2
+Added Pin To Net: NetName=5V Pin=IC7-3
+Change Net Name : Old Net Name=OUTPUT_SELECT New Net Name=OUTPUT_SELECT
+Added Pin To Net: NetName=15V Pin=BR1-1
+Added Pin To Net: NetName=15V Pin=C70-1
+Added Pin To Net: NetName=15V Pin=C71-1
+Added Pin To Net: NetName=15V Pin=C76-1
+Added Pin To Net: NetName=15V Pin=C77-1
+Added Pin To Net: NetName=15V Pin=C78-1
+Added Pin To Net: NetName=15V Pin=C81-1
+Added Pin To Net: NetName=15V Pin=IC6-1
+Added Net: Name=15V
+Added Pin To Net: NetName=AC1 Pin=BR1-2
+Added Pin To Net: NetName=AC1 Pin=J4-2
+Added Net: Name=AC1
+Added Pin To Net: NetName=AC2 Pin=BR1-3
+Added Pin To Net: NetName=AC2 Pin=J4-1
+Added Net: Name=AC2
+Added Pin To Net: NetName=HS1 Pin=HS1-1
+Added Net: Name=HS1
+Added Net: Name=HS2
+Added Pin To Net: NetName=HS3 Pin=HS2-1
+Added Net: Name=HS3
+Added Net: Name=HS4
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

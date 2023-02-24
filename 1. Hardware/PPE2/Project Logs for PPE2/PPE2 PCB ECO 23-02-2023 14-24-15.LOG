@@ -1,0 +1,57 @@
+Change Component Footprint: Designator=Out-L Old Footprint=691709710302 New Footprint=PHOE-1725656-2
+Change Component Footprint: Designator=Out-M Old Footprint=691709710302 New Footprint=PHOE-1725656-2
+Change Component Footprint: Designator=Out-R Old Footprint=691709710302 New Footprint=PHOE-1725656-2
+Change Component Comment : Designator=Out-L Old Comment=691709710302 New Comment=1725656
+Change Component Comment : Designator=Out-M Old Comment=691709710302 New Comment=1725656
+Change Component Comment : Designator=Out-R Old Comment=691709710302 New Comment=1725656
+Change Managed Component Library Link : Designator=Out-L Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=48A90C10-757A-4761-8C50-B9A275A2B022 New ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E Old RevisionGUID=B6273C5A-F5DB-4512-9097-2A4D23DDA496 New RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646
+Change Managed Component Library Link : Designator=Out-M Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=48A90C10-757A-4761-8C50-B9A275A2B022 New ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E Old RevisionGUID=B6273C5A-F5DB-4512-9097-2A4D23DDA496 New RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646
+Change Managed Component Library Link : Designator=Out-R Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=48A90C10-757A-4761-8C50-B9A275A2B022 New ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E Old RevisionGUID=B6273C5A-F5DB-4512-9097-2A4D23DDA496 New RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646
+Change component parameters: Designator = "Out-L" ("Out-L"); Footprint = "691709710302"; UniqueID = "\ONCXIGVC\MPKCDHJT" ("\ONCXIGVC\MPKCDHJT")
+Change component parameters (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Out-M" ("Out-M"); Footprint = "691709710302"; UniqueID = "\KEHSUKNI\DACVZOPR" ("\KEHSUKNI\DACVZOPR")
+Change component parameters (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Out-R" ("Out-R"); Footprint = "691709710302"; UniqueID = "\ONCXIGVC\ENOXGTQT" ("\ONCXIGVC\ENOXGTQT")
+Change component parameters (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Change Room Name: Old Name=Designator_4 New Name=Designator
+Change Room Name: Old Name=Designator_5 New Name=Designator
+Change Room Name: Old Name=Designator_6 New Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

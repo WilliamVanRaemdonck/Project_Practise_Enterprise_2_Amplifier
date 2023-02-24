@@ -1,0 +1,17 @@
+Change Component Footprint: Designator=R16 Old Footprint=6-0805_N New Footprint=6-0805_M
+Added Pin To Net: NetName=ADC_Ref Pin=C?-1
+Added Pin To Net: NetName=ADC_Ref Pin=IC1-18
+Added Pin To Net: NetName=5V Pin=L?-1
+Added Pin To Net: NetName=ADC_Ref Pin=L?-2
+Change Net Name : Old Net Name=ADC_Ref New Net Name=AVCC
+Add Net: Net with name "GND" already exists
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

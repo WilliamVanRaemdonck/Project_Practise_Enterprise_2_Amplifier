@@ -1,0 +1,32 @@
+Removed Pin From Net: NetName=9V Pin=C88-2
+Removed Pin From Net: NetName=9V Pin=IC7-2
+Removed Pin From Net: NetName=9V Pin=R42-1
+Removed Pin From Net: NetName=9V Pin=SB_9V-1
+Change Component Designator: OldDesignator=SB_9V NewDesignator=SB_15V
+Added Component: Designator=SB_9V(0402)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "SB"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC79_2 Pin=SB_9V-1
+Added Pin To Net: NetName=9V Pin=SB_9V-2
+Added Pin To Net: NetName=VIN_5V Pin=C88-2
+Added Pin To Net: NetName=VIN_5V Pin=IC7-2
+Added Pin To Net: NetName=VIN_5V Pin=R42-1
+Added Pin To Net: NetName=VIN_5V Pin=SB_15V-1
+Added Net: Name=VIN_5V
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Change Room Name: Old Name=Designator_4 New Name=Designator
+Change Room Name: Old Name=Designator_5 New Name=Designator
+Change Room Name: Old Name=Designator_6 New Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

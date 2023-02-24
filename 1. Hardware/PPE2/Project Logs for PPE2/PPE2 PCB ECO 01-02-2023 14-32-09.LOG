@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=Rotary_N Pin=IC1-19
+Removed Pin From Net: NetName=Rotary_P Pin=IC1-20
+Added Pin To Net: NetName=Rotary_P Pin=IC1-19
+Added Pin To Net: NetName=Rotary_N Pin=IC1-20
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Change Room Name: Old Name=Designator_5 New Name=Designator
+Change Room Name: Old Name=Designator_4 New Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

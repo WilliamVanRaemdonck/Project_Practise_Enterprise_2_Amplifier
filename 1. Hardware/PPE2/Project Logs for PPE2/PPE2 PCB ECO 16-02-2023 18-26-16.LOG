@@ -1,0 +1,17 @@
+Change Component Designator: OldDesignator=1 NewDesignator=9V_
+Change Component Designator: OldDesignator=2 NewDesignator=5V_
+Add Net: Net with name "5V" already exists
+Add Net: Net with name "9V" already exists
+Add Net: Net with name "9V" already exists
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Change Room Name: Old Name=Designator_4 New Name=Designator
+Change Room Name: Old Name=Designator_5 New Name=Designator
+Change Room Name: Old Name=Designator_6 New Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

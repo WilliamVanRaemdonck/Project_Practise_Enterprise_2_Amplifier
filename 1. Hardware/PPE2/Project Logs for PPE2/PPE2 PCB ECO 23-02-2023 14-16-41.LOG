@@ -1,0 +1,60 @@
+Change Component Footprint: Designator=Out-L Old Footprint=PHOE-1725656-2 New Footprint=691709710302
+Change Component Footprint: Designator=Out-M Old Footprint=PHOE-1725656-2 New Footprint=691709710302
+Change Component Footprint: Designator=Out-R Old Footprint=PHOE-1725656-2 New Footprint=691709710302
+Change Component Comment : Designator=Out-L Old Comment=1725656 New Comment=691709710302
+Change Component Comment : Designator=Out-M Old Comment=1725656 New Comment=691709710302
+Change Component Comment : Designator=Out-R Old Comment=1725656 New Comment=691709710302
+Change Managed Component Library Link : Designator=Out-L Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E New ItemGUID=48A90C10-757A-4761-8C50-B9A275A2B022 Old RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646 New RevisionGUID=B6273C5A-F5DB-4512-9097-2A4D23DDA496
+Change Managed Component Library Link : Designator=Out-M Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E New ItemGUID=48A90C10-757A-4761-8C50-B9A275A2B022 Old RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646 New RevisionGUID=B6273C5A-F5DB-4512-9097-2A4D23DDA496
+Change Managed Component Library Link : Designator=Out-R Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E New ItemGUID=48A90C10-757A-4761-8C50-B9A275A2B022 Old RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646 New RevisionGUID=B6273C5A-F5DB-4512-9097-2A4D23DDA496
+Change component parameters: Designator = "Out-L" ("OUT-L"); Footprint = "PHOE-1725656-2"; UniqueID = "\ONCXIGVC\ZVENOJJP" ("\ONCXIGVC\ZVENOJJP")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://katalog.we-online.de/em/datasheet/6917097103xx.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.we-online.de"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Temperature"; Value = "-45to130degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Reference"; Value = "691709710302"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "TapeandReelwithCap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "691709710302"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin Number"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "5.00mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "WurthElektronik"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Out-M" ("OUT-M"); Footprint = "PHOE-1725656-2"; UniqueID = "\KEHSUKNI\MGSNSMLB" ("\KEHSUKNI\MGSNSMLB")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://katalog.we-online.de/em/datasheet/6917097103xx.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.we-online.de"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Temperature"; Value = "-45to130degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Reference"; Value = "691709710302"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "TapeandReelwithCap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "691709710302"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin Number"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "5.00mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "WurthElektronik"; VariantName = "[No Variations]"
+Change component parameters: Designator = "Out-R" ("OUT-R"); Footprint = "PHOE-1725656-2"; UniqueID = "\ONCXIGVC\XLCSUDAI" ("\ONCXIGVC\XLCSUDAI")
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://katalog.we-online.de/em/datasheet/6917097103xx.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.we-online.de"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Temperature"; Value = "-45to130degC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Reference"; Value = "691709710302"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packaging"; Value = "TapeandReelwithCap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "691709710302"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin Number"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "5.00mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "WurthElektronik"; VariantName = "[No Variations]"
+Change Net Name : Old Net Name=OUTPUT_SELECT New Net Name=OUTPUT_SELECT
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

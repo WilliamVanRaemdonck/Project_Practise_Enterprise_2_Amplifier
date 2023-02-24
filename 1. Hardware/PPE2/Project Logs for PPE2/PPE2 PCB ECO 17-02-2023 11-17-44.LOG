@@ -1,0 +1,25 @@
+Change Net Name : Old Net Name=NetC74_1 New Net Name=BOOT_9V
+Change Net Name : Old Net Name=NetC74_2 New Net Name=PH_9V
+Change Net Name : Old Net Name=NetC75_1 New Net Name=BOOT_5V
+Change Net Name : Old Net Name=NetC75_2 New Net Name=PH_5V
+Change Net Name : Old Net Name=NetC83_2 New Net Name=VIN_9V
+Change Net Name : Old Net Name=NetC84_2 New Net Name=COMP_9V
+Change Net Name : Old Net Name=NetC89_2 New Net Name=COMP_5V
+Change Net Name : Old Net Name=NetC90_2 New Net Name=SS_9V
+Change Net Name : Old Net Name=NetC91_2 New Net Name=SS_5V
+Change Net Name : Old Net Name=NetIC6_3 New Net Name=EN_9V
+Change Net Name : Old Net Name=NetIC6_5 New Net Name=VSense_9V
+Change Net Name : Old Net Name=NetIC7_3 New Net Name=EN_5V
+Change Net Name : Old Net Name=NetIC7_5 New Net Name=VSense_5V
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

@@ -1,0 +1,52 @@
+Removed Member From Class: ClassName=Designator Member=IC3
+Remove Class Member: Failed to remove class member
+Remove Class Member: Failed to remove class member
+Added Component: Designator=R?(RESC2013X55X40ML15T20)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Vishay Dale"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "TNPW080510K0BEEN"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetIC3_16 Pin=IC3-16
+Added Pin To Net: NetName=NetIC3_16 Pin=R?-2
+Added Net: Name=NetIC3_16
+Added Pin To Net: NetName=NetIC4_16 Pin=IC4-16
+Added Net: Name=NetIC4_16
+Added Pin To Net: NetName=NetR?_1 Pin=R?-1
+Added Net: Name=NetR?_1
+Added Pin To Net: NetName=SCL Pin=IC1-25
+Added Pin To Net: NetName=SCL Pin=IC2-21
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=IC1-26
+Added Pin To Net: NetName=SDA Pin=IC2-22
+Added Net: Name=SDA
+Added Member To Class: ClassName=Designator Member=Component IC1 ATTINY828-AU
+Added Member To Class: ClassName=Designator Member=Component IC2 TDA7439DS13TR
+Added Member To Class: ClassName=Designator Member=Component IC4 TPA3116D2QDADRQ1
+Added Member To Class: ClassName=Designator Member=Component LED1 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED2 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED3 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED4 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED5 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED6 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED7 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED8 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component P1 61300611121
+Added Member To Class: ClassName=Designator Member=Component R1 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R2 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R3 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R4 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R5 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R6 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R7 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R8 ERJ6ENF3300V
+Added Member To Class: ClassName=Designator Member=Component R? TNPW080510K0BEEN
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge1 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge2 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge3 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge4 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge5 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge6 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge7 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge CRCW08050000Z0EAHP
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

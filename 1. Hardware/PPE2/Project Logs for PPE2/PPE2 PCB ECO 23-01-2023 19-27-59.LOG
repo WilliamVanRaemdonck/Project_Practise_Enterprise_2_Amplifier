@@ -1,0 +1,104 @@
+Change Component Designator: OldDesignator=SB0 NewDesignator=Solder Bridge
+Change Component Designator: OldDesignator=SB1 NewDesignator=Solder Bridge1
+Change Component Designator: OldDesignator=SB2 NewDesignator=Solder Bridge2
+Change Component Designator: OldDesignator=SB3 NewDesignator=Solder Bridge3
+Change Component Designator: OldDesignator=SB4 NewDesignator=Solder Bridge4
+Change Component Designator: OldDesignator=SB5 NewDesignator=Solder Bridge5
+Change Component Designator: OldDesignator=SB6 NewDesignator=Solder Bridge6
+Change Component Designator: OldDesignator=SB7 NewDesignator=Solder Bridge7
+Added Component: Designator=H?(ATSTI1OP521C1R1)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "ATS-TI1OP-521-C1-R1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ats-ti1op-521-c1-r1/advanced-thermal-solutions?region=europe"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://media.digikey.com/pdf/Data%20Sheets/Advanced%20Thermal%20Solutions%20PDFs/ATS-TI10P-521-C1-R1.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "28mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "ADVANCED THERMAL SOLUTIONS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ATS-TI1OP-521-C1-R1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "984-ATS-TI1OP521C1R1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Advanced-Thermal-Solutions/ATS-TI1OP-521-C1-R1?qs=MLItCLRbWsx43HjcCreTeQ%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=H?(ATSTI1OP521C1R1)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "ATS-TI1OP-521-C1-R1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ats-ti1op-521-c1-r1/advanced-thermal-solutions?region=europe"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://media.digikey.com/pdf/Data%20Sheets/Advanced%20Thermal%20Solutions%20PDFs/ATS-TI10P-521-C1-R1.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Height"; Value = "28mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "ADVANCED THERMAL SOLUTIONS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ATS-TI1OP-521-C1-R1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "984-ATS-TI1OP521C1R1"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Advanced-Thermal-Solutions/ATS-TI1OP-521-C1-R1?qs=MLItCLRbWsx43HjcCreTeQ%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=H?-1
+Added Pin To Net: NetName=GND Pin=H?-2
+Add Net: Net with name "GND" already exists
+Add Net: Net with name "GND" already exists
+Added Member To Class: ClassName=Designator Member=Component Bass TSW-103-07-F-S
+Added Member To Class: ClassName=Designator Member=Component C3 0805
+Added Member To Class: ClassName=Designator Member=Component C4 0805
+Added Member To Class: ClassName=Designator Member=Component C5 0805
+Added Member To Class: ClassName=Designator Member=Component C6 0805
+Added Member To Class: ClassName=Designator Member=Component C7 Cap Pol1
+Added Member To Class: ClassName=Designator Member=Component C8 0805
+Added Member To Class: ClassName=Designator Member=Component C9 0805
+Added Member To Class: ClassName=Designator Member=Component C10 0805
+Added Member To Class: ClassName=Designator Member=Component C11 0805
+Added Member To Class: ClassName=Designator Member=Component C12 0805
+Added Member To Class: ClassName=Designator Member=Component C13 0805
+Added Member To Class: ClassName=Designator Member=Component C14 0805
+Added Member To Class: ClassName=Designator Member=Component C15 0805
+Added Member To Class: ClassName=Designator Member=Component C16 0805
+Added Member To Class: ClassName=Designator Member=Component C17 0805
+Added Member To Class: ClassName=Designator Member=Component C18 Cap Pol1
+Added Member To Class: ClassName=Designator Member=Component C19 0805
+Added Member To Class: ClassName=Designator Member=Component C20 0805
+Added Member To Class: ClassName=Designator Member=Component C? 0805
+Added Member To Class: ClassName=Designator Member=Component Display Header 61301611821
+Added Member To Class: ClassName=Designator Member=Component Gain TSW-103-07-F-S
+Added Member To Class: ClassName=Designator Member=Component H? ATS-TI1OP-521-C1-R1
+Added Member To Class: ClassName=Designator Member=Component H? ATS-TI1OP-521-C1-R1
+Added Member To Class: ClassName=Designator Member=Component IC1 ATTINY828-AU
+Added Member To Class: ClassName=Designator Member=Component IC2 TDA7439DS13TR
+Added Member To Class: ClassName=Designator Member=Component IC3 TPA3116D2QDADRQ1
+Added Member To Class: ClassName=Designator Member=Component IC4 TPA3116D2QDADRQ1
+Added Member To Class: ClassName=Designator Member=Component L? 10mH
+Added Member To Class: ClassName=Designator Member=Component LED1 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED2 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED3 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED4 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED5 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED6 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED7 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component LED8 ELM70303GD
+Added Member To Class: ClassName=Designator Member=Component Mid_Range TSW-103-07-F-S
+Added Member To Class: ClassName=Designator Member=Component P1 61300611121
+Added Member To Class: ClassName=Designator Member=Component R1 330ohm
+Added Member To Class: ClassName=Designator Member=Component R2 330ohm
+Added Member To Class: ClassName=Designator Member=Component R3 330ohm
+Added Member To Class: ClassName=Designator Member=Component R4 330ohm
+Added Member To Class: ClassName=Designator Member=Component R5 330ohm
+Added Member To Class: ClassName=Designator Member=Component R6 330ohm
+Added Member To Class: ClassName=Designator Member=Component R7 330ohm
+Added Member To Class: ClassName=Designator Member=Component R8 330ohm
+Added Member To Class: ClassName=Designator Member=Component R10 0805
+Added Member To Class: ClassName=Designator Member=Component R11 0805
+Added Member To Class: ClassName=Designator Member=Component R12 0805
+Added Member To Class: ClassName=Designator Member=Component R13 0805
+Added Member To Class: ClassName=Designator Member=Component R14 0805
+Added Member To Class: ClassName=Designator Member=Component R15 0805
+Added Member To Class: ClassName=Designator Member=Component R16 0805
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge1 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge2 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge3 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge4 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge5 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge6 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge7 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Trebble TSW-103-07-F-S
+Added Member To Class: ClassName=Designator Member=Component Volume 61300511121
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

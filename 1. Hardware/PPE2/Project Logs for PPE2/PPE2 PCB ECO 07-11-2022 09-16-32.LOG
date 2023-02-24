@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=SCL Pin=IC1-25
+Removed Pin From Net: NetName=SDA Pin=IC1-26
+Change Component Designator: OldDesignator=SB1 NewDesignator=Solder Bridge
+Change Component Designator: OldDesignator=SB2 NewDesignator=Solder Bridge1
+Change Component Designator: OldDesignator=SB3 NewDesignator=Solder Bridge2
+Change Component Designator: OldDesignator=SB4 NewDesignator=Solder Bridge3
+Change Component Designator: OldDesignator=SB5 NewDesignator=Solder Bridge4
+Change Component Designator: OldDesignator=SB6 NewDesignator=Solder Bridge5
+Change Component Designator: OldDesignator=SB6 NewDesignator=Solder Bridge6
+Change Component Designator: OldDesignator=SB7 NewDesignator=Solder Bridge7
+Added Pin To Net: NetName=SDA Pin=IC1-25
+Added Pin To Net: NetName=SCL Pin=IC1-26
+Add Net: Net with name "GND" already exists
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge2 CRCW08050000Z0EAHP
+Added Member To Class: ClassName=Designator Member=Component Solder Bridge6 CRCW08050000Z0EAHP
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

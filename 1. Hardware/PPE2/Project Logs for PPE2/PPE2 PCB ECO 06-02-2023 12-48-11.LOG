@@ -1,0 +1,22 @@
+Removed Pin From Net: NetName=5V Pin=C72-1
+Removed Pin From Net: NetName=GND Pin=C72-2
+Removed Pin From Net: NetName=5V Pin=C73-1
+Removed Pin From Net: NetName=GND Pin=C73-2
+Change Component Designator: OldDesignator=Mid NewDesignator=Mid_Range
+Change Component Designator: OldDesignator=Output_S NewDesignator=OUTPUT SELECT
+Add Pin To Net: Unknown Pin: Pin HS1-0
+Add Pin To Net: Unknown Pin: Pin HS2-0
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

@@ -1,0 +1,26 @@
+Added Pin To Net: NetName=PA0 Pin=Display Header-7
+Added Pin To Net: NetName=PA1 Pin=Display Header-8
+Added Pin To Net: NetName=PA2 Pin=Display Header-9
+Added Pin To Net: NetName=PA3 Pin=Display Header-10
+Added Pin To Net: NetName=PA4 Pin=Display Header-11
+Added Pin To Net: NetName=PA5 Pin=Display Header-12
+Added Pin To Net: NetName=PA6 Pin=Display Header-13
+Added Pin To Net: NetName=PA7 Pin=Display Header-14
+Add Net: Net with name "GND" already exists
+Added Pin To Net: NetName=PA8 Pin=Display Header-4
+Added Pin To Net: NetName=PA8 Pin=IC1-7
+Added Net: Name=PA8
+Added Pin To Net: NetName=PA9 Pin=Display Header-6
+Added Pin To Net: NetName=PA9 Pin=IC1-8
+Added Net: Name=PA9
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Class: Name=PA[9..0]
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

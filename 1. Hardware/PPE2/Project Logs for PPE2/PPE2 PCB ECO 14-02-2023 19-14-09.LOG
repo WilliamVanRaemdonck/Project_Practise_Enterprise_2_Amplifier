@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=NetC61_2 Pin=Out-M-1
+Removed Pin From Net: NetName=NetC66_1 Pin=Out-M-2
+Add Pin To Net: Unknown Pin: Pin HS1-0
+Add Pin To Net: Unknown Pin: Pin HS2-0
+Added Pin To Net: NetName=NetC66_1 Pin=Out-M-1
+Added Pin To Net: NetName=NetC61_2 Pin=Out-M-2
+Change Net Name : Old Net Name=OUTPUT_SELECT New Net Name=OUTPUT_SELECT
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main

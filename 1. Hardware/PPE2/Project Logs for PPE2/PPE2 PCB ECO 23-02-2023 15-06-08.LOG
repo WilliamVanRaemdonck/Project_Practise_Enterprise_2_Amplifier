@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=GND Pin=5V_-2
+Removed Pin From Net: NetName=GND Pin=9V_-2
+Added Pin To Net: NetName=5V Pin=5V_-2
+Added Pin To Net: NetName=9V Pin=9V_-2
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

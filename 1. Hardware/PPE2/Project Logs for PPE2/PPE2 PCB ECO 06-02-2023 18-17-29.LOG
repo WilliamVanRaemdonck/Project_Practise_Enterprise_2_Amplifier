@@ -1,0 +1,36 @@
+Added Pin To Net: NetName=12V Pin=BR1-1
+Added Pin To Net: NetName=12V Pin=C4-1
+Added Pin To Net: NetName=12V Pin=C5-1
+Added Pin To Net: NetName=12V Pin=C6-1
+Added Pin To Net: NetName=12V Pin=C9-1
+Added Pin To Net: NetName=12V Pin=C10-1
+Added Pin To Net: NetName=12V Pin=C29-1
+Added Pin To Net: NetName=12V Pin=C52-1
+Added Pin To Net: NetName=12V Pin=C53-1
+Added Pin To Net: NetName=12V Pin=C54-1
+Added Pin To Net: NetName=12V Pin=C55-1
+Added Pin To Net: NetName=12V Pin=C56-1
+Added Pin To Net: NetName=12V Pin=C57-1
+Added Pin To Net: NetName=12V Pin=C70-1
+Added Pin To Net: NetName=12V Pin=C71-1
+Added Pin To Net: NetName=12V Pin=C76-1
+Added Pin To Net: NetName=12V Pin=C77-1
+Added Pin To Net: NetName=12V Pin=C78-1
+Added Pin To Net: NetName=12V Pin=C81-1
+Add Pin To Net: Unknown Pin: Pin HS1-0
+Add Pin To Net: Unknown Pin: Pin HS2-0
+Added Pin To Net: NetName=12V Pin=IC6-1
+Change Net Name : Old Net Name=12V New Net Name=15V
+Add Net: Net with name "GND" already exists
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

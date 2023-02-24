@@ -1,0 +1,27 @@
+Removed Member From Class: ClassName=Designator Member=Solder Bridge1
+Removed Member From Class: ClassName=Designator Member=Solder Bridge2
+Removed Member From Class: ClassName=Designator Member=Solder Bridge3
+Removed Member From Class: ClassName=Designator Member=Solder Bridge4
+Removed Member From Class: ClassName=Designator Member=Solder Bridge5
+Removed Member From Class: ClassName=Designator Member=Solder Bridge6
+Removed Member From Class: ClassName=Designator Member=Solder Bridge7
+Removed Member From Class: ClassName=Designator Member=Solder Bridge
+Change Component Designator: OldDesignator=Solder Bridge1 NewDesignator=SB1
+Change Component Designator: OldDesignator=Solder Bridge2 NewDesignator=SB2
+Change Component Designator: OldDesignator=Solder Bridge3 NewDesignator=SB3
+Change Component Designator: OldDesignator=Solder Bridge4 NewDesignator=SB4
+Change Component Designator: OldDesignator=Solder Bridge5 NewDesignator=SB5
+Change Component Designator: OldDesignator=Solder Bridge6 NewDesignator=SB6
+Change Component Designator: OldDesignator=Solder Bridge7 NewDesignator=SB7
+Change Component Designator: OldDesignator=Solder Bridge NewDesignator=SB0
+Add Net: Net with name "GND" already exists
+Add Net: Net with name "GND" already exists
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
