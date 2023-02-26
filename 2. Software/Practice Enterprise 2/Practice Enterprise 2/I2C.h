@@ -9,11 +9,13 @@
 #ifndef I2C_H_
 #define I2C_H_
 
-#define I2CSpeed 50		//9600BAUD
+#define I2CSpeed 52		//9600BAUD
 
 /*function declaration*/
 void	initI2C();
-void	sendI2C(uint8_t, uint8_t, uint8_t);	//chip address, sub address, data
+void	setTDAValue(uint8_t, uint8_t, uint8_t); //chip address, sub address, data
+void	sendI2C(uint8_t);
+void	finishCom(void);
 static void	clkLow(void);
 static void	clkHigh(void);
 static void	sdaLow(void);
@@ -24,119 +26,78 @@ void initI2C(){
 	/*
 	PB7	SDA
 	PB6	SCL
-	DDRB	|= 0b11000000;	//output
-	PUEB	|= 0b11000000;	//Set pull ups
-	PORTB	|= 0b11000000;	//Default op 1
 	*/
 	sdaHigh();
 	clkHigh();
 	_delay_us(I2CSpeed);
 }
 
-void sendI2C(uint8_t chipAddress, uint8_t subAddress, uint8_t data){
-	uint8_t shift;
+void setTDAValue(uint8_t chipAddress, uint8_t subAddress, uint8_t data){
+	sendI2C(chipAddress);
+	sendI2C(subAddress);
+	sendI2C(data);
+	finishCom();
+}
+
+void sendI2C(uint8_t input){
+	uint8_t shift = 0x00;
 	uint8_t mask = 0b00000001;
-	uint8_t result = 0;
+	uint8_t result = 0x00;
 	
-	shift = chipAddress;
-	for(int index = 0; index < 8; index++){			//send address
+	//start condition
+	sdaLow();
+	_delay_us(I2CSpeed);
+	clkLow();
+	_delay_us(I2CSpeed);
+	
+	//send address
+	shift = input;
+	for(uint8_t index = 0; index < 8; index++){
 		result = shift & mask;
-		clkLow();
-		_delay_us(I2CSpeed);
-		if(result == 1){
+		if(result == 0x01){
 			sdaHigh();
-			_delay_us(I2CSpeed);
 		}
 		else{
 			sdaLow();
-			_delay_us(I2CSpeed);
 		}
+		clkHigh();
+		_delay_us(I2CSpeed);
+		clkLow();
+		_delay_us(I2CSpeed);
 		shift = (shift >> 1);	//shift right by one
-		clkHigh();
-		_delay_us(I2CSpeed);
 	}
-	sdaHigh();					// Acknowledge
-	clkLow();
-	_delay_us(I2CSpeed);
+	//ACK
+	sdaLow();
 	clkHigh();
 	_delay_us(I2CSpeed);
 	clkLow();
 	_delay_us(I2CSpeed);
+	sdaHigh();
+	_delay_us(I2CSpeed);
+
+}
+
+void finishCom(){
+	// finish communication
+	sdaHigh();
 	clkHigh();
 	_delay_us(I2CSpeed);
-	
-	shift = subAddress;
-	for(int index = 0; index < 8; index++){			//send sub address
-		result = shift & mask;
-		clkLow();
-		_delay_us(I2CSpeed);
-		if(result == 1){
-			sdaHigh();
-			_delay_us(I2CSpeed);
-		}
-		else{
-			sdaLow();
-			_delay_us(I2CSpeed);
-		}
-		shift = (shift >> 1); //shift right by one
-		clkHigh();
-		_delay_us(I2CSpeed);
-	}
-	sdaHigh();					// Acknowledge
-	clkLow();
-	_delay_us(I2CSpeed);
-	clkHigh();
-	_delay_us(I2CSpeed);
-	clkLow();
-	_delay_us(I2CSpeed);
-	clkHigh();
-	_delay_us(I2CSpeed);
-	
-	shift = data;
-	for(int index = 0; index < 8; index++){			//send data
-		result = shift & mask;
-		clkLow();
-		_delay_us(I2CSpeed);
-		if(result == 1){
-			sdaHigh();
-			_delay_us(I2CSpeed);
-		}
-		else{
-			sdaLow();
-			_delay_us(I2CSpeed);
-		}
-		shift = (shift >> 1); //shift right by one
-		clkHigh();
-		_delay_us(I2CSpeed);
-	}
-	sdaHigh();					// Acknowledge
-	clkLow();
-	_delay_us(I2CSpeed);
-	clkHigh();
-	_delay_us(I2CSpeed);
-	clkLow();
-	_delay_us(I2CSpeed);
-	clkHigh();
-	_delay_us(I2CSpeed);
-	
-	sdaHigh();					// finish com
-	clkHigh();
 }
 
 static void clkLow(void){
-	PORTB &= (0<<PORTB7);
+	PORTB &= 0b10111111;
 }
 
 static void clkHigh(void){
-	PORTB |= (1<<PORTB7);
+	PORTB |= 0b01000000;
 }
 
 static void sdaLow(void){
-	PORTB &= (0<<PORTB6);
+	PORTB &= 0b01111111;
 }
 
 static void sdaHigh(void){
-	PORTB |= (1<<PORTB6);
+	PORTB |= 0b10000000;
 }
 
 

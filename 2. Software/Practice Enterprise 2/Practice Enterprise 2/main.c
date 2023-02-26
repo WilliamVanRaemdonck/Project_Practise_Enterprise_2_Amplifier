@@ -51,9 +51,11 @@ int main(void)
 		midRange = ReadADCPinValue(0b00001100);	//PB4
 		treble = ReadADCPinValue(0b00001101);	//PB5
 		
-		//shit kan ook in sequence gestuurd worden
-		sendI2C(CHIP_ADDRESS, 0b00000000, 0b00000000);
-    }
+		//shit kan ook in sequence
+		
+		setTDAValue(0b00000000, 0b00000000, 0b00000000);
+		_delay_ms(10);
+	}
 }
 
 //-----------------------------------------------------------------------------------------	IO

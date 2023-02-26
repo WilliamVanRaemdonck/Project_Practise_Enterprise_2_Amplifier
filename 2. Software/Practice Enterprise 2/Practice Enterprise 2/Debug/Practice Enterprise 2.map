@@ -158,7 +158,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x262
+.text           0x00000000      0x1a0
  *(.vectors)
  .vectors       0x00000000       0x34 C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
                 0x00000000                __vector_default
@@ -241,28 +241,34 @@ END GROUP
                 0x00000044                __vector_20
                 0x00000046                . = ALIGN (0x2)
  *(.text.*)
- .text.clkLow   0x00000046        0x6 main.o
- .text.clkHigh  0x0000004c        0x8 main.o
- .text.sdaLow   0x00000054        0x6 main.o
- .text.sdaHigh  0x0000005a        0x8 main.o
- .text.initI2C  0x00000062        0xe main.o
-                0x00000062                initI2C
- .text.sendI2C  0x00000070      0x164 main.o
-                0x00000070                sendI2C
- .text.initIO   0x000001d4       0x18 main.o
-                0x000001d4                initIO
- .text.initADC  0x000001ec       0x2e main.o
-                0x000001ec                initADC
+ .text.clkLow   0x00000046        0x8 main.o
+ .text.clkHigh  0x0000004e        0x8 main.o
+ .text.sdaLow   0x00000056        0x8 main.o
+ .text.sdaHigh  0x0000005e        0x8 main.o
+ .text.initI2C  0x00000066        0xe main.o
+                0x00000066                initI2C
+ .text.sendI2C  0x00000074       0x6a main.o
+                0x00000074                sendI2C
+ .text.finishCom
+                0x000000de        0xe main.o
+                0x000000de                finishCom
+ .text.setTDAValue
+                0x000000ec       0x1a main.o
+                0x000000ec                setTDAValue
+ .text.initIO   0x00000106       0x18 main.o
+                0x00000106                initIO
+ .text.initADC  0x0000011e       0x2e main.o
+                0x0000011e                initADC
  .text.ReadADCPinValue
-                0x0000021a       0x24 main.o
-                0x0000021a                ReadADCPinValue
- .text.main     0x0000023e       0x20 main.o
-                0x0000023e                main
-                0x0000025e                . = ALIGN (0x2)
+                0x0000014c       0x24 main.o
+                0x0000014c                ReadADCPinValue
+ .text.main     0x00000170       0x2c main.o
+                0x00000170                main
+                0x0000019c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000025e        0x0 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
-                0x0000025e                _exit
-                0x0000025e                exit
+ .fini9         0x0000019c        0x0 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x0000019c                _exit
+                0x0000019c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -281,11 +287,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000025e        0x4 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+ .fini0         0x0000019c        0x4 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000262                _etext = .
+                0x000001a0                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000262
+.data           0x00800100        0x0 load address 0x000001a0
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -303,8 +309,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
-                0x00000262                __data_load_start = LOADADDR (.data)
-                0x00000262                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000001a0                __data_load_start = LOADADDR (.data)
+                0x000001a0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800100        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -375,42 +381,42 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x80
+.debug_aranges  0x00000000       0x90
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x80 main.o
+                0x00000000       0x90 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1130
+.debug_info     0x00000000      0xdc3
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x6cc C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_info    0x000006cc      0xa64 main.o
+ .debug_info    0x000006cc      0x6f7 main.o
 
-.debug_abbrev   0x00000000      0x85b
+.debug_abbrev   0x00000000      0x898
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x66e C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_abbrev  0x0000066e      0x1ed main.o
+ .debug_abbrev  0x0000066e      0x22a main.o
 
-.debug_line     0x00000000      0x693
+.debug_line     0x00000000      0x556
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_line    0x00000134      0x55f main.o
+ .debug_line    0x00000134      0x422 main.o
 
-.debug_frame    0x00000000      0x100
+.debug_frame    0x00000000      0x11c
  *(.debug_frame)
- .debug_frame   0x00000000      0x100 main.o
+ .debug_frame   0x00000000      0x11c main.o
 
-.debug_str      0x00000000      0x515
+.debug_str      0x00000000      0x53e
  *(.debug_str)
  .debug_str     0x00000000      0x25e C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_str     0x0000025e      0x2b7 main.o
-                                0x2eb (size before relaxing)
+ .debug_str     0x0000025e      0x2e0 main.o
+                                0x314 (size before relaxing)
 
-.debug_loc      0x00000000      0x6db
+.debug_loc      0x00000000      0x38c
  *(.debug_loc)
- .debug_loc     0x00000000      0x6db main.o
+ .debug_loc     0x00000000      0x38c main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -430,9 +436,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x70
+.debug_ranges   0x00000000       0x80
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x70 main.o
+ .debug_ranges  0x00000000       0x80 main.o
 
 .debug_macro
  *(.debug_macro)
