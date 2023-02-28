@@ -46,15 +46,30 @@ int main(void)
 	
     while (1) 
     {
+		//read inputs
 		gain = ReadADCPinValue(0b00001000);		//PB0
 		bass = ReadADCPinValue(0b00001011);		//PB3
 		midRange = ReadADCPinValue(0b00001100);	//PB4
 		treble = ReadADCPinValue(0b00001101);	//PB5
 		
-		//shit kan ook in sequence
+		//mux
+		/*
+		if (){
+		} 
+		else if(){
+		}
+		else if(){
+		}
+		else{
+		}*/
 		
+		//Volume
+		
+		//TDA update
 		setTDAValue(0b00000000, 0b00000000, 0b00000000);
 		_delay_ms(10);
+
+		//Display update
 	}
 }
 

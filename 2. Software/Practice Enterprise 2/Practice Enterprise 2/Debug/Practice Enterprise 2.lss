@@ -153,7 +153,7 @@ void sendI2C(uint8_t input){
   8c:	00 00       	nop
 	_delay_us(I2CSpeed);
 	
-	//send address
+	//send input
 	shift = input;
 	for(uint8_t index = 0; index < 8; index++){
   8e:	c0 e0       	ldi	r28, 0x00	; 0
@@ -184,12 +184,12 @@ void sendI2C(uint8_t input){
   ac:	f1 f7       	brne	.-4      	; 0xaa <sendI2C+0x36>
   ae:	00 00       	nop
 		_delay_us(I2CSpeed);
-		shift = (shift << 1);	//shift right by one
-  b0:	dd 0f       	add	r29, r29
+		shift = (shift >> 1);	//shift right by one
+  b0:	d6 95       	lsr	r29
 	clkLow();
 	_delay_us(I2CSpeed);
 	
-	//send address
+	//send input
 	shift = input;
 	for(uint8_t index = 0; index < 8; index++){
   b2:	cf 5f       	subi	r28, 0xFF	; 255
@@ -197,7 +197,7 @@ void sendI2C(uint8_t input){
   b6:	68 f3       	brcs	.-38     	; 0x92 <sendI2C+0x1e>
 		clkLow();
 		_delay_us(I2CSpeed);
-		shift = (shift << 1);	//shift right by one
+		shift = (shift >> 1);	//shift right by one
 	}
 	//ACK
 	sdaLow();

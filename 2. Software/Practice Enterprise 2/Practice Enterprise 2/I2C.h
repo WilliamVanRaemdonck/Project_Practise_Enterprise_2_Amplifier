@@ -50,7 +50,7 @@ void sendI2C(uint8_t input){
 	clkLow();
 	_delay_us(I2CSpeed);
 	
-	//send address
+	//send input
 	shift = input;
 	for(uint8_t index = 0; index < 8; index++){
 		result = shift & mask;
