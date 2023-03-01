@@ -1,0 +1,72 @@
+Change Component Footprint: Designator=GND1 Old Footprint=MOLX-22-23-2021_V New Footprint=PHOE-1725656-2
+Change Component Footprint: Designator=GND Old Footprint=MOLX-22-23-2021_V New Footprint=PHOE-1725656-2
+Change Component Comment : Designator=GND1 Old Comment=22-23-2021 New Comment=1725656
+Change Component Comment : Designator=GND Old Comment=22-23-2021 New Comment=1725656
+Change Managed Component Library Link : Designator=GND1 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=A7A3335F-38E9-44B1-B869-B5A041677B9E New ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E Old RevisionGUID=9C9AFA52-8724-4487-9925-020D216BD01A New RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646
+Change Managed Component Library Link : Designator=GND Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 Old ItemGUID=A7A3335F-38E9-44B1-B869-B5A041677B9E New ItemGUID=CAE667FA-CA69-4A21-B962-8C797C189E9E Old RevisionGUID=9C9AFA52-8724-4487-9925-020D216BD01A New RevisionGUID=3C547291-AA81-4CCE-931F-339B6C403646
+Change component parameters: Designator = "GND" ("GND"); Footprint = "MOLX-22-23-2021_V"; UniqueID = "\VQDQLRRT\CQZGLZDN" ("\VQDQLRRT\CQZGLZDN")
+Change component parameters (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Change component parameters: Designator = "GND1" ("GND1"); Footprint = "MOLX-22-23-2021_V"; UniqueID = "\KJVMNBJB\OPMBRCPE" ("\KJVMNBJB\OPMBRCPE")
+Change component parameters (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Component: Designator=15V_(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Component: Designator=15V(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=15V Pin=15V-1
+Added Pin To Net: NetName=15V Pin=15V-2
+Change Net Name : Old Net Name=OUTPUT_SELECT New Net Name=OUTPUT_SELECT
+Add Net: Net with name "15V" already exists
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main
