@@ -3,29 +3,29 @@ Practice Enterprise 2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  000001f4  2**0
+  0 .data         00000000  00800100  00800100  00000230  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000001a0  00000000  00000000  00000054  2**1
+  1 .text         000001dc  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000001f4  2**0
+  2 .comment      00000030  00000000  00000000  00000230  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000224  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000260  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000090  00000000  00000000  00000260  2**0
+  4 .debug_aranges 000000a8  00000000  00000000  0000029c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000dc3  00000000  00000000  000002f0  2**0
+  5 .debug_info   00000f32  00000000  00000000  00000344  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000898  00000000  00000000  000010b3  2**0
+  6 .debug_abbrev 00000992  00000000  00000000  00001276  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000556  00000000  00000000  0000194b  2**0
+  7 .debug_line   000006a9  00000000  00000000  00001c08  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  0000011c  00000000  00000000  00001ea4  2**2
+  8 .debug_frame  00000130  00000000  00000000  000022b4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000053e  00000000  00000000  00001fc0  2**0
+  9 .debug_str    0000054b  00000000  00000000  000023e4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000038c  00000000  00000000  000024fe  2**0
+ 10 .debug_loc    00000460  00000000  00000000  0000292f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000080  00000000  00000000  0000288a  2**0
+ 11 .debug_ranges 00000088  00000000  00000000  00002d8f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,37 +65,49 @@ Disassembly of section .text:
   3a:	d2 e0       	ldi	r29, 0x02	; 2
   3c:	de bf       	out	0x3e, r29	; 62
   3e:	cd bf       	out	0x3d, r28	; 61
-  40:	97 d0       	rcall	.+302    	; 0x170 <main>
-  42:	ac c0       	rjmp	.+344    	; 0x19c <_exit>
+  40:	99 d0       	rcall	.+306    	; 0x174 <main>
+  42:	ca c0       	rjmp	.+404    	; 0x1d8 <_exit>
 
 00000044 <__bad_interrupt>:
   44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
 
 00000046 <clkLow>:
+	clkHigh();
+	_delay_us(I2CSpeed);
 }
 
-uint8_t convert7bits(uint8_t input){
-	
-	return 0;
-}
+static void clkLow(void){
+	PORTB &= 0b10111111;
   46:	86 b1       	in	r24, 0x06	; 6
   48:	8f 7b       	andi	r24, 0xBF	; 191
   4a:	86 b9       	out	0x06, r24	; 6
   4c:	08 95       	ret
 
 0000004e <clkHigh>:
+}
+
+static void clkHigh(void){
+	PORTB |= 0b01000000;
   4e:	86 b1       	in	r24, 0x06	; 6
   50:	80 64       	ori	r24, 0x40	; 64
   52:	86 b9       	out	0x06, r24	; 6
   54:	08 95       	ret
 
 00000056 <sdaLow>:
+}
+
+static void sdaLow(void){
+	PORTB &= 0b01111111;
   56:	86 b1       	in	r24, 0x06	; 6
   58:	8f 77       	andi	r24, 0x7F	; 127
   5a:	86 b9       	out	0x06, r24	; 6
   5c:	08 95       	ret
 
 0000005e <sdaHigh>:
+}
+
+static void sdaHigh(void){
+	PORTB |= 0b10000000;
   5e:	86 b1       	in	r24, 0x06	; 6
   60:	80 68       	ori	r24, 0x80	; 128
   62:	86 b9       	out	0x06, r24	; 6
@@ -362,63 +374,109 @@ uint8_t ReadADCPinValue(uint8_t ADCReadPin){
 }
  16e:	08 95       	ret
 
-00000170 <main>:
+00000170 <printl>:
 
+//-----------------------------------------------------------------------------------------	MISC
+void printl(uint8_t input){
+	PORTA = input;
+ 170:	82 b9       	out	0x02, r24	; 2
+ 172:	08 95       	ret
 
-int main(void)
-{
-	//IO
-	initIO();
- 170:	ca df       	rcall	.-108    	; 0x106 <initIO>
-	
-	//ADC
-	initADC();
- 172:	d5 df       	rcall	.-86     	; 0x11e <initADC>
-	
-	//I2C
-	initI2C();
- 174:	78 df       	rcall	.-272    	; 0x66 <initI2C>
-	uint8_t midRange = 0x00;
-	uint8_t treble = 0x00;
-	
-    while (1) 
-    {
-		gain = ReadADCPinValue(0b00001000);		//PB0
- 176:	88 e0       	ldi	r24, 0x08	; 8
- 178:	e9 df       	rcall	.-46     	; 0x14c <ReadADCPinValue>
-		bass = ReadADCPinValue(0b00001011);		//PB3
- 17a:	8b e0       	ldi	r24, 0x0B	; 11
- 17c:	e7 df       	rcall	.-50     	; 0x14c <ReadADCPinValue>
-		midRange = ReadADCPinValue(0b00001100);	//PB4
- 17e:	8c e0       	ldi	r24, 0x0C	; 12
- 180:	e5 df       	rcall	.-54     	; 0x14c <ReadADCPinValue>
-		treble = ReadADCPinValue(0b00001101);	//PB5
- 182:	8d e0       	ldi	r24, 0x0D	; 13
- 184:	e3 df       	rcall	.-58     	; 0x14c <ReadADCPinValue>
-		
-		//shit kan ook in sequence
-		
-		setTDAValue(0b00000000, 0b00000000, 0b00000000);
- 186:	40 e0       	ldi	r20, 0x00	; 0
- 188:	60 e0       	ldi	r22, 0x00	; 0
- 18a:	80 e0       	ldi	r24, 0x00	; 0
- 18c:	af df       	rcall	.-162    	; 0xec <setTDAValue>
+00000174 <main>:
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 18e:	83 ec       	ldi	r24, 0xC3	; 195
- 190:	99 e0       	ldi	r25, 0x09	; 9
- 192:	01 97       	sbiw	r24, 0x01	; 1
- 194:	f1 f7       	brne	.-4      	; 0x192 <main+0x22>
- 196:	00 c0       	rjmp	.+0      	; 0x198 <main+0x28>
- 198:	00 00       	nop
- 19a:	ed cf       	rjmp	.-38     	; 0x176 <main+0x6>
+ 174:	85 ea       	ldi	r24, 0xA5	; 165
+ 176:	9e e0       	ldi	r25, 0x0E	; 14
+ 178:	01 97       	sbiw	r24, 0x01	; 1
+ 17a:	f1 f7       	brne	.-4      	; 0x178 <main+0x4>
+ 17c:	00 c0       	rjmp	.+0      	; 0x17e <main+0xa>
+ 17e:	00 00       	nop
+{
+	//power on delay
+	_delay_ms(15);
+	
+	//IO
+	initIO();
+ 180:	c2 df       	rcall	.-124    	; 0x106 <initIO>
+	
+	//ADC
+	initADC();
+ 182:	cd df       	rcall	.-102    	; 0x11e <initADC>
+	
+	//I2C
+	initI2C();
+ 184:	70 df       	rcall	.-288    	; 0x66 <initI2C>
+	uint8_t treble = 0x00;
+	
+    while (1) 
+    {
+		//read inputs
+		gain = ReadADCPinValue(0b00001000);		//PB0
+ 186:	88 e0       	ldi	r24, 0x08	; 8
+ 188:	e1 df       	rcall	.-62     	; 0x14c <ReadADCPinValue>
+		bass = ReadADCPinValue(0b00001011);		//PB3
+ 18a:	8b e0       	ldi	r24, 0x0B	; 11
+ 18c:	df df       	rcall	.-66     	; 0x14c <ReadADCPinValue>
+		midRange = ReadADCPinValue(0b00001100);	//PB4
+ 18e:	8c e0       	ldi	r24, 0x0C	; 12
+ 190:	dd df       	rcall	.-70     	; 0x14c <ReadADCPinValue>
+		treble = ReadADCPinValue(0b00001101);	//PB5
+ 192:	8d e0       	ldi	r24, 0x0D	; 13
+ 194:	db df       	rcall	.-74     	; 0x14c <ReadADCPinValue>
+		
+		//Volume -> rotary encoder
+		
+		//TDA update
+		//debug
+		setTDAValue(0b10000000, 0b00000000, 0b00000000);
+ 196:	40 e0       	ldi	r20, 0x00	; 0
+ 198:	60 e0       	ldi	r22, 0x00	; 0
+ 19a:	80 e8       	ldi	r24, 0x80	; 128
+ 19c:	a7 df       	rcall	.-178    	; 0xec <setTDAValue>
+ 19e:	83 ec       	ldi	r24, 0xC3	; 195
+ 1a0:	99 e0       	ldi	r25, 0x09	; 9
+ 1a2:	01 97       	sbiw	r24, 0x01	; 1
+ 1a4:	f1 f7       	brne	.-4      	; 0x1a2 <main+0x2e>
+ 1a6:	00 c0       	rjmp	.+0      	; 0x1a8 <main+0x34>
+ 1a8:	00 00       	nop
+		*/
 
-0000019c <_exit>:
- 19c:	f8 94       	cli
+		//Display update -> parallel
+		
+		// we crash?
+		printl(0b11111111);
+ 1aa:	8f ef       	ldi	r24, 0xFF	; 255
+ 1ac:	e1 df       	rcall	.-62     	; 0x170 <printl>
+ 1ae:	9f e9       	ldi	r25, 0x9F	; 159
+ 1b0:	26 e8       	ldi	r18, 0x86	; 134
+ 1b2:	81 e0       	ldi	r24, 0x01	; 1
+ 1b4:	91 50       	subi	r25, 0x01	; 1
+ 1b6:	20 40       	sbci	r18, 0x00	; 0
+ 1b8:	80 40       	sbci	r24, 0x00	; 0
+ 1ba:	e1 f7       	brne	.-8      	; 0x1b4 <main+0x40>
+ 1bc:	00 c0       	rjmp	.+0      	; 0x1be <main+0x4a>
+ 1be:	00 00       	nop
+		_delay_ms(500);
+		printl(0b11111110);
+ 1c0:	8e ef       	ldi	r24, 0xFE	; 254
+ 1c2:	d6 df       	rcall	.-84     	; 0x170 <printl>
+ 1c4:	9f e9       	ldi	r25, 0x9F	; 159
+ 1c6:	26 e8       	ldi	r18, 0x86	; 134
+ 1c8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ca:	91 50       	subi	r25, 0x01	; 1
+ 1cc:	20 40       	sbci	r18, 0x00	; 0
+ 1ce:	80 40       	sbci	r24, 0x00	; 0
+ 1d0:	e1 f7       	brne	.-8      	; 0x1ca <main+0x56>
+ 1d2:	00 c0       	rjmp	.+0      	; 0x1d4 <main+0x60>
+ 1d4:	00 00       	nop
+ 1d6:	d7 cf       	rjmp	.-82     	; 0x186 <main+0x12>
 
-0000019e <__stop_program>:
- 19e:	ff cf       	rjmp	.-2      	; 0x19e <__stop_program>
+000001d8 <_exit>:
+ 1d8:	f8 94       	cli
+
+000001da <__stop_program>:
+ 1da:	ff cf       	rjmp	.-2      	; 0x1da <__stop_program>

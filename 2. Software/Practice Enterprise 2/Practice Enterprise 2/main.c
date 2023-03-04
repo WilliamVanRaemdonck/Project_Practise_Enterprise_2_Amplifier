@@ -2,31 +2,20 @@
  * Created: 25/10/2022 11:19:27
  * Author : William VR
  */
-
-/*defines*/
-#define F_CPU 1000000UL
-#define CHIP_ADDRESS 0x88
-
 /*includes*/
+#include "main.h"
+
 #include <avr/io.h>
 #include <util/delay.h>
-#include "TDA.h"
-#include "I2C.h"
 
-/*typedefs*/
-typedef unsigned char uint8_t;
-
-/*functions*/
-void	initIO();
-void	printl(uint8_t);
-
-//ADC
-void	initADC();
-uint8_t	ReadADCPinValue(uint8_t);
-
+#include "I2C/I2C.h"
+#include "TDA/TDA.h"
 
 int main(void)
 {
+	//power on delay
+	_delay_ms(15);
+	
 	//IO
 	initIO();
 	
@@ -39,6 +28,7 @@ int main(void)
 	//variables
 	uint8_t mux = 0x00;
 	uint8_t gain = 0x00;
+	//shown on display
 	uint8_t volume = 0x00;
 	uint8_t bass = 0x00;
 	uint8_t midRange = 0x00;
@@ -53,23 +43,30 @@ int main(void)
 		treble = ReadADCPinValue(0b00001101);	//PB5
 		
 		//mux
-		/*
-		if (){
-		} 
-		else if(){
-		}
-		else if(){
-		}
-		else{
-		}*/
 		
-		//Volume
+		//Volume -> rotary encoder
 		
 		//TDA update
-		setTDAValue(0b00000000, 0b00000000, 0b00000000);
+		//debug
+		setTDAValue(0b10000000, 0b00000000, 0b00000000);
 		_delay_ms(10);
+		/*
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, gain);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_Volume, volume);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);		
+		*/
 
-		//Display update
+		//Display update -> parallel
+		
+		// we crash?
+		printl(0b11111111);
+		_delay_ms(500);
+		printl(0b11111110);
+		_delay_ms(500);
+		
 	}
 }
 
@@ -107,6 +104,7 @@ uint8_t ReadADCPinValue(uint8_t ADCReadPin){
 	return ADCH;
 }
 
+//-----------------------------------------------------------------------------------------	MISC
 void printl(uint8_t input){
 	PORTA = input;
 }

@@ -133,15 +133,35 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="I2C.h">
+    <Compile Include="Display\Display.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Display\Display.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2C\I2C.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="I2C\I2C.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="TDA.h">
+    <Compile Include="main.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="TDA\TDA.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TDA\TDA.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="I2C" />
+    <Folder Include="Display" />
+    <Folder Include="TDA" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
