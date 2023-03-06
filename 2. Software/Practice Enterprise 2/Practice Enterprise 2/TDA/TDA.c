@@ -2,8 +2,8 @@
  * TDA.c
  *
  * Created: 03/03/2023 12:39:33
- *  Author: willi
+ *  Author: William VR
  */ 
 
-#include <avr/io.h>
-#include <util/delay.h>
+//#include "../main.h"
+//#include "TDA.h"

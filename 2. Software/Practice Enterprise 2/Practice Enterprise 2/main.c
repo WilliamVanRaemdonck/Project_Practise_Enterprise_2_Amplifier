@@ -10,12 +10,10 @@
 
 #include "I2C/I2C.h"
 #include "TDA/TDA.h"
+#include "Display/Display.h"
 
 int main(void)
 {
-	//power on delay
-	_delay_ms(15);
-	
 	//IO
 	initIO();
 	
@@ -24,10 +22,14 @@ int main(void)
 	
 	//I2C
 	initI2C();
+	
+	//display
+	initDisplay();
     
 	//variables
 	uint8_t mux = 0x00;
 	uint8_t gain = 0x00;
+	
 	//shown on display
 	uint8_t volume = 0x00;
 	uint8_t bass = 0x00;
@@ -62,11 +64,12 @@ int main(void)
 		//Display update -> parallel
 		
 		// we crash?
+		/*
 		printl(0b11111111);
 		_delay_ms(500);
 		printl(0b11111110);
 		_delay_ms(500);
-		
+		*/
 	}
 }
 
