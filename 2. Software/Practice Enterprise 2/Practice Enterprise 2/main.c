@@ -50,35 +50,26 @@ int main(void)
 		
 		//TDA update
 		//debug
-		setTDAValue(0b10000000, 0b00000000, 0b00000000);
-		_delay_ms(10);
+		//setTDAValue(0b10000000, 0b00000000, 0b00000000);
+		//_delay_ms(10);
 		/*
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, gain);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Input_Volume, volume);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);		
 		*/
-
 		//Display update -> parallel
-		
-		// we crash?
-		/*
-		printl(0b11111111);
-		_delay_ms(500);
-		printl(0b11111110);
-		_delay_ms(500);
-		*/
 	}
 }
 
 //-----------------------------------------------------------------------------------------	IO
 void initIO(){
 	//PORT A
-	DDRA = 0xff;	//output
-	PUEA = 0xff;	//Set pull ups
-	PORTA = 0xff;	//write zero
+	DDRA = 0xff;		//output
+	PUEA = 0xff;		//Set pull ups
+	PORTA = 0xff;		//write zero
 	
 	//PORT B
 	DDRB = 0b11000000;	//output
