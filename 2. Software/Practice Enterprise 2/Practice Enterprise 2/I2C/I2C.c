@@ -60,7 +60,6 @@ void sendI2C(uint8_t input){
 	_delay_us(I2CSpeed);
 	sdaHigh();
 	_delay_us(I2CSpeed);
-
 }
 
 void finishCom(){
