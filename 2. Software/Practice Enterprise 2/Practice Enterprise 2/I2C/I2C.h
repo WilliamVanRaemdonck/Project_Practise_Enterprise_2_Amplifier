@@ -15,9 +15,9 @@ void	initI2C();
 void	setTDAValue(uint8_t, uint8_t, uint8_t); //chip address, sub address, data
 void	sendI2C(uint8_t);
 void	finishCom(void);
-static void	clkLow(void);
-static void	clkHigh(void);
-static void	sdaLow(void);
-static void	sdaHigh(void);
+void	clkLow(void);
+void	clkHigh(void);
+void	sdaLow(void);
+void	sdaHigh(void);
 
 #endif /* I2C_H_ */

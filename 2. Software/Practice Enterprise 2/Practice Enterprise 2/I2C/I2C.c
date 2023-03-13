@@ -54,10 +54,12 @@ void sendI2C(uint8_t input){
 	}
 	//ACK
 	sdaLow();
+	
 	clkHigh();
 	_delay_us(I2CSpeed);
 	clkLow();
 	_delay_us(I2CSpeed);
+	
 	sdaHigh();
 	_delay_us(I2CSpeed);
 }
@@ -69,19 +71,19 @@ void finishCom(){
 	_delay_us(I2CSpeed);
 }
 
-static void clkLow(void){
+void clkLow(void){
 	PORTB &= 0b10111111;
 }
 
-static void clkHigh(void){
+void clkHigh(void){
 	PORTB |= 0b01000000;
 }
 
-static void sdaLow(void){
+void sdaLow(void){
 	PORTB &= 0b01111111;
 }
 
-static void sdaHigh(void){
+void sdaHigh(void){
 	PORTB |= 0b10000000;
 }
 

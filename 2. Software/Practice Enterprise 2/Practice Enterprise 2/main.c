@@ -50,8 +50,8 @@ int main(void)
 		
 		//TDA update
 		//debug
-		//setTDAValue(0b10000000, 0b00000000, 0b00000000);
-		//_delay_ms(10);
+		setTDAValue(0b10000000, 0b00000000, 0b00000000);
+		_delay_ms(10);
 		/*
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, gain);
@@ -61,6 +61,7 @@ int main(void)
 		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);		
 		*/
 		//Display update -> parallel
+		writeToDisplay(0x00, 0xff);
 	}
 }
 
@@ -69,17 +70,17 @@ void initIO(){
 	//PORT A
 	DDRA = 0xff;		//output
 	PUEA = 0xff;		//Set pull ups
-	PORTA = 0xff;		//write zero
+	PORTA = 0x00;		//write zero
 	
 	//PORT B
 	DDRB = 0b11000000;	//output
 	PUEB = 0xff;		//Set pull ups
-	PORTB = 0b11000000;	//write zero
+	PORTB = 0b00000000;	//write zero
 	
 	//PORT C
 	DDRC = 0b11000000;	//output
 	PUEC = 0xff;		//Set pull ups
-	PORTC = 0b11000000;	//write zero
+	PORTC = 0b00000000;	//write zero
 }
 
 //-----------------------------------------------------------------------------------------	ADC

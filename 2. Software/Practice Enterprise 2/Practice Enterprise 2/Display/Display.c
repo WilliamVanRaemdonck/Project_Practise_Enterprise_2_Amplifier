@@ -5,6 +5,7 @@
 *  Author: William VR
 *	https://cdn-shop.adafruit.com/datasheets/TC2004A-01.pdf
 *	file:///G:/Mijn%20Drive/1.%20Thomas%20More/2021-2022/1.%20Embedded%20Hardware/sem%201/Embedded%20Fundementals/XC888/datasheets/GDM2004d.pdf
+*	https://www.farnell.com/datasheets/50586.pdf
 
 pin 4 RS	-	PINC6
 0 instruction register
@@ -21,70 +22,52 @@ X/1 enable reading
 #include "../main.h"
 #include "Display.h"
 
+//from https://www.farnell.com/datasheets/50586.pdf
 void initDisplay(void){
 	//Step 0
+	_delay_ms(50);
 	clearEnable();
 	clearRS();
-	_delay_ms(15);
-	
-	//step 1
+	//1
 	setEnable();
-	PORTA = 0b11001111;
-	_delay_us(100);
+	PORTA = Function_set;
+	_delay_ms(4.5);	//>4.1ms
+	clearEnable();
+	//2
+	setEnable();
+	PORTA = Function_set;
+	_delay_ms(4.5);	//>4.1ms
+	clearEnable();
+	//3
+	setEnable();
+	PORTA = Function_set;
+	_delay_ms(4.5);	//>4.1ms
+	clearEnable();
+	//4
+	setEnable();
+	PORTA = Function_set;
 	clearEnable();
 	
-	_delay_ms(5); //>4.1ms
 	
 	
-	//step 2
+}
+
+void writeToDisplay(uint8_t address, uint8_t data){
+	
 	setEnable();
-	PORTA = 0b11001111;
-	_delay_us(100);
+	PORTA = Display_ON;
+	_delay_us(50);	//?
 	clearEnable();
 	
-	_delay_us(150); //> 100us
+	_delay_ms(1000);
 	
-
-	//step 3
 	setEnable();
-	PORTA = 0b11001111;
-	_delay_us(100);
+	PORTA = Display_OFF;
+	_delay_us(50);	//?
 	clearEnable();
 	
-	_delay_us(150); //> 100us
-	
-	
-	//step 4
-	setEnable();
-	PORTA = 0b11000111;	//function set
-	_delay_us(100);
-	clearEnable();
+	_delay_ms(1000);
 
-	setEnable();
-	PORTA = 0b11110111;	//display off
-	_delay_us(100);
-	clearEnable();
-
-	setEnable();
-	PORTA = 0b11111110;	//display clear
-	_delay_us(100);
-	clearEnable();
-
-	setEnable();
-	PORTA = 0b11111000;	//entry mode set
-	_delay_us(100);
-	clearEnable();
-
-
-
-
-
-	_delay_ms(5000);
-	//of the books
-	setEnable();
-	PORTA = 0b11110000;	//display on
-	_delay_us(150);
-	clearEnable();
 }
 
 void setRS(void){

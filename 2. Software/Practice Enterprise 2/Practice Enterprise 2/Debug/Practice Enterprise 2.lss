@@ -3,29 +3,29 @@ Practice Enterprise 2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000212  2**0
+  0 .data         00000000  00800100  00800100  000002bc  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000001be  00000000  00000000  00000054  2**1
+  1 .text         00000268  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  00000212  2**0
+  2 .comment      00000030  00000000  00000000  000002bc  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000244  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002ec  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 000000e8  00000000  00000000  00000280  2**0
+  4 .debug_aranges 000000f0  00000000  00000000  00000328  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000012b8  00000000  00000000  00000368  2**0
+  5 .debug_info   0000130a  00000000  00000000  00000418  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000a1f  00000000  00000000  00001620  2**0
+  6 .debug_abbrev 00000aa5  00000000  00000000  00001722  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000008b9  00000000  00000000  0000203f  2**0
+  7 .debug_line   0000091d  00000000  00000000  000021c7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  0000019c  00000000  00000000  000028f8  2**2
+  8 .debug_frame  000001a4  00000000  00000000  00002ae4  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000590  00000000  00000000  00002a94  2**0
+  9 .debug_str    000005a7  00000000  00000000  00002c88  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000644  00000000  00000000  00003024  2**0
+ 10 .debug_loc    00000625  00000000  00000000  0000322f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000b8  00000000  00000000  00003668  2**0
+ 11 .debug_ranges 000000c0  00000000  00000000  00003854  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,8 +65,8 @@ Disassembly of section .text:
   3a:	d2 e0       	ldi	r29, 0x02	; 2
   3c:	de bf       	out	0x3e, r29	; 62
   3e:	cd bf       	out	0x3d, r28	; 61
-  40:	af d0       	rcall	.+350    	; 0x1a0 <main>
-  42:	bb c0       	rjmp	.+374    	; 0x1ba <_exit>
+  40:	f7 d0       	rcall	.+494    	; 0x230 <main>
+  42:	10 c1       	rjmp	.+544    	; 0x264 <_exit>
 
 00000044 <__bad_interrupt>:
   44:	dd cf       	rjmp	.-70     	; 0x0 <__vectors>
@@ -105,376 +105,547 @@ void clearEnable(void){
   5c:	08 95       	ret
 
 0000005e <initDisplay>:
-*/
-
-#include "../main.h"
 #include "Display.h"
 
+//from https://www.farnell.com/datasheets/50586.pdf
 void initDisplay(void){
-  5e:	cf 93       	push	r28
 	//Step 0
 	clearEnable();
-  60:	fa df       	rcall	.-12     	; 0x56 <clearEnable>
+  5e:	fb df       	rcall	.-10     	; 0x56 <clearEnable>
 	clearRS();
-  62:	f1 df       	rcall	.-30     	; 0x46 <clearRS>
+  60:	f2 df       	rcall	.-28     	; 0x46 <clearRS>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  64:	85 ea       	ldi	r24, 0xA5	; 165
-  66:	9e e0       	ldi	r25, 0x0E	; 14
-  68:	01 97       	sbiw	r24, 0x01	; 1
-  6a:	f1 f7       	brne	.-4      	; 0x68 <initDisplay+0xa>
-  6c:	00 c0       	rjmp	.+0      	; 0x6e <initDisplay+0x10>
-  6e:	00 00       	nop
+  62:	85 ea       	ldi	r24, 0xA5	; 165
+  64:	9e e0       	ldi	r25, 0x0E	; 14
+  66:	01 97       	sbiw	r24, 0x01	; 1
+  68:	f1 f7       	brne	.-4      	; 0x66 <initDisplay+0x8>
+  6a:	00 c0       	rjmp	.+0      	; 0x6c <initDisplay+0xe>
+  6c:	00 00       	nop
 	_delay_ms(15);
 	
-	//step 1
 	setEnable();
-  70:	ee df       	rcall	.-36     	; 0x4e <setEnable>
-	PORTA = 0b11001111;
-  72:	cf ec       	ldi	r28, 0xCF	; 207
-  74:	c2 b9       	out	0x02, r28	; 2
+  6e:	ef df       	rcall	.-34     	; 0x4e <setEnable>
+	PORTA = Function_set;
+  70:	87 ec       	ldi	r24, 0xC7	; 199
+  72:	82 b9       	out	0x02, r24	; 2
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  76:	91 e2       	ldi	r25, 0x21	; 33
-  78:	9a 95       	dec	r25
-  7a:	f1 f7       	brne	.-4      	; 0x78 <initDisplay+0x1a>
-  7c:	00 00       	nop
-	_delay_us(100);
+  74:	90 e1       	ldi	r25, 0x10	; 16
+  76:	9a 95       	dec	r25
+  78:	f1 f7       	brne	.-4      	; 0x76 <initDisplay+0x18>
+  7a:	00 c0       	rjmp	.+0      	; 0x7c <initDisplay+0x1e>
+	_delay_us(50);	//>37us
 	clearEnable();
-  7e:	eb df       	rcall	.-42     	; 0x56 <clearEnable>
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
-
-	__builtin_avr_delay_cycles(__ticks_dc);
-  80:	81 ee       	ldi	r24, 0xE1	; 225
-  82:	94 e0       	ldi	r25, 0x04	; 4
-  84:	01 97       	sbiw	r24, 0x01	; 1
-  86:	f1 f7       	brne	.-4      	; 0x84 <initDisplay+0x26>
-  88:	00 c0       	rjmp	.+0      	; 0x8a <initDisplay+0x2c>
-  8a:	00 00       	nop
+  7c:	ec df       	rcall	.-40     	; 0x56 <clearEnable>
 	
-	_delay_ms(5); //>4.1ms
-	
-	
-	//step 2
 	setEnable();
-  8c:	e0 df       	rcall	.-64     	; 0x4e <setEnable>
-	PORTA = 0b11001111;
-  8e:	c2 b9       	out	0x02, r28	; 2
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
-
-	__builtin_avr_delay_cycles(__ticks_dc);
-  90:	91 e2       	ldi	r25, 0x21	; 33
-  92:	9a 95       	dec	r25
-  94:	f1 f7       	brne	.-4      	; 0x92 <initDisplay+0x34>
-  96:	00 00       	nop
-	_delay_us(100);
+  7e:	e7 df       	rcall	.-50     	; 0x4e <setEnable>
+	PORTA = Display_OFF;
+  80:	84 ef       	ldi	r24, 0xF4	; 244
+  82:	82 b9       	out	0x02, r24	; 2
+  84:	80 e1       	ldi	r24, 0x10	; 16
+  86:	8a 95       	dec	r24
+  88:	f1 f7       	brne	.-4      	; 0x86 <initDisplay+0x28>
+  8a:	00 c0       	rjmp	.+0      	; 0x8c <initDisplay+0x2e>
+	_delay_us(50);	//>37us
 	clearEnable();
-  98:	de df       	rcall	.-68     	; 0x56 <clearEnable>
-  9a:	22 e3       	ldi	r18, 0x32	; 50
-  9c:	2a 95       	dec	r18
-  9e:	f1 f7       	brne	.-4      	; 0x9c <initDisplay+0x3e>
+  8c:	e4 df       	rcall	.-56     	; 0x56 <clearEnable>
 	
-	_delay_us(150); //> 100us
-	
-
-	//step 3
 	setEnable();
-  a0:	d6 df       	rcall	.-84     	; 0x4e <setEnable>
-	PORTA = 0b11001111;
-  a2:	c2 b9       	out	0x02, r28	; 2
-  a4:	81 e2       	ldi	r24, 0x21	; 33
+  8e:	df df       	rcall	.-66     	; 0x4e <setEnable>
+	PORTA = Display_ON;
+  90:	80 ef       	ldi	r24, 0xF0	; 240
+  92:	82 b9       	out	0x02, r24	; 2
+  94:	90 e1       	ldi	r25, 0x10	; 16
+  96:	9a 95       	dec	r25
+  98:	f1 f7       	brne	.-4      	; 0x96 <initDisplay+0x38>
+  9a:	00 c0       	rjmp	.+0      	; 0x9c <initDisplay+0x3e>
+	_delay_us(50);	//>37us
+	clearEnable();
+  9c:	dc df       	rcall	.-72     	; 0x56 <clearEnable>
+	
+	setEnable();
+  9e:	d7 df       	rcall	.-82     	; 0x4e <setEnable>
+	PORTA = Clear_Display;
+  a0:	8e ef       	ldi	r24, 0xFE	; 254
+  a2:	82 b9       	out	0x02, r24	; 2
+  a4:	80 e1       	ldi	r24, 0x10	; 16
   a6:	8a 95       	dec	r24
   a8:	f1 f7       	brne	.-4      	; 0xa6 <initDisplay+0x48>
-  aa:	00 00       	nop
-	_delay_us(100);
+  aa:	00 c0       	rjmp	.+0      	; 0xac <initDisplay+0x4e>
+	_delay_us(50);	//>37us
 	clearEnable();
   ac:	d4 df       	rcall	.-88     	; 0x56 <clearEnable>
-  ae:	92 e3       	ldi	r25, 0x32	; 50
-  b0:	9a 95       	dec	r25
-  b2:	f1 f7       	brne	.-4      	; 0xb0 <initDisplay+0x52>
 	
-	_delay_us(150); //> 100us
-	
-	
-	//step 4
 	setEnable();
-  b4:	cc df       	rcall	.-104    	; 0x4e <setEnable>
-	PORTA = 0b11000111;	//function set
-  b6:	87 ec       	ldi	r24, 0xC7	; 199
-  b8:	82 b9       	out	0x02, r24	; 2
-  ba:	21 e2       	ldi	r18, 0x21	; 33
-  bc:	2a 95       	dec	r18
-  be:	f1 f7       	brne	.-4      	; 0xbc <initDisplay+0x5e>
-  c0:	00 00       	nop
-	_delay_us(100);
+  ae:	cf df       	rcall	.-98     	; 0x4e <setEnable>
+	PORTA = Return_Home;
+  b0:	8d ef       	ldi	r24, 0xFD	; 253
+  b2:	82 b9       	out	0x02, r24	; 2
+  b4:	90 e1       	ldi	r25, 0x10	; 16
+  b6:	9a 95       	dec	r25
+  b8:	f1 f7       	brne	.-4      	; 0xb6 <initDisplay+0x58>
+  ba:	00 c0       	rjmp	.+0      	; 0xbc <initDisplay+0x5e>
+	_delay_us(50);	//>37us
 	clearEnable();
-  c2:	c9 df       	rcall	.-110    	; 0x56 <clearEnable>
+  bc:	cc df       	rcall	.-104    	; 0x56 <clearEnable>
+  be:	08 95       	ret
 
+000000c0 <writeToDisplay>:
+}
+
+void writeToDisplay(uint8_t address, uint8_t data){
+	
 	setEnable();
-  c4:	c4 df       	rcall	.-120    	; 0x4e <setEnable>
-	PORTA = 0b11110111;	//display off
-  c6:	87 ef       	ldi	r24, 0xF7	; 247
-  c8:	82 b9       	out	0x02, r24	; 2
-  ca:	81 e2       	ldi	r24, 0x21	; 33
-  cc:	8a 95       	dec	r24
-  ce:	f1 f7       	brne	.-4      	; 0xcc <initDisplay+0x6e>
-  d0:	00 00       	nop
-	_delay_us(100);
+  c0:	c6 df       	rcall	.-116    	; 0x4e <setEnable>
+	PORTA = Display_ON;
+  c2:	80 ef       	ldi	r24, 0xF0	; 240
+  c4:	82 b9       	out	0x02, r24	; 2
+  c6:	20 e1       	ldi	r18, 0x10	; 16
+  c8:	2a 95       	dec	r18
+  ca:	f1 f7       	brne	.-4      	; 0xc8 <writeToDisplay+0x8>
+  cc:	00 c0       	rjmp	.+0      	; 0xce <writeToDisplay+0xe>
+	_delay_us(50);	//?
 	clearEnable();
-  d2:	c1 df       	rcall	.-126    	; 0x56 <clearEnable>
+  ce:	c3 df       	rcall	.-122    	; 0x56 <clearEnable>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-	setEnable();
-  d4:	bc df       	rcall	.-136    	; 0x4e <setEnable>
-	PORTA = 0b11111110;	//display clear
-  d6:	8e ef       	ldi	r24, 0xFE	; 254
-  d8:	82 b9       	out	0x02, r24	; 2
-  da:	91 e2       	ldi	r25, 0x21	; 33
-  dc:	9a 95       	dec	r25
-  de:	f1 f7       	brne	.-4      	; 0xdc <initDisplay+0x7e>
+	__builtin_avr_delay_cycles(__ticks_dc);
+  d0:	8f e9       	ldi	r24, 0x9F	; 159
+  d2:	96 e8       	ldi	r25, 0x86	; 134
+  d4:	21 e0       	ldi	r18, 0x01	; 1
+  d6:	81 50       	subi	r24, 0x01	; 1
+  d8:	90 40       	sbci	r25, 0x00	; 0
+  da:	20 40       	sbci	r18, 0x00	; 0
+  dc:	e1 f7       	brne	.-8      	; 0xd6 <writeToDisplay+0x16>
+  de:	00 c0       	rjmp	.+0      	; 0xe0 <writeToDisplay+0x20>
   e0:	00 00       	nop
-	_delay_us(100);
-	clearEnable();
-  e2:	b9 df       	rcall	.-142    	; 0x56 <clearEnable>
-
+	
+	_delay_ms(500);
+	
 	setEnable();
-  e4:	b4 df       	rcall	.-152    	; 0x4e <setEnable>
-	PORTA = 0b11111000;	//entry mode set
-  e6:	88 ef       	ldi	r24, 0xF8	; 248
-  e8:	82 b9       	out	0x02, r24	; 2
-  ea:	21 e2       	ldi	r18, 0x21	; 33
-  ec:	2a 95       	dec	r18
-  ee:	f1 f7       	brne	.-4      	; 0xec <initDisplay+0x8e>
-  f0:	00 00       	nop
-	_delay_us(100);
-	clearEnable();
-  f2:	b1 df       	rcall	.-158    	; 0x56 <clearEnable>
+  e2:	b5 df       	rcall	.-150    	; 0x4e <setEnable>
+	PORTA = Display_OFF;
+  e4:	84 ef       	ldi	r24, 0xF4	; 244
+  e6:	82 b9       	out	0x02, r24	; 2
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  f4:	8f e3       	ldi	r24, 0x3F	; 63
-  f6:	92 e4       	ldi	r25, 0x42	; 66
-  f8:	2f e0       	ldi	r18, 0x0F	; 15
-  fa:	81 50       	subi	r24, 0x01	; 1
-  fc:	90 40       	sbci	r25, 0x00	; 0
-  fe:	20 40       	sbci	r18, 0x00	; 0
- 100:	e1 f7       	brne	.-8      	; 0xfa <initDisplay+0x9c>
- 102:	00 c0       	rjmp	.+0      	; 0x104 <__EEPROM_REGION_LENGTH__+0x4>
- 104:	00 00       	nop
-
-
-
-	_delay_ms(5000);
-	//of the books
-	setEnable();
- 106:	a3 df       	rcall	.-186    	; 0x4e <setEnable>
-	PORTA = 0b11110000;	//display on
- 108:	80 ef       	ldi	r24, 0xF0	; 240
- 10a:	82 b9       	out	0x02, r24	; 2
+  e8:	80 e1       	ldi	r24, 0x10	; 16
+  ea:	8a 95       	dec	r24
+  ec:	f1 f7       	brne	.-4      	; 0xea <writeToDisplay+0x2a>
+  ee:	00 c0       	rjmp	.+0      	; 0xf0 <writeToDisplay+0x30>
+	_delay_us(50);	//?
+	clearEnable();
+  f0:	b2 df       	rcall	.-156    	; 0x56 <clearEnable>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 10c:	82 e3       	ldi	r24, 0x32	; 50
- 10e:	8a 95       	dec	r24
- 110:	f1 f7       	brne	.-4      	; 0x10e <__EEPROM_REGION_LENGTH__+0xe>
-	_delay_us(150);
-	clearEnable();
- 112:	a1 df       	rcall	.-190    	; 0x56 <clearEnable>
+  f2:	9f e9       	ldi	r25, 0x9F	; 159
+  f4:	26 e8       	ldi	r18, 0x86	; 134
+  f6:	81 e0       	ldi	r24, 0x01	; 1
+  f8:	91 50       	subi	r25, 0x01	; 1
+  fa:	20 40       	sbci	r18, 0x00	; 0
+  fc:	80 40       	sbci	r24, 0x00	; 0
+  fe:	e1 f7       	brne	.-8      	; 0xf8 <writeToDisplay+0x38>
+ 100:	00 c0       	rjmp	.+0      	; 0x102 <__EEPROM_REGION_LENGTH__+0x2>
+ 102:	00 00       	nop
+ 104:	08 95       	ret
+
+00000106 <clkLow>:
+	clkHigh();
+	_delay_us(I2CSpeed);
 }
- 114:	cf 91       	pop	r28
- 116:	08 95       	ret
 
-00000118 <clkHigh>:
-static void clkHigh(void){
+void clkLow(void){
+	PORTB &= 0b10111111;
+ 106:	86 b1       	in	r24, 0x06	; 6
+ 108:	8f 7b       	andi	r24, 0xBF	; 191
+ 10a:	86 b9       	out	0x06, r24	; 6
+ 10c:	08 95       	ret
+
+0000010e <clkHigh>:
+}
+
+void clkHigh(void){
 	PORTB |= 0b01000000;
+ 10e:	86 b1       	in	r24, 0x06	; 6
+ 110:	80 64       	ori	r24, 0x40	; 64
+ 112:	86 b9       	out	0x06, r24	; 6
+ 114:	08 95       	ret
+
+00000116 <sdaLow>:
 }
 
-static void sdaLow(void){
+void sdaLow(void){
 	PORTB &= 0b01111111;
- 118:	86 b1       	in	r24, 0x06	; 6
- 11a:	80 64       	ori	r24, 0x40	; 64
- 11c:	86 b9       	out	0x06, r24	; 6
- 11e:	08 95       	ret
+ 116:	86 b1       	in	r24, 0x06	; 6
+ 118:	8f 77       	andi	r24, 0x7F	; 127
+ 11a:	86 b9       	out	0x06, r24	; 6
+ 11c:	08 95       	ret
 
-00000120 <sdaHigh>:
+0000011e <sdaHigh>:
 }
 
-static void sdaHigh(void){
+void sdaHigh(void){
 	PORTB |= 0b10000000;
- 120:	86 b1       	in	r24, 0x06	; 6
- 122:	80 68       	ori	r24, 0x80	; 128
- 124:	86 b9       	out	0x06, r24	; 6
- 126:	08 95       	ret
+ 11e:	86 b1       	in	r24, 0x06	; 6
+ 120:	80 68       	ori	r24, 0x80	; 128
+ 122:	86 b9       	out	0x06, r24	; 6
+ 124:	08 95       	ret
 
-00000128 <initI2C>:
+00000126 <initI2C>:
 void initI2C(){
 	/*
 	PB7	SDA
 	PB6	SCL
 	*/
 	sdaHigh();
- 128:	fb df       	rcall	.-10     	; 0x120 <sdaHigh>
+ 126:	fb df       	rcall	.-10     	; 0x11e <sdaHigh>
 	clkHigh();
- 12a:	f6 df       	rcall	.-20     	; 0x118 <clkHigh>
- 12c:	81 e1       	ldi	r24, 0x11	; 17
- 12e:	8a 95       	dec	r24
- 130:	f1 f7       	brne	.-4      	; 0x12e <initI2C+0x6>
- 132:	00 00       	nop
- 134:	08 95       	ret
+ 128:	f2 df       	rcall	.-28     	; 0x10e <clkHigh>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-00000136 <initIO>:
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 12a:	81 e1       	ldi	r24, 0x11	; 17
+ 12c:	8a 95       	dec	r24
+ 12e:	f1 f7       	brne	.-4      	; 0x12c <initI2C+0x6>
+ 130:	00 00       	nop
+ 132:	08 95       	ret
+
+00000134 <sendI2C>:
+	sendI2C(subAddress);
+	sendI2C(data);
+	finishCom();
+}
+
+void sendI2C(uint8_t input){
+ 134:	cf 93       	push	r28
+ 136:	df 93       	push	r29
+ 138:	d8 2f       	mov	r29, r24
+	uint8_t shift = 0x00;
+	uint8_t mask = 0b00000001;
+	uint8_t result = 0x00;
+	
+	//start condition
+	sdaLow();
+ 13a:	ed df       	rcall	.-38     	; 0x116 <sdaLow>
+ 13c:	81 e1       	ldi	r24, 0x11	; 17
+ 13e:	8a 95       	dec	r24
+ 140:	f1 f7       	brne	.-4      	; 0x13e <sendI2C+0xa>
+ 142:	00 00       	nop
+	_delay_us(I2CSpeed);
+	clkLow();
+ 144:	e0 df       	rcall	.-64     	; 0x106 <clkLow>
+ 146:	81 e1       	ldi	r24, 0x11	; 17
+ 148:	8a 95       	dec	r24
+ 14a:	f1 f7       	brne	.-4      	; 0x148 <sendI2C+0x14>
+ 14c:	00 00       	nop
+	_delay_us(I2CSpeed);
+	
+	//send input
+	shift = input;
+	for(uint8_t index = 0; index < 8; index++){
+ 14e:	c0 e0       	ldi	r28, 0x00	; 0
+ 150:	11 c0       	rjmp	.+34     	; 0x174 <sendI2C+0x40>
+		result = shift & mask;
+		if(result == 0x01){
+ 152:	d0 ff       	sbrs	r29, 0
+ 154:	02 c0       	rjmp	.+4      	; 0x15a <sendI2C+0x26>
+			sdaHigh();
+ 156:	e3 df       	rcall	.-58     	; 0x11e <sdaHigh>
+ 158:	01 c0       	rjmp	.+2      	; 0x15c <sendI2C+0x28>
+		}
+		else{
+			sdaLow();
+ 15a:	dd df       	rcall	.-70     	; 0x116 <sdaLow>
+		}
+		clkHigh();
+ 15c:	d8 df       	rcall	.-80     	; 0x10e <clkHigh>
+ 15e:	81 e1       	ldi	r24, 0x11	; 17
+ 160:	8a 95       	dec	r24
+ 162:	f1 f7       	brne	.-4      	; 0x160 <sendI2C+0x2c>
+ 164:	00 00       	nop
+		_delay_us(I2CSpeed);
+		clkLow();
+ 166:	cf df       	rcall	.-98     	; 0x106 <clkLow>
+ 168:	81 e1       	ldi	r24, 0x11	; 17
+ 16a:	8a 95       	dec	r24
+ 16c:	f1 f7       	brne	.-4      	; 0x16a <sendI2C+0x36>
+ 16e:	00 00       	nop
+		_delay_us(I2CSpeed);
+		shift = (shift >> 1);	//shift right by one
+ 170:	d6 95       	lsr	r29
+	clkLow();
+	_delay_us(I2CSpeed);
+	
+	//send input
+	shift = input;
+	for(uint8_t index = 0; index < 8; index++){
+ 172:	cf 5f       	subi	r28, 0xFF	; 255
+ 174:	c8 30       	cpi	r28, 0x08	; 8
+ 176:	68 f3       	brcs	.-38     	; 0x152 <sendI2C+0x1e>
+		clkLow();
+		_delay_us(I2CSpeed);
+		shift = (shift >> 1);	//shift right by one
+	}
+	//ACK
+	sdaLow();
+ 178:	ce df       	rcall	.-100    	; 0x116 <sdaLow>
+	
+	clkHigh();
+ 17a:	c9 df       	rcall	.-110    	; 0x10e <clkHigh>
+ 17c:	81 e1       	ldi	r24, 0x11	; 17
+ 17e:	8a 95       	dec	r24
+ 180:	f1 f7       	brne	.-4      	; 0x17e <sendI2C+0x4a>
+ 182:	00 00       	nop
+	_delay_us(I2CSpeed);
+	clkLow();
+ 184:	c0 df       	rcall	.-128    	; 0x106 <clkLow>
+ 186:	81 e1       	ldi	r24, 0x11	; 17
+ 188:	8a 95       	dec	r24
+ 18a:	f1 f7       	brne	.-4      	; 0x188 <sendI2C+0x54>
+ 18c:	00 00       	nop
+	_delay_us(I2CSpeed);
+	
+	sdaHigh();
+ 18e:	c7 df       	rcall	.-114    	; 0x11e <sdaHigh>
+ 190:	81 e1       	ldi	r24, 0x11	; 17
+ 192:	8a 95       	dec	r24
+ 194:	f1 f7       	brne	.-4      	; 0x192 <sendI2C+0x5e>
+ 196:	00 00       	nop
+	_delay_us(I2CSpeed);
+}
+ 198:	df 91       	pop	r29
+ 19a:	cf 91       	pop	r28
+ 19c:	08 95       	ret
+
+0000019e <finishCom>:
+
+void finishCom(){
+	// finish communication
+	sdaHigh();
+ 19e:	bf df       	rcall	.-130    	; 0x11e <sdaHigh>
+	clkHigh();
+ 1a0:	b6 df       	rcall	.-148    	; 0x10e <clkHigh>
+ 1a2:	81 e1       	ldi	r24, 0x11	; 17
+ 1a4:	8a 95       	dec	r24
+ 1a6:	f1 f7       	brne	.-4      	; 0x1a4 <finishCom+0x6>
+ 1a8:	00 00       	nop
+ 1aa:	08 95       	ret
+
+000001ac <setTDAValue>:
+	sdaHigh();
+	clkHigh();
+	_delay_us(I2CSpeed);
+}
+
+void setTDAValue(uint8_t chipAddress, uint8_t subAddress, uint8_t data){
+ 1ac:	cf 93       	push	r28
+ 1ae:	df 93       	push	r29
+ 1b0:	d6 2f       	mov	r29, r22
+ 1b2:	c4 2f       	mov	r28, r20
+	sendI2C(chipAddress);
+ 1b4:	bf df       	rcall	.-130    	; 0x134 <sendI2C>
+	sendI2C(subAddress);
+ 1b6:	8d 2f       	mov	r24, r29
+ 1b8:	bd df       	rcall	.-134    	; 0x134 <sendI2C>
+	sendI2C(data);
+ 1ba:	8c 2f       	mov	r24, r28
+ 1bc:	bb df       	rcall	.-138    	; 0x134 <sendI2C>
+	finishCom();
+ 1be:	ef df       	rcall	.-34     	; 0x19e <finishCom>
+}
+ 1c0:	df 91       	pop	r29
+ 1c2:	cf 91       	pop	r28
+ 1c4:	08 95       	ret
+
+000001c6 <initIO>:
 }
 
 //-----------------------------------------------------------------------------------------	IO
 void initIO(){
 	//PORT A
 	DDRA = 0xff;		//output
- 136:	8f ef       	ldi	r24, 0xFF	; 255
- 138:	81 b9       	out	0x01, r24	; 1
+ 1c6:	8f ef       	ldi	r24, 0xFF	; 255
+ 1c8:	81 b9       	out	0x01, r24	; 1
 	PUEA = 0xff;		//Set pull ups
- 13a:	83 b9       	out	0x03, r24	; 3
-	PORTA = 0xff;		//write zero
- 13c:	82 b9       	out	0x02, r24	; 2
+ 1ca:	83 b9       	out	0x03, r24	; 3
+	PORTA = 0x00;		//write zero
+ 1cc:	12 b8       	out	0x02, r1	; 2
 	
 	//PORT B
 	DDRB = 0b11000000;	//output
- 13e:	90 ec       	ldi	r25, 0xC0	; 192
- 140:	95 b9       	out	0x05, r25	; 5
+ 1ce:	90 ec       	ldi	r25, 0xC0	; 192
+ 1d0:	95 b9       	out	0x05, r25	; 5
 	PUEB = 0xff;		//Set pull ups
- 142:	87 b9       	out	0x07, r24	; 7
-	PORTB = 0b11000000;	//write zero
- 144:	96 b9       	out	0x06, r25	; 6
+ 1d2:	87 b9       	out	0x07, r24	; 7
+	PORTB = 0b00000000;	//write zero
+ 1d4:	16 b8       	out	0x06, r1	; 6
 	
 	//PORT C
 	DDRC = 0b11000000;	//output
- 146:	99 b9       	out	0x09, r25	; 9
+ 1d6:	99 b9       	out	0x09, r25	; 9
 	PUEC = 0xff;		//Set pull ups
- 148:	8b b9       	out	0x0b, r24	; 11
-	PORTC = 0b11000000;	//write zero
- 14a:	9a b9       	out	0x0a, r25	; 10
- 14c:	08 95       	ret
+ 1d8:	8b b9       	out	0x0b, r24	; 11
+	PORTC = 0b00000000;	//write zero
+ 1da:	1a b8       	out	0x0a, r1	; 10
+ 1dc:	08 95       	ret
 
-0000014e <initADC>:
+000001de <initADC>:
 }
 
 //-----------------------------------------------------------------------------------------	ADC
 void initADC(){
 	PRR		&= 0b11111110;		//turn power saving of
- 14e:	e4 e6       	ldi	r30, 0x64	; 100
- 150:	f0 e0       	ldi	r31, 0x00	; 0
- 152:	80 81       	ld	r24, Z
- 154:	8e 7f       	andi	r24, 0xFE	; 254
- 156:	80 83       	st	Z, r24
+ 1de:	e4 e6       	ldi	r30, 0x64	; 100
+ 1e0:	f0 e0       	ldi	r31, 0x00	; 0
+ 1e2:	80 81       	ld	r24, Z
+ 1e4:	8e 7f       	andi	r24, 0xFE	; 254
+ 1e6:	80 83       	st	Z, r24
 	ADCSRA	|= 0b10000000;		//turn ADEN on
- 158:	ea e7       	ldi	r30, 0x7A	; 122
- 15a:	f0 e0       	ldi	r31, 0x00	; 0
- 15c:	80 81       	ld	r24, Z
- 15e:	80 68       	ori	r24, 0x80	; 128
- 160:	80 83       	st	Z, r24
+ 1e8:	ea e7       	ldi	r30, 0x7A	; 122
+ 1ea:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ec:	80 81       	ld	r24, Z
+ 1ee:	80 68       	ori	r24, 0x80	; 128
+ 1f0:	80 83       	st	Z, r24
 	ADMUXB	&= 0b00000000;		//Voltage reference VCC
- 162:	ad e7       	ldi	r26, 0x7D	; 125
- 164:	b0 e0       	ldi	r27, 0x00	; 0
- 166:	8c 91       	ld	r24, X
- 168:	1c 92       	st	X, r1
+ 1f2:	ad e7       	ldi	r26, 0x7D	; 125
+ 1f4:	b0 e0       	ldi	r27, 0x00	; 0
+ 1f6:	8c 91       	ld	r24, X
+ 1f8:	1c 92       	st	X, r1
 	ADCSRA	|= 0b00000100;		//set Scaler 0100 => /16
- 16a:	80 81       	ld	r24, Z
- 16c:	84 60       	ori	r24, 0x04	; 4
- 16e:	80 83       	st	Z, r24
+ 1fa:	80 81       	ld	r24, Z
+ 1fc:	84 60       	ori	r24, 0x04	; 4
+ 1fe:	80 83       	st	Z, r24
 	ADCSRB	|= 0b00001000;		//left adjusted
- 170:	eb e7       	ldi	r30, 0x7B	; 123
- 172:	f0 e0       	ldi	r31, 0x00	; 0
- 174:	80 81       	ld	r24, Z
- 176:	88 60       	ori	r24, 0x08	; 8
- 178:	80 83       	st	Z, r24
- 17a:	08 95       	ret
+ 200:	eb e7       	ldi	r30, 0x7B	; 123
+ 202:	f0 e0       	ldi	r31, 0x00	; 0
+ 204:	80 81       	ld	r24, Z
+ 206:	88 60       	ori	r24, 0x08	; 8
+ 208:	80 83       	st	Z, r24
+ 20a:	08 95       	ret
 
-0000017c <ReadADCPinValue>:
+0000020c <ReadADCPinValue>:
 }
 
 uint8_t ReadADCPinValue(uint8_t ADCReadPin){
 	ADMUXA	|= ADCReadPin;		
- 17c:	ec e7       	ldi	r30, 0x7C	; 124
- 17e:	f0 e0       	ldi	r31, 0x00	; 0
- 180:	90 81       	ld	r25, Z
- 182:	89 2b       	or	r24, r25
- 184:	80 83       	st	Z, r24
+ 20c:	ec e7       	ldi	r30, 0x7C	; 124
+ 20e:	f0 e0       	ldi	r31, 0x00	; 0
+ 210:	90 81       	ld	r25, Z
+ 212:	89 2b       	or	r24, r25
+ 214:	80 83       	st	Z, r24
 	ADMUXB	&= 0b11111110;		
- 186:	ed e7       	ldi	r30, 0x7D	; 125
- 188:	f0 e0       	ldi	r31, 0x00	; 0
- 18a:	80 81       	ld	r24, Z
- 18c:	8e 7f       	andi	r24, 0xFE	; 254
- 18e:	80 83       	st	Z, r24
+ 216:	ed e7       	ldi	r30, 0x7D	; 125
+ 218:	f0 e0       	ldi	r31, 0x00	; 0
+ 21a:	80 81       	ld	r24, Z
+ 21c:	8e 7f       	andi	r24, 0xFE	; 254
+ 21e:	80 83       	st	Z, r24
 	ADCSRA	|= 0b01000000;		//ADSC on
- 190:	ea e7       	ldi	r30, 0x7A	; 122
- 192:	f0 e0       	ldi	r31, 0x00	; 0
- 194:	80 81       	ld	r24, Z
- 196:	80 64       	ori	r24, 0x40	; 64
- 198:	80 83       	st	Z, r24
+ 220:	ea e7       	ldi	r30, 0x7A	; 122
+ 222:	f0 e0       	ldi	r31, 0x00	; 0
+ 224:	80 81       	ld	r24, Z
+ 226:	80 64       	ori	r24, 0x40	; 64
+ 228:	80 83       	st	Z, r24
 	return ADCH;
- 19a:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7fe079>
+ 22a:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7fe079>
 }
- 19e:	08 95       	ret
+ 22e:	08 95       	ret
 
-000001a0 <main>:
+00000230 <main>:
 #include "Display/Display.h"
 
 int main(void)
 {
 	//IO
 	initIO();
- 1a0:	ca df       	rcall	.-108    	; 0x136 <initIO>
+ 230:	ca df       	rcall	.-108    	; 0x1c6 <initIO>
 	
 	//ADC
 	initADC();
- 1a2:	d5 df       	rcall	.-86     	; 0x14e <initADC>
+ 232:	d5 df       	rcall	.-86     	; 0x1de <initADC>
 	
 	//I2C
 	initI2C();
- 1a4:	c1 df       	rcall	.-126    	; 0x128 <initI2C>
+ 234:	78 df       	rcall	.-272    	; 0x126 <initI2C>
 	
 	//display
 	initDisplay();
- 1a6:	5b df       	rcall	.-330    	; 0x5e <initDisplay>
+ 236:	13 df       	rcall	.-474    	; 0x5e <initDisplay>
 	uint8_t treble = 0x00;
 	
     while (1) 
     {
 		//read inputs
 		gain = ReadADCPinValue(0b00001000);		//PB0
- 1a8:	88 e0       	ldi	r24, 0x08	; 8
- 1aa:	e8 df       	rcall	.-48     	; 0x17c <ReadADCPinValue>
+ 238:	88 e0       	ldi	r24, 0x08	; 8
+ 23a:	e8 df       	rcall	.-48     	; 0x20c <ReadADCPinValue>
 		bass = ReadADCPinValue(0b00001011);		//PB3
- 1ac:	8b e0       	ldi	r24, 0x0B	; 11
- 1ae:	e6 df       	rcall	.-52     	; 0x17c <ReadADCPinValue>
+ 23c:	8b e0       	ldi	r24, 0x0B	; 11
+ 23e:	e6 df       	rcall	.-52     	; 0x20c <ReadADCPinValue>
 		midRange = ReadADCPinValue(0b00001100);	//PB4
- 1b0:	8c e0       	ldi	r24, 0x0C	; 12
- 1b2:	e4 df       	rcall	.-56     	; 0x17c <ReadADCPinValue>
+ 240:	8c e0       	ldi	r24, 0x0C	; 12
+ 242:	e4 df       	rcall	.-56     	; 0x20c <ReadADCPinValue>
 		treble = ReadADCPinValue(0b00001101);	//PB5
- 1b4:	8d e0       	ldi	r24, 0x0D	; 13
- 1b6:	e2 df       	rcall	.-60     	; 0x17c <ReadADCPinValue>
- 1b8:	f7 cf       	rjmp	.-18     	; 0x1a8 <main+0x8>
+ 244:	8d e0       	ldi	r24, 0x0D	; 13
+ 246:	e2 df       	rcall	.-60     	; 0x20c <ReadADCPinValue>
+		
+		//Volume -> rotary encoder
+		
+		//TDA update
+		//debug
+		setTDAValue(0b10000000, 0b00000000, 0b00000000);
+ 248:	40 e0       	ldi	r20, 0x00	; 0
+ 24a:	60 e0       	ldi	r22, 0x00	; 0
+ 24c:	80 e8       	ldi	r24, 0x80	; 128
+ 24e:	ae df       	rcall	.-164    	; 0x1ac <setTDAValue>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-000001ba <_exit>:
- 1ba:	f8 94       	cli
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 250:	83 ec       	ldi	r24, 0xC3	; 195
+ 252:	99 e0       	ldi	r25, 0x09	; 9
+ 254:	01 97       	sbiw	r24, 0x01	; 1
+ 256:	f1 f7       	brne	.-4      	; 0x254 <main+0x24>
+ 258:	00 c0       	rjmp	.+0      	; 0x25a <main+0x2a>
+ 25a:	00 00       	nop
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);		
+		*/
+		//Display update -> parallel
+		writeToDisplay(0x00, 0xff);
+ 25c:	6f ef       	ldi	r22, 0xFF	; 255
+ 25e:	80 e0       	ldi	r24, 0x00	; 0
+ 260:	2f df       	rcall	.-418    	; 0xc0 <writeToDisplay>
+ 262:	ea cf       	rjmp	.-44     	; 0x238 <main+0x8>
 
-000001bc <__stop_program>:
- 1bc:	ff cf       	rjmp	.-2      	; 0x1bc <__stop_program>
+00000264 <_exit>:
+ 264:	f8 94       	cli
+
+00000266 <__stop_program>:
+ 266:	ff cf       	rjmp	.-2      	; 0x266 <__stop_program>

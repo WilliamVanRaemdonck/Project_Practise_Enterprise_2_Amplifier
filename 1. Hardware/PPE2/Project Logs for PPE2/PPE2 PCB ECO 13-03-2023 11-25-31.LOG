@@ -1,0 +1,196 @@
+Removed Pin From Net: NetName=5V Pin=5V-1
+Removed Pin From Net: NetName=5V Pin=5V-2
+Removed Pin From Net: NetName=5V Pin=5V_-2
+Removed Pin From Net: NetName=9V Pin=9V-1
+Removed Pin From Net: NetName=9V Pin=9V-2
+Removed Pin From Net: NetName=9V Pin=9V_-2
+Removed Pin From Net: NetName=15V Pin=15V-1
+Removed Pin From Net: NetName=15V Pin=15V-2
+Removed Pin From Net: NetName=15V Pin=C4-1
+Removed Pin From Net: NetName=GND Pin=C4-2
+Removed Pin From Net: NetName=15V Pin=C5-1
+Removed Pin From Net: NetName=GND Pin=C5-2
+Removed Pin From Net: NetName=15V Pin=C6-1
+Removed Pin From Net: NetName=GND Pin=C6-2
+Removed Pin From Net: NetName=INPUTL_2 Pin=C7-1
+Removed Pin From Net: NetName=L_IN2 Pin=C7-2
+Removed Pin From Net: NetName=INPUTL_4 Pin=C12-1
+Removed Pin From Net: NetName=L_IN4 Pin=C12-2
+Removed Pin From Net: NetName=INPUTR_3 Pin=C15-1
+Removed Pin From Net: NetName=R_IN3 Pin=C15-2
+Removed Pin From Net: NetName=INPUTR_4 Pin=C16-1
+Removed Pin From Net: NetName=R_IN4 Pin=C16-2
+Removed Pin From Net: NetName=GND Pin=GND1-1
+Removed Pin From Net: NetName=GND Pin=GND1-2
+Removed Pin From Net: NetName=GND Pin=GND3-1
+Removed Pin From Net: NetName=GND Pin=GND3-2
+Removed Pin From Net: NetName=GND Pin=GND-1
+Removed Pin From Net: NetName=GND Pin=GND-2
+Removed Pin From Net: NetName=IN_L Pin=IC4-1
+Removed Pin From Net: NetName=IN_R Pin=IC4-5
+Removed Member From Class: ClassName=Designator Member=C4
+Removed Member From Class: ClassName=Designator Member=C5
+Removed Member From Class: ClassName=Designator Member=C6
+Change Component Footprint: Designator=C16 Old Footprint=6-0805_N New Footprint=CAPPRD250W52D630H1250
+Change Component Footprint: Designator=C6 Old Footprint=CAPPRD250W52D630H1250 New Footprint=6-0805_N
+Change Component Comment : Designator=C16 Old Comment=0805 New Comment=860010373010
+Change Component Comment : Designator=C6 Old Comment=860010373010 New Comment=0805
+Change Component Designator: OldDesignator=5V_ NewDesignator=AMP_5V
+Change Component Designator: OldDesignator=9V_ NewDesignator=AMP_9V
+Change Component Designator: OldDesignator=15V_ NewDesignator=AMP_15V
+Change Component Designator: OldDesignator=GND2 NewDesignator=AMP_GND
+Change component parameters: Designator = "C4" ("C4"); Footprint = "6-0805_N"; UniqueID = "\IAGJVHFW\XNGFLCUB" ("\IAGJVHFW\XNGFLCUB")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "470nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C5" ("C5"); Footprint = "6-0805_N"; UniqueID = "\IAGJVHFW\SCMSSTHQ" ("\IAGJVHFW\SCMSSTHQ")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "470nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C6" ("C6"); Footprint = "CAPPRD250W52D630H1250"; UniqueID = "\IAGJVHFW\ADXAIRQA" ("\IAGJVHFW\ADXAIRQA")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "470nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C12" ("C12"); Footprint = "6-0805_N"; UniqueID = "\ONCXIGVC\PYOIQXWN" ("\ONCXIGVC\PYOIQXWN")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C15" ("C15"); Footprint = "6-0805_N"; UniqueID = "\ONCXIGVC\UAEXMZXX" ("\ONCXIGVC\UAEXMZXX")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "100nF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C16" ("C16"); Footprint = "6-0805_N"; UniqueID = "\ONCXIGVC\GFCPEIBE" ("\ONCXIGVC\GFCPEIBE")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://ms.componentsearchengine.com/Datasheets/2/860010373010.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "12.5mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "Wurth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "860010373010"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "710-860010373010"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=710-860010373010"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Testing Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Testing Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters: Designator = "R23" ("R23"); Footprint = "6-0805_N"; UniqueID = "\ONCXIGVC\QHRMTCTG" ("\ONCXIGVC\QHRMTCTG")
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "100K"; VariantName = "[No Variations]"
+Added Component: Designator=PSU_5V(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Component: Designator=PSU_9V(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Component: Designator=PSU_15V(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Component: Designator=PSU_GND(PHOE-1725656-2)
+Add component (AddParameter): Name = "Colour"; Value = "Green"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Content"; Value = "250pc(s)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://datasheet.octopart.com/1725656-Phoenix-Contact-datasheet-5302866.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Apr-08"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Industrial packaging"; Value = "Yes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Phoenix Contact"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer part No."; Value = "1725656"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://www.phoenixcontact.com/"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Number of contacts"; Value = "2"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pitch"; Value = "2.54mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "MPT0,5/2-2,54"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=AMP_5V-2
+Added Pin To Net: NetName=GND Pin=AMP_9V-2
+Added Pin To Net: NetName=INPUTL_2 Pin=C4-1
+Added Pin To Net: NetName=L_IN2 Pin=C4-2
+Added Pin To Net: NetName=INPUTL_4 Pin=C5-1
+Added Pin To Net: NetName=L_IN4 Pin=C5-2
+Added Pin To Net: NetName=INPUTR_3 Pin=C6-1
+Added Pin To Net: NetName=R_IN3 Pin=C6-2
+Added Pin To Net: NetName=INPUTR_4 Pin=C7-1
+Added Pin To Net: NetName=R_IN4 Pin=C7-2
+Added Pin To Net: NetName=15V Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=15V Pin=C15-1
+Added Pin To Net: NetName=GND Pin=C15-2
+Added Pin To Net: NetName=15V Pin=C16-1
+Added Pin To Net: NetName=GND Pin=C16-2
+Added Pin To Net: NetName=IN_R Pin=IC4-6
+Added Pin To Net: NetName=IN_L Pin=IC4-10
+Added Pin To Net: NetName=5V Pin=PSU_5V-1
+Added Pin To Net: NetName=GND Pin=PSU_5V-2
+Added Pin To Net: NetName=9V Pin=PSU_9V-1
+Added Pin To Net: NetName=GND Pin=PSU_9V-2
+Added Pin To Net: NetName=15V Pin=PSU_15V-1
+Added Pin To Net: NetName=15V Pin=PSU_15V-2
+Added Pin To Net: NetName=GND Pin=PSU_GND-1
+Added Pin To Net: NetName=GND Pin=PSU_GND-2
+Change Net Name : Old Net Name=9V New Net Name=+9
+Added Pin To Net: NetName=OUTPUT_SELECT Pin=IC4-1
+Added Pin To Net: NetName=OUTPUT_SELECT Pin=IC4-5
+Added Pin To Net: NetName=OUTPUT_SELECT Pin=OUTPUT SELECT-2
+Added Net: Name=OUTPUT_SELECT
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Member To Class: ClassName=Designator Member=Component C12 0805
+Added Member To Class: ClassName=Designator Member=Component C15 0805
+Added Member To Class: ClassName=Designator Member=Component C16 860010373010
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Main
