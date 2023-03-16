@@ -10,7 +10,6 @@ Discarded input sections
  .text          0x00000000        0x0 Display/Display.o
  .data          0x00000000        0x0 Display/Display.o
  .bss           0x00000000        0x0 Display/Display.o
- .text.setRS    0x00000000        0x8 Display/Display.o
  .text          0x00000000        0x0 I2C/I2C.o
  .data          0x00000000        0x0 I2C/I2C.o
  .bss           0x00000000        0x0 I2C/I2C.o
@@ -174,7 +173,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x268
+.text           0x00000000      0x300
  *(.vectors)
  .vectors       0x00000000       0x34 C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
                 0x00000000                __vector_default
@@ -257,52 +256,54 @@ END GROUP
                 0x00000044                __vector_20
                 0x00000046                . = ALIGN (0x2)
  *(.text.*)
- .text.clearRS  0x00000046        0x8 Display/Display.o
-                0x00000046                clearRS
+ .text.setRS    0x00000046        0x8 Display/Display.o
+                0x00000046                setRS
+ .text.clearRS  0x0000004e        0x8 Display/Display.o
+                0x0000004e                clearRS
  .text.setEnable
-                0x0000004e        0x8 Display/Display.o
-                0x0000004e                setEnable
- .text.clearEnable
                 0x00000056        0x8 Display/Display.o
-                0x00000056                clearEnable
+                0x00000056                setEnable
+ .text.clearEnable
+                0x0000005e        0x8 Display/Display.o
+                0x0000005e                clearEnable
  .text.initDisplay
-                0x0000005e       0x62 Display/Display.o
-                0x0000005e                initDisplay
+                0x00000066      0x10e Display/Display.o
+                0x00000066                initDisplay
  .text.writeToDisplay
-                0x000000c0       0x46 Display/Display.o
-                0x000000c0                writeToDisplay
- .text.clkLow   0x00000106        0x8 I2C/I2C.o
-                0x00000106                clkLow
- .text.clkHigh  0x0000010e        0x8 I2C/I2C.o
-                0x0000010e                clkHigh
- .text.sdaLow   0x00000116        0x8 I2C/I2C.o
-                0x00000116                sdaLow
- .text.sdaHigh  0x0000011e        0x8 I2C/I2C.o
-                0x0000011e                sdaHigh
- .text.initI2C  0x00000126        0xe I2C/I2C.o
-                0x00000126                initI2C
- .text.sendI2C  0x00000134       0x6a I2C/I2C.o
-                0x00000134                sendI2C
+                0x00000174       0x2a Display/Display.o
+                0x00000174                writeToDisplay
+ .text.clkLow   0x0000019e        0x8 I2C/I2C.o
+                0x0000019e                clkLow
+ .text.clkHigh  0x000001a6        0x8 I2C/I2C.o
+                0x000001a6                clkHigh
+ .text.sdaLow   0x000001ae        0x8 I2C/I2C.o
+                0x000001ae                sdaLow
+ .text.sdaHigh  0x000001b6        0x8 I2C/I2C.o
+                0x000001b6                sdaHigh
+ .text.initI2C  0x000001be        0xe I2C/I2C.o
+                0x000001be                initI2C
+ .text.sendI2C  0x000001cc       0x6a I2C/I2C.o
+                0x000001cc                sendI2C
  .text.finishCom
-                0x0000019e        0xe I2C/I2C.o
-                0x0000019e                finishCom
+                0x00000236        0xe I2C/I2C.o
+                0x00000236                finishCom
  .text.setTDAValue
-                0x000001ac       0x1a I2C/I2C.o
-                0x000001ac                setTDAValue
- .text.initIO   0x000001c6       0x18 main.o
-                0x000001c6                initIO
- .text.initADC  0x000001de       0x2e main.o
-                0x000001de                initADC
+                0x00000244       0x1a I2C/I2C.o
+                0x00000244                setTDAValue
+ .text.initIO   0x0000025e       0x18 main.o
+                0x0000025e                initIO
+ .text.initADC  0x00000276       0x2e main.o
+                0x00000276                initADC
  .text.ReadADCPinValue
-                0x0000020c       0x24 main.o
-                0x0000020c                ReadADCPinValue
- .text.main     0x00000230       0x34 main.o
-                0x00000230                main
-                0x00000264                . = ALIGN (0x2)
+                0x000002a4       0x24 main.o
+                0x000002a4                ReadADCPinValue
+ .text.main     0x000002c8       0x34 main.o
+                0x000002c8                main
+                0x000002fc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000264        0x0 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
-                0x00000264                _exit
-                0x00000264                exit
+ .fini9         0x000002fc        0x0 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x000002fc                _exit
+                0x000002fc                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -321,11 +322,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000264        0x4 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+ .fini0         0x000002fc        0x4 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000268                _etext = .
+                0x00000300                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000268
+.data           0x00800100        0x0 load address 0x00000300
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -343,8 +344,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
-                0x00000268                __data_load_start = LOADADDR (.data)
-                0x00000268                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000300                __data_load_start = LOADADDR (.data)
+                0x00000300                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800100        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -429,12 +430,12 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x130a
+.debug_info     0x00000000     0x176a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x6cc C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_info    0x000006cc      0x46d Display/Display.o
- .debug_info    0x00000b39      0x4c9 I2C/I2C.o
- .debug_info    0x00001002      0x308 main.o
+ .debug_info    0x000006cc      0x8cd Display/Display.o
+ .debug_info    0x00000f99      0x4c9 I2C/I2C.o
+ .debug_info    0x00001462      0x308 main.o
 
 .debug_abbrev   0x00000000      0xaa5
  *(.debug_abbrev)
@@ -443,18 +444,18 @@ END GROUP
  .debug_abbrev  0x0000079a      0x182 I2C/I2C.o
  .debug_abbrev  0x0000091c      0x189 main.o
 
-.debug_line     0x00000000      0x91d
+.debug_line     0x00000000      0x9ce
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_line    0x00000134      0x287 Display/Display.o
- .debug_line    0x000003bb      0x2bb I2C/I2C.o
- .debug_line    0x00000676      0x2a7 main.o
+ .debug_line    0x00000134      0x338 Display/Display.o
+ .debug_line    0x0000046c      0x2bb I2C/I2C.o
+ .debug_line    0x00000727      0x2a7 main.o
 
-.debug_frame    0x00000000      0x1a4
+.debug_frame    0x00000000      0x1ac
  *(.debug_frame)
- .debug_frame   0x00000000       0x74 Display/Display.o
- .debug_frame   0x00000074       0xac I2C/I2C.o
- .debug_frame   0x00000120       0x84 main.o
+ .debug_frame   0x00000000       0x7c Display/Display.o
+ .debug_frame   0x0000007c       0xac I2C/I2C.o
+ .debug_frame   0x00000128       0x84 main.o
 
 .debug_str      0x00000000      0x5a7
  *(.debug_str)
@@ -466,11 +467,11 @@ END GROUP
  .debug_str     0x0000052a       0x7d main.o
                                 0x2bc (size before relaxing)
 
-.debug_loc      0x00000000      0x625
+.debug_loc      0x00000000      0x99a
  *(.debug_loc)
- .debug_loc     0x00000000      0x253 Display/Display.o
- .debug_loc     0x00000253      0x329 I2C/I2C.o
- .debug_loc     0x0000057c       0xa9 main.o
+ .debug_loc     0x00000000      0x5c8 Display/Display.o
+ .debug_loc     0x000005c8      0x329 I2C/I2C.o
+ .debug_loc     0x000008f1       0xa9 main.o
 
 .debug_macinfo
  *(.debug_macinfo)

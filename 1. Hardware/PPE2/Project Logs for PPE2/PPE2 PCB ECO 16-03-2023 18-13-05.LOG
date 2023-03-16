@@ -1,0 +1,16 @@
+Change Net Name : Old Net Name=MUTE_LR New Net Name=MUTE_LR_MS
+Added Pin To Net: NetName=MUTE_M_MS Pin=MUTE_M-2
+Added Pin To Net: NetName=MUTE_M_MS Pin=R51-2
+Added Net: Name=MUTE_M_MS
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

@@ -24,50 +24,93 @@ X/1 enable reading
 
 //from https://www.farnell.com/datasheets/50586.pdf
 void initDisplay(void){
-	//Step 0
+	//init
+	clearRS();
+	clearEnable();
+	
+	//Wait time >40ms
 	_delay_ms(50);
+	
+	//first time function set
+	setEnable();
+	setRS();
+	_delay_us(Tsu1);
+	PORTA = Function_set;
+	_delay_us(Tsu2);
+	clearEnable();
+	_delay_us(Th2);
+	
+	//Wait time >4.1ms
+	_delay_ms(5);
+	
+	//second time function set
+	setEnable();
+	_delay_us(Tsu1);
+	PORTA = Function_set;
+	_delay_us(Tsu2);
+	clearEnable();
+	_delay_us(Th2);
+	
+	//Wait time >100us
+	_delay_us(250);
+	
+	//third time function set
+	setEnable();
+	_delay_us(Tsu1);
+	PORTA = Function_set;
+	_delay_us(Tsu2);
+	clearEnable();
+	_delay_us(Th2);
+	
+	//Wait time >39us
+	_delay_us(250);
+	
+	//display on
+	setEnable();
+	_delay_us(Tsu1);
+	PORTA = Display_Control;
+	_delay_us(Tsu2);
+	clearEnable();
+	_delay_us(Th2);
+	
+	//Wait time >39us
+	_delay_us(250);
+	
+	//display on
+	setEnable();
+	_delay_us(Tsu1);
+	PORTA = Clear_Display;
+	_delay_us(Tsu2);
+	clearEnable();
+	_delay_us(Th2);
+	
+	//Wait time >1.52ms
+	_delay_ms(2);
+	
+	//entry mode set
+	setEnable();
+	_delay_us(Tsu1);
+	PORTA = Entry_Mode_Set;
+	_delay_us(Tsu2);
 	clearEnable();
 	clearRS();
-	//1
-	setEnable();
-	PORTA = Function_set;
-	_delay_ms(4.5);	//>4.1ms
-	clearEnable();
-	//2
-	setEnable();
-	PORTA = Function_set;
-	_delay_ms(4.5);	//>4.1ms
-	clearEnable();
-	//3
-	setEnable();
-	PORTA = Function_set;
-	_delay_ms(4.5);	//>4.1ms
-	clearEnable();
-	//4
-	setEnable();
-	PORTA = Function_set;
-	clearEnable();
+	_delay_us(Th2);
 	
-	
-	
+	//Wait time >39us
+	_delay_us(250);
 }
 
 void writeToDisplay(uint8_t address, uint8_t data){
-	
+	//write to DDRam
 	setEnable();
-	PORTA = Display_ON;
-	_delay_us(50);	//?
+	_delay_us(Tsu1);
+	PORTA = Set_DDRAM_Address;
+	_delay_us(Tsu2);
 	clearEnable();
+	_delay_us(Th2);
 	
-	_delay_ms(1000);
-	
-	setEnable();
-	PORTA = Display_OFF;
-	_delay_us(50);	//?
-	clearEnable();
-	
-	_delay_ms(1000);
-
+	//Wait time >39us
+	_delay_us(250);
 }
 
 void setRS(void){

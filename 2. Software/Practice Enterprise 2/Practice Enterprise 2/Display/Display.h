@@ -35,15 +35,16 @@
 #define Clear_Display	0b11111110	//1.52ms exec time
 #define Return_Home		0b11111101	//1.52ms exec time
 #define Entry_Mode_Set	0b11111010	//shift met cursor
-#define Display_ON		0b11110000	//display on with cursor
-#define Display_OFF		0b11110100	//display off with cursor
-#define Cursor_OFF		0b11110011	//display on cursor hidden
+#define Display_Control	0b11110001	//display on, cursor on, blink off
 #define Cursor_Shift	0b11101011	//shift cursor right
 #define	Display_Shift	0b11100011	//shift display right cursor follows
 #define Function_set	0b11000111	//8bits, 8x5, 2 lines
 #define Set_CGRAM_Address	0b10111111	//DB5<=DB0 = data
 #define Set_DDRAM_Address	0b01111111	//DB6<=DB0 = data
 
+#define Tsu1	50	//>40ns
+#define Tsu2	50	//>80ns
+#define Th2		50	//>10ns
 
 void initDisplay(void);
 void writeToDisplay(uint8_t, uint8_t);	//address, data
