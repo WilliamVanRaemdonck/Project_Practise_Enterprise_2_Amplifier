@@ -30,24 +30,10 @@
 	I/D = 1; Increment by 1
 	S = 0; No shift
 */
-
-//x = 1 op pin 0
-#define Clear_Display	0b11111110	//1.52ms exec time
-#define Return_Home		0b11111101	//1.52ms exec time
-#define Entry_Mode_Set	0b11111010	//shift met cursor
-#define Display_Control	0b11110001	//display on, cursor on, blink off
-#define Cursor_Shift	0b11101011	//shift cursor right
-#define	Display_Shift	0b11100011	//shift display right cursor follows
-#define Function_set	0b11000111	//8bits, 8x5, 2 lines
-#define Set_CGRAM_Address	0b10111111	//DB5<=DB0 = data
-#define Set_DDRAM_Address	0b01111111	//DB6<=DB0 = data
-
-#define Tsu1	50	//>40ns
-#define Tsu2	50	//>80ns
-#define Th2		50	//>10ns
-
 void initDisplay(void);
-void writeToDisplay(uint8_t, uint8_t);	//address, data
+void writeToDisplay(uint8_t);
+void sendNibble(uint8_t);
+
 void setRS(void);
 void clearRS(void);
 void setEnable(void);

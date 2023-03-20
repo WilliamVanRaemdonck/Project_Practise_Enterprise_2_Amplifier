@@ -61,7 +61,7 @@ int main(void)
 		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);		
 		*/
 		//Display update -> parallel
-		writeToDisplay(0x00, 0xff);
+		writeToDisplay(0b11001111);
 	}
 }
 
