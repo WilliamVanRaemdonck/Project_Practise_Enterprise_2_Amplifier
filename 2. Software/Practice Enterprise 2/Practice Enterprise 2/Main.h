@@ -25,6 +25,7 @@ typedef unsigned char uint8_t;
 //MISC
 void	initIO();
 void	printl(uint8_t);
+uint8_t reverse(uint8_t);
 
 //ADC
 void	initADC();

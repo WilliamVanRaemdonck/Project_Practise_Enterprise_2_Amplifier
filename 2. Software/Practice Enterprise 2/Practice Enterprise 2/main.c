@@ -1,7 +1,7 @@
 /*
- * Created: 25/10/2022 11:19:27
- * Author : William VR
- */
+* Created: 25/10/2022 11:19:27
+* Author : William VR
+*/
 /*includes*/
 #include "main.h"
 
@@ -25,32 +25,48 @@ int main(void)
 	
 	//display
 	initDisplay();
-    
+	
 	//variables
 	uint8_t mux = 0x00;
+	uint8_t muxInput = 0x00;
 	uint8_t gain = 0x00;
-	
-	//shown on display
 	uint8_t volume = 0x00;
 	uint8_t bass = 0x00;
 	uint8_t midRange = 0x00;
 	uint8_t treble = 0x00;
 	
-    while (1) 
-    {
+	while (1)
+	{
 		//read inputs
 		gain = ReadADCPinValue(0b00001000);		//PB0
 		bass = ReadADCPinValue(0b00001011);		//PB3
 		midRange = ReadADCPinValue(0b00001100);	//PB4
 		treble = ReadADCPinValue(0b00001101);	//PB5
 		
-		//mux
+		//mux PC2 PC3 PC4 PC5
+		muxInput = PORTC;
+		muxInput = muxInput & 0b00111100;
+		switch (muxInput)
+		{
+			case 0b00000100:
+				mux = 0x00;
+				break;
+			case 0b00001000:
+				mux = 0x01;
+				break;
+			case 0b00010000:
+				mux = 0x02;
+				break;
+			case 0b00100000:
+				mux = 0x03;
+				break;
+		}
 		
 		//Volume -> rotary encoder
 		
 		//TDA update
 		//debug
-		setTDAValue(0b10000000, 0b00000000, 0b00000000);
+		setTDAValue(CHIP_ADDRESS, 0b10000010, 0b10000010);
 		_delay_ms(10);
 		/*
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
@@ -58,10 +74,10 @@ int main(void)
 		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);		
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);
 		*/
 		//Display update -> parallel
-		writeToDisplay(0b11001111);
+		writeToDisplay(0b00001111);
 	}
 }
 
@@ -93,8 +109,8 @@ void initADC(){
 }
 
 uint8_t ReadADCPinValue(uint8_t ADCReadPin){
-	ADMUXA	|= ADCReadPin;		
-	ADMUXB	&= 0b11111110;		
+	ADMUXA	|= ADCReadPin;
+	ADMUXB	&= 0b11111110;
 	ADCSRA	|= 0b01000000;		//ADSC on
 	return ADCH;
 }
@@ -102,6 +118,13 @@ uint8_t ReadADCPinValue(uint8_t ADCReadPin){
 //-----------------------------------------------------------------------------------------	MISC
 void printl(uint8_t input){
 	PORTA = input;
+}
+
+uint8_t reverse(uint8_t b) {
+	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
+	b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
+	b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
+	return b;
 }
 
 //-----------------------------------------------------------------------------------------	back burner

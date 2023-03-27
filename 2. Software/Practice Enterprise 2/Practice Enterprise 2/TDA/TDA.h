@@ -20,6 +20,7 @@
 #define SubAdr_Treble_gain			0b00000101
 #define SubAdr_Speaker_attenuation_L 0b00000110
 #define SubAdr_Speaker_attenuation_R 0b00000111
+#define AUTO_INCREMENT				0b00001000
 
 uint8_t convert4bits(uint8_t input){
 	
