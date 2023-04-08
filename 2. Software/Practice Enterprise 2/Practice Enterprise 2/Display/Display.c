@@ -22,6 +22,7 @@
 
 #include "../main.h"
 #include "Display.h"
+#include <string.h>
 
 void initDisplay(void){
 	//init
@@ -64,21 +65,96 @@ void initDisplay(void){
 	_delay_ms(1000);
 }
 
-void writeToDisplay(uint8_t data){
-	cursorHome();
-	clearLCD();
+void updateDisplay(uint8_t input, uint8_t mux){
+	//1 VOLUME:					address: 0x80
+	//2 ??????_______________	address: 0xc0
+	//3 INPUT:					address: 0x94
+	//4 [] [] [?] []			address: 0xd4
+
+	//vars
+	char inputStrText[] = "INPUT:";
+	char volStrText[] = "VOLUME:";
+	char basStrText[] = "Bass:";
+	char midStrText[] = "Mid-range:";
+	char treStrText[] = "Treble:";
 	
-	sendNibble(0b10000000);		//address = 0 DDRAM
-	_delay_ms(2);	//>1.67ms
+	char barStr[20];
+	char muxStr[20];
 	
-	setRS();
-	sendNibble(data);
-	clearRS();
-		
-	_delay_ms(1000);
+	uint8_t bars = 0;
+	uint8_t blanks = 0;
+	static uint8_t barsPrev;
+	static uint8_t muxPrev;
+	
+	// volume string
+	bars = input / 13; // 0 - 255 => 0 - 20 => / 12.75 ~ 13 
+	blanks = 20 - bars;
+	
+	strcpy(barStr, "");
+	
+	for(int i = 0; i < bars; i++){
+		strcat(barStr, "X");
+	}
+	
+	for(int i = 0; i < blanks; i++){
+		strcat(barStr, "_");
+	}
+	
+	// mux string
+	switch(mux){
+		case 0x00:
+		strcpy(muxStr, " [");
+		strcat(muxStr, "X");
+		strcat(muxStr, "]  [_]  [_]  [_] ");
+		break;
+		case 0x01:
+		strcpy(muxStr, " [_]  [_]");
+		strcat(muxStr, "X");
+		strcat(muxStr, "]  [_]  [_] ");
+		break;
+		case 0x02:
+		strcpy(muxStr, " [_]  [_]  [");
+		strcat(muxStr, "X");
+		strcat(muxStr, "]  [_] ");
+		break;
+		case 0x03:
+		strcpy(muxStr, " [_]  [_]  [_]  [");
+		strcat(muxStr, "X");
+		strcat(muxStr, "] ");
+		break;
+	}
+	
+	if(mux != muxPrev || bars > barsPrev){
+		clearLCD();
+	}
+	
+	writeToDisplay(volStrText, strlen(volStrText), 0x80);
+	writeToDisplay(barStr, strlen(barStr), 0xc0);
+	writeToDisplay(inputStrText, strlen(inputStrText), 0x94);
+	writeToDisplay(muxStr, strlen(muxStr), 0xd4);
+	
+	muxPrev = mux;
+	barsPrev = bars;
 }
 
-void sendByte(uint8_t data){
+void writeToDisplay(char data[], uint8_t length, uint8_t DDRAMaddress){
+	uint8_t address = DDRAMaddress;
+	cursorHome();
+	for(int i = 0; i < length;i++){
+		sendNibble(address);		//address = 0 DDRAM
+		_delay_ms(2);	//>1.67ms
+		
+		setRS();
+		sendNibble(data[i]);
+		clearRS();
+		
+		address++;
+	}
+	
+	address = DDRAMaddress;
+}
+
+void sendByte(char data){
 	//send data
 	PORTA = data;
 	
@@ -94,12 +170,12 @@ void sendByte(uint8_t data){
 	PORTA = 0x00;
 }
 
-void sendNibble(uint8_t data){
+void sendNibble(char data){
 	//data shift
-	uint8_t input = data;
-	uint8_t leftNibble = (input & 0b11110000);
+	char input = (char)data;
+	char leftNibble = (input & 0b11110000);
 	input = (data << 4);
-	uint8_t rightNibble = (input & 0b11110000);
+	char rightNibble = (input & 0b11110000);
 	
 	//data send
 	PORTA = leftNibble;

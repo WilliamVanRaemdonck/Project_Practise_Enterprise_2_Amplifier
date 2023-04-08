@@ -65,19 +65,15 @@ int main(void)
 		//Volume -> rotary encoder
 		
 		//TDA update
-		//debug
-		setTDAValue(CHIP_ADDRESS, 0b10000010, 0b10000010);
-		_delay_ms(10);
-		/*
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, gain);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);
-		*/
+		
 		//Display update -> parallel
-		writeToDisplay(0b00001111);
+		updateDisplay(gain , mux);
 	}
 }
 

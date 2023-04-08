@@ -14,7 +14,9 @@ Display/Display.d Display/Display.o: ../Display/Display.c \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../Display/Display.h
+ ../Display/Display.h \
+ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
+ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
 
 ../Display/../main.h:
 
@@ -47,3 +49,7 @@ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolch
 c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 ../Display/Display.h:
+
+c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
+c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
