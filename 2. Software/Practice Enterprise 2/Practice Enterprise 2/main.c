@@ -161,14 +161,14 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 		case 0x00:
 		if(PINB & (1<<PINB2)){					// clk = 0?
 			if(PINB & (1<<PINB1)){				// data = 0
-				if(volume >= 5){
-					volume -= 5;
+				if(volume <= 250){
+					volume += 5;
 				}
 				volumeSwitchState = 0x01;
 			}
 			else{								// data = 1
-				if(volume <= 250){
-					volume += 5;
+				if(volume >= 5){
+					volume -= 5;
 				}
 				volumeSwitchState = 0x01;
 			}
@@ -177,6 +177,9 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 		
 		case 0x01:
 		if(PINB & (1<<PINB2)){					// clk still low?
+			//stay
+		}
+		else{
 			volumeSwitchState = 0x00;
 		}
 		break;

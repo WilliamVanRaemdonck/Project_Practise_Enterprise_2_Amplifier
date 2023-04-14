@@ -97,7 +97,7 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	//assemble string
 	strcpy(barStr, "");
 	for(int i = 0; i < bars; i++){
-		strcat(barStr, "X");
+		strcat(barStr, "Y");
 	}
 	for(int i = 0; i < blanks; i++){
 		strcat(barStr, "_");
@@ -123,7 +123,6 @@ void writeToDisplay(char data[], uint8_t length, uint8_t DDRAMaddress){
 		
 		address++;
 	}
-	
 	address = DDRAMaddress;
 }
 
@@ -145,10 +144,22 @@ void sendByte(char data){
 
 void sendNibble(char data){
 	//data shift
-	char input = (char)data;
-	char leftNibble = (input & 0b11110000);
-	input = (data << 4);
-	char rightNibble = (input & 0b11110000);
+	
+	uint8_t input = 0x00;
+	uint8_t leftNibble = 0x00;
+	uint8_t rightNibble = 0x00;
+	
+	//X to blok
+	if(data == 0b01011001){		//data == Y ?
+		leftNibble = 0xFF;
+		rightNibble = 0xFF;
+	}
+	else{
+		input = (uint8_t)data;
+		leftNibble = (input & 0b11110000);
+		input = (data << 4);
+		rightNibble = (input & 0b11110000);
+	}
 	
 	//data send
 	PORTA = leftNibble;
