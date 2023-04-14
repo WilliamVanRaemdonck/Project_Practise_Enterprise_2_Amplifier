@@ -7,10 +7,25 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/interrupt.h>
 
 #include "I2C/I2C.h"
 #include "TDA/TDA.h"
 #include "Display/Display.h"
+
+//variables
+uint8_t mux = 0x00;
+uint8_t muxInput = 0x00;
+
+//input values
+uint8_t volume = 0x00;
+uint8_t gain = 0x00;
+uint8_t bass = 0x00;
+uint8_t midRange = 0x00;
+uint8_t treble = 0x00;
+
+//display
+uint8_t dispValue = 0x00;
 
 int main(void)
 {
@@ -23,17 +38,14 @@ int main(void)
 	//I2C
 	initI2C();
 	
-	//display
+	//DISPLAY
 	initDisplay();
 	
-	//variables
-	uint8_t mux = 0x00;
-	uint8_t muxInput = 0x00;
-	uint8_t gain = 0x00;
-	uint8_t volume = 0x00;
-	uint8_t bass = 0x00;
-	uint8_t midRange = 0x00;
-	uint8_t treble = 0x00;
+	//TIMER1
+	initTimer1();
+	
+	//ENABLE INTERRUPTS
+	sei();
 	
 	while (1)
 	{
@@ -49,20 +61,18 @@ int main(void)
 		switch (muxInput)
 		{
 			case 0b00000100:
-				mux = 0x00;
-				break;
+			mux = 0x00;
+			break;
 			case 0b00001000:
-				mux = 0x01;
-				break;
+			mux = 0x01;
+			break;
 			case 0b00010000:
-				mux = 0x02;
-				break;
+			mux = 0x02;
+			break;
 			case 0b00100000:
-				mux = 0x03;
-				break;
+			mux = 0x03;
+			break;
 		}
-		
-		//Volume -> rotary encoder
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
@@ -73,14 +83,18 @@ int main(void)
 		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);
 		
 		//Display update -> parallel
-		updateDisplay(gain , mux);
+		updateDisplay(volume, mux);
+		/*
+		for(int i = 0; i < 4;i++){
+		updateDisplay((i*50), i);
+		}*/
 	}
 }
 
 //-----------------------------------------------------------------------------------------	IO
 void initIO(){
 	//PORT A
-	DDRA = 0xff;		//output
+	DDRA = 0b11111110;	//output
 	PUEA = 0xff;		//Set pull ups
 	PORTA = 0x00;		//write zero
 	
@@ -97,7 +111,7 @@ void initIO(){
 
 //-----------------------------------------------------------------------------------------	ADC
 void initADC(){
-	PRR		&= 0b11111110;		//turn power saving of
+	PRR		&= 0b11111110;		//turn power saving off
 	ADCSRA	|= 0b10000000;		//turn ADEN on
 	ADMUXB	&= 0b00000000;		//Voltage reference VCC
 	ADCSRA	|= 0b00000100;		//set Scaler 0100 => /16
@@ -111,17 +125,65 @@ uint8_t ReadADCPinValue(uint8_t ADCReadPin){
 	return ADCH;
 }
 
-//-----------------------------------------------------------------------------------------	MISC
-void printl(uint8_t input){
-	PORTA = input;
+//-----------------------------------------------------------------------------------------	Timer1
+void initTimer1(void){
+	PRR	   &= 0b11110111;						//power saving off
+
+	TCCR1B |= (1 << WGM12 );					// Configure timer 1 for CTC mode
+	OCR1A = 0;
+	
+	TIMSK1 |= (1 << OCIE1A );					// Enable CTC interrupt
+	TCCR1B |= (1 << CS11 ) | (1 << CS10 );		// prescaler of 64
+	//TCCR1B |= (1 << CS00 );						// no prescaling
 }
 
+//-----------------------------------------------------------------------------------------	MISC
 uint8_t reverse(uint8_t b) {
 	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
 	b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
 	b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
 	return b;
 }
+
+//-----------------------------------------------------------------------------------------	ISR
+ISR(TIMER1_COMPA_vect, ISR_BLOCK){
+	static uint8_t volumeSwitchState = 0x00;
+	/*
+	0x00	READ
+	0x01	IDLE	*/
+
+	// Toggle LED on each interrupt
+	PORTA ^= 1 << PORTA1;
+
+	//rotary encoder
+	switch (volumeSwitchState)
+	{
+		case 0x00:
+		if(PINB & (1<<PINB2)){					// clk = 0?
+			if(PINB & (1<<PINB1)){				// data = 0
+				if(volume >= 5){
+					volume -= 5;
+				}
+				volumeSwitchState = 0x01;
+			}
+			else{								// data = 1
+				if(volume <= 250){
+					volume += 5;
+				}
+				volumeSwitchState = 0x01;
+			}
+		}
+		break;
+		
+		case 0x01:
+		if(PINB & (1<<PINB2)){					// clk still low?
+			volumeSwitchState = 0x00;
+		}
+		break;
+	}
+	
+}
+
 
 //-----------------------------------------------------------------------------------------	back burner
 /*

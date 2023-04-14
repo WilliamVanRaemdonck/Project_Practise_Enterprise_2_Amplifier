@@ -13,6 +13,7 @@ main.d main.o: .././main.c .././main.h \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  .././I2C/I2C.h .././TDA/TDA.h .././Display/Display.h
 
 .././main.h:
@@ -44,6 +45,8 @@ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolch
 c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 .././I2C/I2C.h:
 

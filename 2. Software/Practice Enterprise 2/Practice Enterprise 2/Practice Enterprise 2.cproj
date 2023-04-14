@@ -161,7 +161,6 @@
   <ItemGroup>
     <Folder Include="I2C" />
     <Folder Include="Display" />
-    <Folder Include="Rotary Encoder" />
     <Folder Include="TDA" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

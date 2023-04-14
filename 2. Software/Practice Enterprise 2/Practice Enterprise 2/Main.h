@@ -31,8 +31,7 @@ uint8_t reverse(uint8_t);
 void	initADC();
 uint8_t	ReadADCPinValue(uint8_t);
 
-
-
-
+//TIMER0
+void initTimer1(void);
 
 #endif /* MAIN_H_ */

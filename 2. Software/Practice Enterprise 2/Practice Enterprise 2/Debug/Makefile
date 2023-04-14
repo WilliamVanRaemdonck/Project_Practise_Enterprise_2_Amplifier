@@ -35,7 +35,6 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../I2C \
 ../Display \
-../Rotary\ Encoder \
 ../TDA
 
 
