@@ -12,6 +12,7 @@
 #include "I2C/I2C.h"
 #include "TDA/TDA.h"
 #include "Display/Display.h"
+#include "EEPROM/EEPROM.h"
 
 //variables
 uint8_t mux = 0x00;
@@ -24,9 +25,6 @@ uint8_t bass = 0x00;
 uint8_t midRange = 0x00;
 uint8_t treble = 0x00;
 
-//display
-uint8_t dispValue = 0x00;
-
 int main(void)
 {
 	//IO
@@ -35,17 +33,20 @@ int main(void)
 	//ADC
 	initADC();
 	
+	//TIMER1
+	initTimer1();
+
 	//I2C
 	initI2C();
 	
 	//DISPLAY
 	initDisplay();
 	
-	//TIMER1
-	initTimer1();
-	
 	//ENABLE INTERRUPTS
 	sei();
+	
+	//read volume value
+	volume = EEPROM_read(0x00);
 	
 	while (1)
 	{
@@ -88,13 +89,16 @@ int main(void)
 		for(int i = 0; i < 4;i++){
 		updateDisplay((i*50), i);
 		}*/
+	
+		//write to EEPROM
+		EEPROM_write(0x00, volume);
 	}
 }
 
 //-----------------------------------------------------------------------------------------	IO
 void initIO(){
 	//PORT A
-	DDRA = 0b11111110;	//output
+	DDRA = 0b11111111;	//output
 	PUEA = 0xff;		//Set pull ups
 	PORTA = 0x00;		//write zero
 	

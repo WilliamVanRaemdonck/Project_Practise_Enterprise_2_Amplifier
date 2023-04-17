@@ -35,12 +35,14 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../I2C \
 ../Display \
+../EEPROM \
 ../TDA
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Display/Display.c \
+../EEPROM/EEPROM.c \
 ../I2C/I2C.c \
 ../main.c \
 ../TDA/TDA.c
@@ -54,24 +56,28 @@ ASM_SRCS +=
 
 OBJS +=  \
 Display/Display.o \
+EEPROM/EEPROM.o \
 I2C/I2C.o \
 main.o \
 TDA/TDA.o
 
 OBJS_AS_ARGS +=  \
 Display/Display.o \
+EEPROM/EEPROM.o \
 I2C/I2C.o \
 main.o \
 TDA/TDA.o
 
 C_DEPS +=  \
 Display/Display.d \
+EEPROM/EEPROM.d \
 I2C/I2C.d \
 main.d \
 TDA/TDA.d
 
 C_DEPS_AS_ARGS +=  \
 Display/Display.d \
+EEPROM/EEPROM.d \
 I2C/I2C.d \
 main.d \
 TDA/TDA.d
@@ -91,6 +97,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 Display/Display.o: ../Display/Display.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Users\willi\Documents\12. MicroShipStudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\willi\Documents\12. MicroShipStudio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=attiny828 -B "C:\Users\willi\Documents\12. MicroShipStudio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\gcc\dev\attiny828" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+EEPROM/EEPROM.o: ../EEPROM/EEPROM.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Users\willi\Documents\12. MicroShipStudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\willi\Documents\12. MicroShipStudio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=attiny828 -B "C:\Users\willi\Documents\12. MicroShipStudio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\gcc\dev\attiny828" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

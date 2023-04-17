@@ -139,6 +139,12 @@
     <Compile Include="Display\Display.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="EEPROM\EEPROM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="EEPROM\EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="I2C\I2C.c">
       <SubType>compile</SubType>
     </Compile>
@@ -161,6 +167,7 @@
   <ItemGroup>
     <Folder Include="I2C" />
     <Folder Include="Display" />
+    <Folder Include="EEPROM" />
     <Folder Include="TDA" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

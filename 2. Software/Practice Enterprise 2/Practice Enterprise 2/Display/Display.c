@@ -47,7 +47,7 @@ void initDisplay(void){
 	setEnable();
 	PORTA = 0x00;
 	//power on delay
-	_delay_ms(50);
+	_delay_ms(500);
 	
 	clearEnable();
 	clearRS();
