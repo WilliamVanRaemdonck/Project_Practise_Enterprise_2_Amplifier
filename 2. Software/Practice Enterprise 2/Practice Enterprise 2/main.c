@@ -48,6 +48,11 @@ int main(void)
 	//read volume value
 	volume = EEPROM_read(0x00);
 	
+	//unmute TDA IC
+	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_L, 0x00);
+	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_R, 0x00);
+	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
+	
 	while (1)
 	{
 		//read inputs

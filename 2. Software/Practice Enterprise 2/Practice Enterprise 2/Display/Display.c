@@ -51,6 +51,8 @@ void initDisplay(void){
 	
 	clearEnable();
 	clearRS();
+	_delay_ms(500);
+	
 	//send function set 3 times
 	sendByte(0b00110000);//Function set
 	_delay_ms(5);	//>4.1
@@ -115,7 +117,7 @@ void writeToDisplay(char data[], uint8_t length, uint8_t DDRAMaddress){
 	cursorHome();
 	for(int i = 0; i < length;i++){
 		sendNibble(address);		//address = 0 DDRAM
-		//_delay_ms(2);	//>1.67ms	//tested not neccesary
+		_delay_us(50);				//>1.67ms
 		
 		setRS();
 		sendNibble(data[i]);
