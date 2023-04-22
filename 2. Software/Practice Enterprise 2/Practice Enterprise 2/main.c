@@ -62,22 +62,22 @@ int main(void)
 		treble = ReadADCPinValue(0b00001101);	//PB5
 		
 		//mux PC2 PC3 PC4 PC5
-		muxInput = PORTC;
-		muxInput = muxInput & 0b00111100;
-		switch (muxInput)
-		{
-			case 0b00000100:
-			mux = 0x00;
-			break;
-			case 0b00001000:
-			mux = 0x01;
-			break;
-			case 0b00010000:
-			mux = 0x02;
-			break;
-			case 0b00100000:
-			mux = 0x03;
-			break;
+		uint8_t PINC2v = PINC & (1 << PINC2);
+		uint8_t PINC3v = PINC & (1 << PINC3);
+		uint8_t PINC4v = PINC & (1 << PINC4);
+		uint8_t PINC5v = PINC & (1 << PINC5);
+		
+		if(PINC2v){
+			mux = 0;
+		}
+		else if(PINC3v){
+			mux = 1;
+		}
+		else if(PINC4v){
+			mux = 2;
+		}
+		else if(PINC5v){
+			mux = 3;
 		}
 		
 		//TDA update
@@ -90,9 +90,10 @@ int main(void)
 		
 		//Display update -> parallel
 		updateDisplay(volume, mux);
+	
 		/*
 		for(int i = 0; i < 4;i++){
-		updateDisplay((i*50), i);
+			updateDisplay((i*50), i);
 		}*/
 	
 		//write to EEPROM
@@ -147,6 +148,7 @@ void initTimer1(void){
 }
 
 //-----------------------------------------------------------------------------------------	MISC
+// src: https://stackoverflow.com/questions/2602823/in-c-c-whats-the-simplest-way-to-reverse-the-order-of-bits-in-a-byte
 uint8_t reverse(uint8_t b) {
 	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
 	b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
@@ -170,14 +172,14 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 		case 0x00:
 		if(PINB & (1<<PINB2)){					// clk = 0?
 			if(PINB & (1<<PINB1)){				// data = 0
-				if(volume <= 250){
-					volume += 5;
+				if(volume >= 5){
+					volume -= 5;
 				}
 				volumeSwitchState = 0x01;
 			}
 			else{								// data = 1
-				if(volume >= 5){
-					volume -= 5;
+				if(volume <= 250){
+					volume += 5;
 				}
 				volumeSwitchState = 0x01;
 			}

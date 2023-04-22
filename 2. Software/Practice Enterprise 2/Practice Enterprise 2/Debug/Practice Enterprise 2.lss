@@ -7,27 +7,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         00000642  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000020  0080016e  0080016e  00000744  2**0
+  2 .bss          0000001f  0080016e  0080016e  00000744  2**0
                   ALLOC
   3 .comment      00000030  00000000  00000000  00000744  2**0
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000774  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000160  00000000  00000000  000007b0  2**0
+  5 .debug_aranges 00000150  00000000  00000000  000007b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001adb  00000000  00000000  00000910  2**0
+  6 .debug_info   00001ac5  00000000  00000000  00000900  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000b77  00000000  00000000  000023eb  2**0
+  7 .debug_abbrev 00000b91  00000000  00000000  000023c5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000cd2  00000000  00000000  00002f62  2**0
+  8 .debug_line   00000c92  00000000  00000000  00002f56  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000002a8  00000000  00000000  00003c34  2**2
+  9 .debug_frame  00000288  00000000  00000000  00003be8  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000006da  00000000  00000000  00003edc  2**0
+ 10 .debug_str    000006dc  00000000  00000000  00003e70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000c21  00000000  00000000  000045b6  2**0
+ 11 .debug_loc    00000c45  00000000  00000000  0000454c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000120  00000000  00000000  000051d7  2**0
+ 12 .debug_ranges 00000110  00000000  00000000  00005191  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -91,7 +91,7 @@ Disassembly of section .text:
   5e:	1d 92       	st	X+, r1
 
 00000060 <.do_clear_bss_start>:
-  60:	ae 38       	cpi	r26, 0x8E	; 142
+  60:	ad 38       	cpi	r26, 0x8D	; 141
   62:	b2 07       	cpc	r27, r18
   64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
   66:	17 d2       	rcall	.+1070   	; 0x496 <main>
@@ -304,13 +304,13 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
  166:	90 93 6e 01 	sts	0x016E, r25	; 0x80016e <__data_end>
 	//assemble string
 	strcpy(barStr, "");
- 16a:	10 92 78 01 	sts	0x0178, r1	; 0x800178 <barStr>
+ 16a:	10 92 77 01 	sts	0x0177, r1	; 0x800177 <barStr>
 	for(int i = 0; i < bars; i++){
  16e:	20 e0       	ldi	r18, 0x00	; 0
  170:	30 e0       	ldi	r19, 0x00	; 0
  172:	0c c0       	rjmp	.+24     	; 0x18c <updateDisplay+0x34>
 		strcat(barStr, "Y");
- 174:	e8 e7       	ldi	r30, 0x78	; 120
+ 174:	e7 e7       	ldi	r30, 0x77	; 119
  176:	f1 e0       	ldi	r31, 0x01	; 1
  178:	01 90       	ld	r0, Z+
  17a:	00 20       	and	r0, r0
@@ -340,7 +340,7 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	}
 	for(int i = 0; i < blanks; i++){
 		strcat(barStr, "_");
- 19e:	e8 e7       	ldi	r30, 0x78	; 120
+ 19e:	e7 e7       	ldi	r30, 0x77	; 119
  1a0:	f1 e0       	ldi	r31, 0x01	; 1
  1a2:	01 90       	ld	r0, Z+
  1a4:	00 20       	and	r0, r0
@@ -376,26 +376,26 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
  1cc:	ff 4f       	sbci	r31, 0xFF	; 255
  1ce:	80 81       	ld	r24, Z
  1d0:	91 81       	ldd	r25, Z+1	; 0x01
- 1d2:	90 93 8d 01 	sts	0x018D, r25	; 0x80018d <muxStr+0x1>
- 1d6:	80 93 8c 01 	sts	0x018C, r24	; 0x80018c <muxStr>
+ 1d2:	90 93 8c 01 	sts	0x018C, r25	; 0x80018c <muxStr+0x1>
+ 1d6:	80 93 8b 01 	sts	0x018B, r24	; 0x80018b <muxStr>
 
 	writeToDisplay(barStr, strlen(barStr), 0xc0);
- 1da:	e8 e7       	ldi	r30, 0x78	; 120
+ 1da:	e7 e7       	ldi	r30, 0x77	; 119
  1dc:	f1 e0       	ldi	r31, 0x01	; 1
  1de:	01 90       	ld	r0, Z+
  1e0:	00 20       	and	r0, r0
  1e2:	e9 f7       	brne	.-6      	; 0x1de <updateDisplay+0x86>
  1e4:	31 97       	sbiw	r30, 0x01	; 1
  1e6:	bf 01       	movw	r22, r30
- 1e8:	68 57       	subi	r22, 0x78	; 120
+ 1e8:	67 57       	subi	r22, 0x77	; 119
  1ea:	71 40       	sbci	r23, 0x01	; 1
  1ec:	40 ec       	ldi	r20, 0xC0	; 192
- 1ee:	88 e7       	ldi	r24, 0x78	; 120
+ 1ee:	87 e7       	ldi	r24, 0x77	; 119
  1f0:	91 e0       	ldi	r25, 0x01	; 1
  1f2:	8a df       	rcall	.-236    	; 0x108 <writeToDisplay>
 	writeToDisplay(muxStr, strlen(muxStr), 0xd4);
- 1f4:	80 91 8c 01 	lds	r24, 0x018C	; 0x80018c <muxStr>
- 1f8:	90 91 8d 01 	lds	r25, 0x018D	; 0x80018d <muxStr+0x1>
+ 1f4:	80 91 8b 01 	lds	r24, 0x018B	; 0x80018b <muxStr>
+ 1f8:	90 91 8c 01 	lds	r25, 0x018C	; 0x80018c <muxStr+0x1>
  1fc:	fc 01       	movw	r30, r24
  1fe:	01 90       	ld	r0, Z+
  200:	00 20       	and	r0, r0
@@ -1066,51 +1066,52 @@ int main(void)
  4e0:	80 93 71 01 	sts	0x0171, r24	; 0x800171 <treble>
 		
 		//mux PC2 PC3 PC4 PC5
-		muxInput = PORTC;
- 4e4:	8a b1       	in	r24, 0x0a	; 10
-		muxInput = muxInput & 0b00111100;
- 4e6:	8c 73       	andi	r24, 0x3C	; 60
- 4e8:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <muxInput>
-		switch (muxInput)
- 4ec:	88 30       	cpi	r24, 0x08	; 8
- 4ee:	61 f0       	breq	.+24     	; 0x508 <main+0x72>
- 4f0:	18 f4       	brcc	.+6      	; 0x4f8 <main+0x62>
- 4f2:	84 30       	cpi	r24, 0x04	; 4
- 4f4:	31 f0       	breq	.+12     	; 0x502 <main+0x6c>
- 4f6:	13 c0       	rjmp	.+38     	; 0x51e <main+0x88>
- 4f8:	80 31       	cpi	r24, 0x10	; 16
- 4fa:	51 f0       	breq	.+20     	; 0x510 <main+0x7a>
- 4fc:	80 32       	cpi	r24, 0x20	; 32
- 4fe:	61 f0       	breq	.+24     	; 0x518 <main+0x82>
- 500:	0e c0       	rjmp	.+28     	; 0x51e <main+0x88>
-		{
-			case 0b00000100:
-			mux = 0x00;
- 502:	10 92 77 01 	sts	0x0177, r1	; 0x800177 <mux>
-			break;
+		uint8_t PINC2v = PINC & (1 << PINC2);
+ 4e4:	38 b1       	in	r19, 0x08	; 8
+		uint8_t PINC3v = PINC & (1 << PINC3);
+ 4e6:	88 b1       	in	r24, 0x08	; 8
+ 4e8:	88 70       	andi	r24, 0x08	; 8
+		uint8_t PINC4v = PINC & (1 << PINC4);
+ 4ea:	98 b1       	in	r25, 0x08	; 8
+ 4ec:	90 71       	andi	r25, 0x10	; 16
+		uint8_t PINC5v = PINC & (1 << PINC5);
+ 4ee:	28 b1       	in	r18, 0x08	; 8
+ 4f0:	20 72       	andi	r18, 0x20	; 32
+		
+		if(PINC2v){
+ 4f2:	32 ff       	sbrs	r19, 2
+ 4f4:	03 c0       	rjmp	.+6      	; 0x4fc <main+0x66>
+			mux = 0;
+ 4f6:	10 92 76 01 	sts	0x0176, r1	; 0x800176 <mux>
+ 4fa:	11 c0       	rjmp	.+34     	; 0x51e <main+0x88>
+		}
+		else if(PINC3v){
+ 4fc:	88 23       	and	r24, r24
+ 4fe:	21 f0       	breq	.+8      	; 0x508 <main+0x72>
+			mux = 1;
+ 500:	81 e0       	ldi	r24, 0x01	; 1
+ 502:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
  506:	0b c0       	rjmp	.+22     	; 0x51e <main+0x88>
-			case 0b00001000:
-			mux = 0x01;
- 508:	81 e0       	ldi	r24, 0x01	; 1
- 50a:	80 93 77 01 	sts	0x0177, r24	; 0x800177 <mux>
-			break;
- 50e:	07 c0       	rjmp	.+14     	; 0x51e <main+0x88>
-			case 0b00010000:
-			mux = 0x02;
- 510:	82 e0       	ldi	r24, 0x02	; 2
- 512:	80 93 77 01 	sts	0x0177, r24	; 0x800177 <mux>
-			break;
- 516:	03 c0       	rjmp	.+6      	; 0x51e <main+0x88>
-			case 0b00100000:
-			mux = 0x03;
+		}
+		else if(PINC4v){
+ 508:	99 23       	and	r25, r25
+ 50a:	21 f0       	breq	.+8      	; 0x514 <main+0x7e>
+			mux = 2;
+ 50c:	82 e0       	ldi	r24, 0x02	; 2
+ 50e:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
+ 512:	05 c0       	rjmp	.+10     	; 0x51e <main+0x88>
+		}
+		else if(PINC5v){
+ 514:	22 23       	and	r18, r18
+ 516:	19 f0       	breq	.+6      	; 0x51e <main+0x88>
+			mux = 3;
  518:	83 e0       	ldi	r24, 0x03	; 3
- 51a:	80 93 77 01 	sts	0x0177, r24	; 0x800177 <mux>
-			break;
+ 51a:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
 		}
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
- 51e:	40 91 77 01 	lds	r20, 0x0177	; 0x800177 <mux>
+ 51e:	40 91 76 01 	lds	r20, 0x0176	; 0x800176 <mux>
  522:	60 e0       	ldi	r22, 0x00	; 0
  524:	88 e8       	ldi	r24, 0x88	; 136
  526:	59 df       	rcall	.-334    	; 0x3da <setTDAValue>
@@ -1142,11 +1143,11 @@ int main(void)
 		
 		//Display update -> parallel
 		updateDisplay(volume, mux);
- 55a:	60 91 77 01 	lds	r22, 0x0177	; 0x800177 <mux>
+ 55a:	60 91 76 01 	lds	r22, 0x0176	; 0x800176 <mux>
  55e:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
  562:	fa dd       	rcall	.-1036   	; 0x158 <updateDisplay>
 		for(int i = 0; i < 4;i++){
-		updateDisplay((i*50), i);
+			updateDisplay((i*50), i);
 		}*/
 	
 		//write to EEPROM
@@ -1158,10 +1159,10 @@ int main(void)
  56c:	ab cf       	rjmp	.-170    	; 0x4c4 <main+0x2e>
 
 0000056e <reverse>:
-	//TCCR1B |= (1 << CS00 );						// no prescaling
 }
 
 //-----------------------------------------------------------------------------------------	MISC
+// src: https://stackoverflow.com/questions/2602823/in-c-c-whats-the-simplest-way-to-reverse-the-order-of-bits-in-a-byte
 uint8_t reverse(uint8_t b) {
 	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
  56e:	28 2f       	mov	r18, r24
@@ -1231,7 +1232,7 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 
 	//rotary encoder
 	switch (volumeSwitchState)
- 5d0:	80 91 70 01 	lds	r24, 0x0170	; 0x800170 <volumeSwitchState.1830>
+ 5d0:	80 91 70 01 	lds	r24, 0x0170	; 0x800170 <volumeSwitchState.1823>
  5d4:	88 23       	and	r24, r24
  5d6:	19 f0       	breq	.+6      	; 0x5de <__vector_9+0x24>
  5d8:	81 30       	cpi	r24, 0x01	; 1
@@ -1245,31 +1246,31 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 			if(PINB & (1<<PINB1)){				// data = 0
  5e2:	21 9b       	sbis	0x04, 1	; 4
  5e4:	0b c0       	rjmp	.+22     	; 0x5fc <__vector_9+0x42>
-				if(volume <= 250){
+				if(volume >= 5){
  5e6:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
- 5ea:	8b 3f       	cpi	r24, 0xFB	; 251
- 5ec:	18 f4       	brcc	.+6      	; 0x5f4 <__vector_9+0x3a>
-					volume += 5;
- 5ee:	8b 5f       	subi	r24, 0xFB	; 251
+ 5ea:	85 30       	cpi	r24, 0x05	; 5
+ 5ec:	18 f0       	brcs	.+6      	; 0x5f4 <__vector_9+0x3a>
+					volume -= 5;
+ 5ee:	85 50       	subi	r24, 0x05	; 5
  5f0:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <volume>
 				}
 				volumeSwitchState = 0x01;
  5f4:	81 e0       	ldi	r24, 0x01	; 1
- 5f6:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1830>
+ 5f6:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1823>
  5fa:	0e c0       	rjmp	.+28     	; 0x618 <__vector_9+0x5e>
 			}
 			else{								// data = 1
-				if(volume >= 5){
+				if(volume <= 250){
  5fc:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
- 600:	85 30       	cpi	r24, 0x05	; 5
- 602:	18 f0       	brcs	.+6      	; 0x60a <__vector_9+0x50>
-					volume -= 5;
- 604:	85 50       	subi	r24, 0x05	; 5
+ 600:	8b 3f       	cpi	r24, 0xFB	; 251
+ 602:	18 f4       	brcc	.+6      	; 0x60a <__vector_9+0x50>
+					volume += 5;
+ 604:	8b 5f       	subi	r24, 0xFB	; 251
  606:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <volume>
 				}
 				volumeSwitchState = 0x01;
  60a:	81 e0       	ldi	r24, 0x01	; 1
- 60c:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1830>
+ 60c:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1823>
  610:	03 c0       	rjmp	.+6      	; 0x618 <__vector_9+0x5e>
 			}
 		}
@@ -1282,7 +1283,7 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 		}
 		else{
 			volumeSwitchState = 0x00;
- 614:	10 92 70 01 	sts	0x0170, r1	; 0x800170 <volumeSwitchState.1830>
+ 614:	10 92 70 01 	sts	0x0170, r1	; 0x800170 <volumeSwitchState.1823>
 		}
 		break;
 	}
