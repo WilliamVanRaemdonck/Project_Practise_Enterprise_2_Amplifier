@@ -45,7 +45,7 @@ void sendI2C(uint8_t input){
 		shift = (shift >> 1);	//shift right by one
 	}
 	//ACK
-	sdaHigh();	//sdalow ?
+	sdaHigh();
 	clkPulse();
 }
 
@@ -73,18 +73,18 @@ void clkPulse(void){
 }
 
 void clkLow(void){
-	PORTB &= 0b10111111;
-}
-
-void clkHigh(void){
-	PORTB |= 0b01000000;
-}
-
-void sdaLow(void){
 	PORTB &= 0b01111111;
 }
 
-void sdaHigh(void){
+void clkHigh(void){
 	PORTB |= 0b10000000;
+}
+
+void sdaLow(void){
+	PORTB &= 0b10111111;
+}
+
+void sdaHigh(void){
+	PORTB |= 0b01000000;
 }
 

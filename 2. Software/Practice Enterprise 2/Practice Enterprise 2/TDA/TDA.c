@@ -5,5 +5,21 @@
  *  Author: William VR
  */ 
 
-//#include "../main.h"
-//#include "TDA.h"
+#include "../main.h"
+#include "TDA.h"
+
+/*
+input = 0 -> 255
+
+1111 1111 => XXXX 1111 shift 4
+1111 1111 => XX11 1111 shift 6
+
+*/
+
+uint8_t convert4bits(uint8_t input){
+	return(input >> 4);
+}
+
+uint8_t convert6bits(uint8_t input){
+	return(input >> 6);
+}

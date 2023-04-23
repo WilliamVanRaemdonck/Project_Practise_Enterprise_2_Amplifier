@@ -51,7 +51,7 @@ int main(void)
 	//unmute TDA IC
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_L, 0x00);
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_R, 0x00);
-	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
+	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
 	
 	while (1)
 	{
@@ -60,6 +60,7 @@ int main(void)
 		bass = ReadADCPinValue(0b00001011);		//PB3
 		midRange = ReadADCPinValue(0b00001100);	//PB4
 		treble = ReadADCPinValue(0b00001101);	//PB5
+		
 		
 		//mux PC2 PC3 PC4 PC5
 		uint8_t PINC2v = PINC & (1 << PINC2);
@@ -82,11 +83,18 @@ int main(void)
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, gain);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);
+		/*
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(gain));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(bass));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(midRange));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(treble));*/
+		
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(100));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Volume,convert6bits(150));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(50));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(50));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(50));
 		
 		//Display update -> parallel
 		updateDisplay(volume, mux);

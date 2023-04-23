@@ -22,4 +22,7 @@
 #define SubAdr_Speaker_attenuation_R 0b00000111
 #define AUTO_INCREMENT				0b00001000
 
+uint8_t convert4bits(uint8_t);
+uint8_t convert6bits(uint8_t);
+
 #endif /* TDA_H_ */

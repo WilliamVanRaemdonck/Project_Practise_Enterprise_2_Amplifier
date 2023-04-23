@@ -3,31 +3,31 @@ Practice Enterprise 2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000006e  00800100  00000642  000006d6  2**0
+  0 .data         0000006e  00800100  00000660  000006f4  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000642  00000000  00000000  00000094  2**1
+  1 .text         00000660  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000001f  0080016e  0080016e  00000744  2**0
+  2 .bss          0000001f  0080016e  0080016e  00000762  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000744  2**0
+  3 .comment      00000030  00000000  00000000  00000762  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000774  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000794  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000150  00000000  00000000  000007b0  2**0
+  5 .debug_aranges 00000178  00000000  00000000  000007d0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001ac5  00000000  00000000  00000900  2**0
+  6 .debug_info   00001c11  00000000  00000000  00000948  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000b91  00000000  00000000  000023c5  2**0
+  7 .debug_abbrev 00000c0f  00000000  00000000  00002559  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000c92  00000000  00000000  00002f56  2**0
+  8 .debug_line   00000d65  00000000  00000000  00003168  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000288  00000000  00000000  00003be8  2**2
+  9 .debug_frame  000002bc  00000000  00000000  00003ed0  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000006dc  00000000  00000000  00003e70  2**0
+ 10 .debug_str    00000703  00000000  00000000  0000418c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000c45  00000000  00000000  0000454c  2**0
+ 11 .debug_loc    00000c87  00000000  00000000  0000488f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000110  00000000  00000000  00005191  2**0
+ 12 .debug_ranges 00000128  00000000  00000000  00005516  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -42,7 +42,7 @@ Disassembly of section .text:
    c:	2e c0       	rjmp	.+92     	; 0x6a <__bad_interrupt>
    e:	2d c0       	rjmp	.+90     	; 0x6a <__bad_interrupt>
   10:	2c c0       	rjmp	.+88     	; 0x6a <__bad_interrupt>
-  12:	d3 c2       	rjmp	.+1446   	; 0x5ba <__vector_9>
+  12:	da c2       	rjmp	.+1460   	; 0x5c8 <__vector_9>
   14:	2a c0       	rjmp	.+84     	; 0x6a <__bad_interrupt>
   16:	29 c0       	rjmp	.+82     	; 0x6a <__bad_interrupt>
   18:	28 c0       	rjmp	.+80     	; 0x6a <__bad_interrupt>
@@ -72,7 +72,7 @@ Disassembly of section .text:
   40:	11 e0       	ldi	r17, 0x01	; 1
   42:	a0 e0       	ldi	r26, 0x00	; 0
   44:	b1 e0       	ldi	r27, 0x01	; 1
-  46:	e2 e4       	ldi	r30, 0x42	; 66
+  46:	e0 e6       	ldi	r30, 0x60	; 96
   48:	f6 e0       	ldi	r31, 0x06	; 6
   4a:	02 c0       	rjmp	.+4      	; 0x50 <__do_copy_data+0x10>
   4c:	05 90       	lpm	r0, Z+
@@ -95,7 +95,7 @@ Disassembly of section .text:
   62:	b2 07       	cpc	r27, r18
   64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
   66:	17 d2       	rcall	.+1070   	; 0x496 <main>
-  68:	ea c2       	rjmp	.+1492   	; 0x63e <_exit>
+  68:	f9 c2       	rjmp	.+1522   	; 0x65c <_exit>
 
 0000006a <__bad_interrupt>:
   6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
@@ -296,7 +296,7 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	// volume string
 	bars = displayValueF / 12; // 0 - 255 => 0 - 20 => / 12.75 ~ 13
  15a:	6c e0       	ldi	r22, 0x0C	; 12
- 15c:	64 d2       	rcall	.+1224   	; 0x626 <__udivmodqi4>
+ 15c:	73 d2       	rcall	.+1254   	; 0x644 <__udivmodqi4>
  15e:	80 93 6f 01 	sts	0x016F, r24	; 0x80016f <bars>
 	blanks = 20 - bars;
  162:	94 e1       	ldi	r25, 0x14	; 20
@@ -651,9 +651,9 @@ uint8_t EEPROM_read(uint8_t ucAddress)
 }
 
 void clkLow(void){
-	PORTB &= 0b10111111;
+	PORTB &= 0b01111111;
  340:	86 b1       	in	r24, 0x06	; 6
- 342:	8f 7b       	andi	r24, 0xBF	; 191
+ 342:	8f 77       	andi	r24, 0x7F	; 127
  344:	86 b9       	out	0x06, r24	; 6
  346:	08 95       	ret
 
@@ -661,9 +661,9 @@ void clkLow(void){
 }
 
 void clkHigh(void){
-	PORTB |= 0b01000000;
+	PORTB |= 0b10000000;
  348:	86 b1       	in	r24, 0x06	; 6
- 34a:	80 64       	ori	r24, 0x40	; 64
+ 34a:	80 68       	ori	r24, 0x80	; 128
  34c:	86 b9       	out	0x06, r24	; 6
  34e:	08 95       	ret
 
@@ -696,13 +696,13 @@ void clkPulse(void){
 
 00000366 <sdaLow>:
 void clkHigh(void){
-	PORTB |= 0b01000000;
+	PORTB |= 0b10000000;
 }
 
 void sdaLow(void){
-	PORTB &= 0b01111111;
+	PORTB &= 0b10111111;
  366:	86 b1       	in	r24, 0x06	; 6
- 368:	8f 77       	andi	r24, 0x7F	; 127
+ 368:	8f 7b       	andi	r24, 0xBF	; 191
  36a:	86 b9       	out	0x06, r24	; 6
  36c:	08 95       	ret
 
@@ -729,13 +729,13 @@ void startCom(void){
 
 00000384 <sdaHigh>:
 void sdaLow(void){
-	PORTB &= 0b01111111;
+	PORTB &= 0b10111111;
 }
 
 void sdaHigh(void){
-	PORTB |= 0b10000000;
+	PORTB |= 0b01000000;
  384:	86 b1       	in	r24, 0x06	; 6
- 386:	80 68       	ori	r24, 0x80	; 128
+ 386:	80 64       	ori	r24, 0x40	; 64
  388:	86 b9       	out	0x06, r24	; 6
  38a:	08 95       	ret
 
@@ -770,7 +770,7 @@ void sendI2C(uint8_t input){
 	
 	//send input
 	shift = reverse(input);
- 39e:	e7 d0       	rcall	.+462    	; 0x56e <reverse>
+ 39e:	ee d0       	rcall	.+476    	; 0x57c <reverse>
  3a0:	d8 2f       	mov	r29, r24
 	for(uint8_t index = 0; index < 8; index++){
  3a2:	c0 e0       	ldi	r28, 0x00	; 0
@@ -805,7 +805,7 @@ void sendI2C(uint8_t input){
 		shift = (shift >> 1);	//shift right by one
 	}
 	//ACK
-	sdaHigh();	//sdalow ?
+	sdaHigh();
  3ba:	e4 df       	rcall	.-56     	; 0x384 <sdaHigh>
 	clkPulse();
  3bc:	c9 df       	rcall	.-110    	; 0x350 <clkPulse>
@@ -1039,284 +1039,323 @@ int main(void)
  4b4:	67 e0       	ldi	r22, 0x07	; 7
  4b6:	88 e8       	ldi	r24, 0x88	; 136
  4b8:	90 df       	rcall	.-224    	; 0x3da <setTDAValue>
-	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
- 4ba:	40 91 75 01 	lds	r20, 0x0175	; 0x800175 <volume>
- 4be:	62 e0       	ldi	r22, 0x02	; 2
- 4c0:	88 e8       	ldi	r24, 0x88	; 136
- 4c2:	8b df       	rcall	.-234    	; 0x3da <setTDAValue>
+	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
+ 4ba:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
+ 4be:	bd d0       	rcall	.+378    	; 0x63a <convert6bits>
+ 4c0:	48 2f       	mov	r20, r24
+ 4c2:	62 e0       	ldi	r22, 0x02	; 2
+ 4c4:	88 e8       	ldi	r24, 0x88	; 136
+ 4c6:	89 df       	rcall	.-238    	; 0x3da <setTDAValue>
 	
 	while (1)
 	{
 		//read inputs
 		gain = ReadADCPinValue(0b00001000);		//PB0
- 4c4:	88 e0       	ldi	r24, 0x08	; 8
- 4c6:	be df       	rcall	.-132    	; 0x444 <ReadADCPinValue>
- 4c8:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <gain>
+ 4c8:	88 e0       	ldi	r24, 0x08	; 8
+ 4ca:	bc df       	rcall	.-136    	; 0x444 <ReadADCPinValue>
+ 4cc:	80 93 74 01 	sts	0x0174, r24	; 0x800174 <gain>
 		bass = ReadADCPinValue(0b00001011);		//PB3
- 4cc:	8b e0       	ldi	r24, 0x0B	; 11
- 4ce:	ba df       	rcall	.-140    	; 0x444 <ReadADCPinValue>
- 4d0:	80 93 73 01 	sts	0x0173, r24	; 0x800173 <bass>
+ 4d0:	8b e0       	ldi	r24, 0x0B	; 11
+ 4d2:	b8 df       	rcall	.-144    	; 0x444 <ReadADCPinValue>
+ 4d4:	80 93 73 01 	sts	0x0173, r24	; 0x800173 <bass>
 		midRange = ReadADCPinValue(0b00001100);	//PB4
- 4d4:	8c e0       	ldi	r24, 0x0C	; 12
- 4d6:	b6 df       	rcall	.-148    	; 0x444 <ReadADCPinValue>
- 4d8:	80 93 72 01 	sts	0x0172, r24	; 0x800172 <midRange>
+ 4d8:	8c e0       	ldi	r24, 0x0C	; 12
+ 4da:	b4 df       	rcall	.-152    	; 0x444 <ReadADCPinValue>
+ 4dc:	80 93 72 01 	sts	0x0172, r24	; 0x800172 <midRange>
 		treble = ReadADCPinValue(0b00001101);	//PB5
- 4dc:	8d e0       	ldi	r24, 0x0D	; 13
- 4de:	b2 df       	rcall	.-156    	; 0x444 <ReadADCPinValue>
- 4e0:	80 93 71 01 	sts	0x0171, r24	; 0x800171 <treble>
+ 4e0:	8d e0       	ldi	r24, 0x0D	; 13
+ 4e2:	b0 df       	rcall	.-160    	; 0x444 <ReadADCPinValue>
+ 4e4:	80 93 71 01 	sts	0x0171, r24	; 0x800171 <treble>
+		
 		
 		//mux PC2 PC3 PC4 PC5
 		uint8_t PINC2v = PINC & (1 << PINC2);
- 4e4:	38 b1       	in	r19, 0x08	; 8
+ 4e8:	38 b1       	in	r19, 0x08	; 8
 		uint8_t PINC3v = PINC & (1 << PINC3);
- 4e6:	88 b1       	in	r24, 0x08	; 8
- 4e8:	88 70       	andi	r24, 0x08	; 8
+ 4ea:	88 b1       	in	r24, 0x08	; 8
+ 4ec:	88 70       	andi	r24, 0x08	; 8
 		uint8_t PINC4v = PINC & (1 << PINC4);
- 4ea:	98 b1       	in	r25, 0x08	; 8
- 4ec:	90 71       	andi	r25, 0x10	; 16
+ 4ee:	98 b1       	in	r25, 0x08	; 8
+ 4f0:	90 71       	andi	r25, 0x10	; 16
 		uint8_t PINC5v = PINC & (1 << PINC5);
- 4ee:	28 b1       	in	r18, 0x08	; 8
- 4f0:	20 72       	andi	r18, 0x20	; 32
+ 4f2:	28 b1       	in	r18, 0x08	; 8
+ 4f4:	20 72       	andi	r18, 0x20	; 32
 		
 		if(PINC2v){
- 4f2:	32 ff       	sbrs	r19, 2
- 4f4:	03 c0       	rjmp	.+6      	; 0x4fc <main+0x66>
+ 4f6:	32 ff       	sbrs	r19, 2
+ 4f8:	03 c0       	rjmp	.+6      	; 0x500 <main+0x6a>
 			mux = 0;
- 4f6:	10 92 76 01 	sts	0x0176, r1	; 0x800176 <mux>
- 4fa:	11 c0       	rjmp	.+34     	; 0x51e <main+0x88>
+ 4fa:	10 92 76 01 	sts	0x0176, r1	; 0x800176 <mux>
+ 4fe:	11 c0       	rjmp	.+34     	; 0x522 <main+0x8c>
 		}
 		else if(PINC3v){
- 4fc:	88 23       	and	r24, r24
- 4fe:	21 f0       	breq	.+8      	; 0x508 <main+0x72>
+ 500:	88 23       	and	r24, r24
+ 502:	21 f0       	breq	.+8      	; 0x50c <main+0x76>
 			mux = 1;
- 500:	81 e0       	ldi	r24, 0x01	; 1
- 502:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
- 506:	0b c0       	rjmp	.+22     	; 0x51e <main+0x88>
+ 504:	81 e0       	ldi	r24, 0x01	; 1
+ 506:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
+ 50a:	0b c0       	rjmp	.+22     	; 0x522 <main+0x8c>
 		}
 		else if(PINC4v){
- 508:	99 23       	and	r25, r25
- 50a:	21 f0       	breq	.+8      	; 0x514 <main+0x7e>
+ 50c:	99 23       	and	r25, r25
+ 50e:	21 f0       	breq	.+8      	; 0x518 <main+0x82>
 			mux = 2;
- 50c:	82 e0       	ldi	r24, 0x02	; 2
- 50e:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
- 512:	05 c0       	rjmp	.+10     	; 0x51e <main+0x88>
+ 510:	82 e0       	ldi	r24, 0x02	; 2
+ 512:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
+ 516:	05 c0       	rjmp	.+10     	; 0x522 <main+0x8c>
 		}
 		else if(PINC5v){
- 514:	22 23       	and	r18, r18
- 516:	19 f0       	breq	.+6      	; 0x51e <main+0x88>
+ 518:	22 23       	and	r18, r18
+ 51a:	19 f0       	breq	.+6      	; 0x522 <main+0x8c>
 			mux = 3;
- 518:	83 e0       	ldi	r24, 0x03	; 3
- 51a:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
+ 51c:	83 e0       	ldi	r24, 0x03	; 3
+ 51e:	80 93 76 01 	sts	0x0176, r24	; 0x800176 <mux>
 		}
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
- 51e:	40 91 76 01 	lds	r20, 0x0176	; 0x800176 <mux>
- 522:	60 e0       	ldi	r22, 0x00	; 0
- 524:	88 e8       	ldi	r24, 0x88	; 136
- 526:	59 df       	rcall	.-334    	; 0x3da <setTDAValue>
-		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, gain);
- 528:	40 91 74 01 	lds	r20, 0x0174	; 0x800174 <gain>
- 52c:	61 e0       	ldi	r22, 0x01	; 1
- 52e:	88 e8       	ldi	r24, 0x88	; 136
- 530:	54 df       	rcall	.-344    	; 0x3da <setTDAValue>
-		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, volume);
- 532:	40 91 75 01 	lds	r20, 0x0175	; 0x800175 <volume>
- 536:	62 e0       	ldi	r22, 0x02	; 2
- 538:	88 e8       	ldi	r24, 0x88	; 136
- 53a:	4f df       	rcall	.-354    	; 0x3da <setTDAValue>
-		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain, bass);
- 53c:	40 91 73 01 	lds	r20, 0x0173	; 0x800173 <bass>
- 540:	63 e0       	ldi	r22, 0x03	; 3
- 542:	88 e8       	ldi	r24, 0x88	; 136
- 544:	4a df       	rcall	.-364    	; 0x3da <setTDAValue>
-		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain, midRange);
- 546:	40 91 72 01 	lds	r20, 0x0172	; 0x800172 <midRange>
- 54a:	64 e0       	ldi	r22, 0x04	; 4
+ 522:	40 91 76 01 	lds	r20, 0x0176	; 0x800176 <mux>
+ 526:	60 e0       	ldi	r22, 0x00	; 0
+ 528:	88 e8       	ldi	r24, 0x88	; 136
+ 52a:	57 df       	rcall	.-338    	; 0x3da <setTDAValue>
+		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(bass));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(midRange));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(treble));*/
+		
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(100));
+ 52c:	84 e6       	ldi	r24, 0x64	; 100
+ 52e:	82 d0       	rcall	.+260    	; 0x634 <convert4bits>
+ 530:	48 2f       	mov	r20, r24
+ 532:	61 e0       	ldi	r22, 0x01	; 1
+ 534:	88 e8       	ldi	r24, 0x88	; 136
+ 536:	51 df       	rcall	.-350    	; 0x3da <setTDAValue>
+		setTDAValue(CHIP_ADDRESS, SubAdr_Volume,convert6bits(150));
+ 538:	86 e9       	ldi	r24, 0x96	; 150
+ 53a:	7f d0       	rcall	.+254    	; 0x63a <convert6bits>
+ 53c:	48 2f       	mov	r20, r24
+ 53e:	62 e0       	ldi	r22, 0x02	; 2
+ 540:	88 e8       	ldi	r24, 0x88	; 136
+ 542:	4b df       	rcall	.-362    	; 0x3da <setTDAValue>
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(50));
+ 544:	82 e3       	ldi	r24, 0x32	; 50
+ 546:	79 d0       	rcall	.+242    	; 0x63a <convert6bits>
+ 548:	48 2f       	mov	r20, r24
+ 54a:	63 e0       	ldi	r22, 0x03	; 3
  54c:	88 e8       	ldi	r24, 0x88	; 136
  54e:	45 df       	rcall	.-374    	; 0x3da <setTDAValue>
-		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain, treble);
- 550:	40 91 71 01 	lds	r20, 0x0171	; 0x800171 <treble>
- 554:	65 e0       	ldi	r22, 0x05	; 5
- 556:	88 e8       	ldi	r24, 0x88	; 136
- 558:	40 df       	rcall	.-384    	; 0x3da <setTDAValue>
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(50));
+ 550:	82 e3       	ldi	r24, 0x32	; 50
+ 552:	73 d0       	rcall	.+230    	; 0x63a <convert6bits>
+ 554:	48 2f       	mov	r20, r24
+ 556:	64 e0       	ldi	r22, 0x04	; 4
+ 558:	88 e8       	ldi	r24, 0x88	; 136
+ 55a:	3f df       	rcall	.-386    	; 0x3da <setTDAValue>
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(50));
+ 55c:	82 e3       	ldi	r24, 0x32	; 50
+ 55e:	6d d0       	rcall	.+218    	; 0x63a <convert6bits>
+ 560:	48 2f       	mov	r20, r24
+ 562:	65 e0       	ldi	r22, 0x05	; 5
+ 564:	88 e8       	ldi	r24, 0x88	; 136
+ 566:	39 df       	rcall	.-398    	; 0x3da <setTDAValue>
 		
 		//Display update -> parallel
 		updateDisplay(volume, mux);
- 55a:	60 91 76 01 	lds	r22, 0x0176	; 0x800176 <mux>
- 55e:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
- 562:	fa dd       	rcall	.-1036   	; 0x158 <updateDisplay>
+ 568:	60 91 76 01 	lds	r22, 0x0176	; 0x800176 <mux>
+ 56c:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
+ 570:	f3 dd       	rcall	.-1050   	; 0x158 <updateDisplay>
 		for(int i = 0; i < 4;i++){
 			updateDisplay((i*50), i);
 		}*/
 	
 		//write to EEPROM
 		EEPROM_write(0x00, volume);
- 564:	60 91 75 01 	lds	r22, 0x0175	; 0x800175 <volume>
- 568:	80 e0       	ldi	r24, 0x00	; 0
- 56a:	d6 de       	rcall	.-596    	; 0x318 <EEPROM_write>
+ 572:	60 91 75 01 	lds	r22, 0x0175	; 0x800175 <volume>
+ 576:	80 e0       	ldi	r24, 0x00	; 0
+ 578:	cf de       	rcall	.-610    	; 0x318 <EEPROM_write>
 	}
- 56c:	ab cf       	rjmp	.-170    	; 0x4c4 <main+0x2e>
+ 57a:	a6 cf       	rjmp	.-180    	; 0x4c8 <main+0x32>
 
-0000056e <reverse>:
+0000057c <reverse>:
 }
 
 //-----------------------------------------------------------------------------------------	MISC
 // src: https://stackoverflow.com/questions/2602823/in-c-c-whats-the-simplest-way-to-reverse-the-order-of-bits-in-a-byte
 uint8_t reverse(uint8_t b) {
 	b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
- 56e:	28 2f       	mov	r18, r24
- 570:	22 95       	swap	r18
- 572:	2f 70       	andi	r18, 0x0F	; 15
- 574:	90 e0       	ldi	r25, 0x00	; 0
- 576:	82 95       	swap	r24
- 578:	92 95       	swap	r25
- 57a:	90 7f       	andi	r25, 0xF0	; 240
- 57c:	98 27       	eor	r25, r24
- 57e:	80 7f       	andi	r24, 0xF0	; 240
- 580:	98 27       	eor	r25, r24
- 582:	92 2f       	mov	r25, r18
- 584:	98 2b       	or	r25, r24
+ 57c:	28 2f       	mov	r18, r24
+ 57e:	22 95       	swap	r18
+ 580:	2f 70       	andi	r18, 0x0F	; 15
+ 582:	90 e0       	ldi	r25, 0x00	; 0
+ 584:	82 95       	swap	r24
+ 586:	92 95       	swap	r25
+ 588:	90 7f       	andi	r25, 0xF0	; 240
+ 58a:	98 27       	eor	r25, r24
+ 58c:	80 7f       	andi	r24, 0xF0	; 240
+ 58e:	98 27       	eor	r25, r24
+ 590:	92 2f       	mov	r25, r18
+ 592:	98 2b       	or	r25, r24
 	b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
- 586:	29 2f       	mov	r18, r25
- 588:	2c 7c       	andi	r18, 0xCC	; 204
- 58a:	30 e0       	ldi	r19, 0x00	; 0
- 58c:	35 95       	asr	r19
- 58e:	27 95       	ror	r18
- 590:	35 95       	asr	r19
- 592:	27 95       	ror	r18
- 594:	93 73       	andi	r25, 0x33	; 51
- 596:	89 2f       	mov	r24, r25
- 598:	90 e0       	ldi	r25, 0x00	; 0
- 59a:	88 0f       	add	r24, r24
- 59c:	99 1f       	adc	r25, r25
- 59e:	88 0f       	add	r24, r24
- 5a0:	99 1f       	adc	r25, r25
- 5a2:	82 2b       	or	r24, r18
+ 594:	29 2f       	mov	r18, r25
+ 596:	2c 7c       	andi	r18, 0xCC	; 204
+ 598:	30 e0       	ldi	r19, 0x00	; 0
+ 59a:	35 95       	asr	r19
+ 59c:	27 95       	ror	r18
+ 59e:	35 95       	asr	r19
+ 5a0:	27 95       	ror	r18
+ 5a2:	93 73       	andi	r25, 0x33	; 51
+ 5a4:	89 2f       	mov	r24, r25
+ 5a6:	90 e0       	ldi	r25, 0x00	; 0
+ 5a8:	88 0f       	add	r24, r24
+ 5aa:	99 1f       	adc	r25, r25
+ 5ac:	88 0f       	add	r24, r24
+ 5ae:	99 1f       	adc	r25, r25
+ 5b0:	82 2b       	or	r24, r18
 	b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
- 5a4:	28 2f       	mov	r18, r24
- 5a6:	2a 7a       	andi	r18, 0xAA	; 170
- 5a8:	30 e0       	ldi	r19, 0x00	; 0
- 5aa:	35 95       	asr	r19
- 5ac:	27 95       	ror	r18
- 5ae:	85 75       	andi	r24, 0x55	; 85
- 5b0:	90 e0       	ldi	r25, 0x00	; 0
- 5b2:	88 0f       	add	r24, r24
- 5b4:	99 1f       	adc	r25, r25
+ 5b2:	28 2f       	mov	r18, r24
+ 5b4:	2a 7a       	andi	r18, 0xAA	; 170
+ 5b6:	30 e0       	ldi	r19, 0x00	; 0
+ 5b8:	35 95       	asr	r19
+ 5ba:	27 95       	ror	r18
+ 5bc:	85 75       	andi	r24, 0x55	; 85
+ 5be:	90 e0       	ldi	r25, 0x00	; 0
+ 5c0:	88 0f       	add	r24, r24
+ 5c2:	99 1f       	adc	r25, r25
 	return b;
 }
- 5b6:	82 2b       	or	r24, r18
- 5b8:	08 95       	ret
+ 5c4:	82 2b       	or	r24, r18
+ 5c6:	08 95       	ret
 
-000005ba <__vector_9>:
+000005c8 <__vector_9>:
 
 //-----------------------------------------------------------------------------------------	ISR
 ISR(TIMER1_COMPA_vect, ISR_BLOCK){
- 5ba:	1f 92       	push	r1
- 5bc:	0f 92       	push	r0
- 5be:	0f b6       	in	r0, 0x3f	; 63
- 5c0:	0f 92       	push	r0
- 5c2:	11 24       	eor	r1, r1
- 5c4:	8f 93       	push	r24
- 5c6:	9f 93       	push	r25
+ 5c8:	1f 92       	push	r1
+ 5ca:	0f 92       	push	r0
+ 5cc:	0f b6       	in	r0, 0x3f	; 63
+ 5ce:	0f 92       	push	r0
+ 5d0:	11 24       	eor	r1, r1
+ 5d2:	8f 93       	push	r24
+ 5d4:	9f 93       	push	r25
 	/*
 	0x00	READ
 	0x01	IDLE	*/
 
 	// Toggle LED on each interrupt
 	PORTA ^= 1 << PORTA1;
- 5c8:	92 b1       	in	r25, 0x02	; 2
- 5ca:	82 e0       	ldi	r24, 0x02	; 2
- 5cc:	89 27       	eor	r24, r25
- 5ce:	82 b9       	out	0x02, r24	; 2
+ 5d6:	92 b1       	in	r25, 0x02	; 2
+ 5d8:	82 e0       	ldi	r24, 0x02	; 2
+ 5da:	89 27       	eor	r24, r25
+ 5dc:	82 b9       	out	0x02, r24	; 2
 
 	//rotary encoder
 	switch (volumeSwitchState)
- 5d0:	80 91 70 01 	lds	r24, 0x0170	; 0x800170 <volumeSwitchState.1823>
- 5d4:	88 23       	and	r24, r24
- 5d6:	19 f0       	breq	.+6      	; 0x5de <__vector_9+0x24>
- 5d8:	81 30       	cpi	r24, 0x01	; 1
- 5da:	d9 f0       	breq	.+54     	; 0x612 <__vector_9+0x58>
- 5dc:	1d c0       	rjmp	.+58     	; 0x618 <__vector_9+0x5e>
+ 5de:	80 91 70 01 	lds	r24, 0x0170	; 0x800170 <volumeSwitchState.1827>
+ 5e2:	88 23       	and	r24, r24
+ 5e4:	19 f0       	breq	.+6      	; 0x5ec <__vector_9+0x24>
+ 5e6:	81 30       	cpi	r24, 0x01	; 1
+ 5e8:	d9 f0       	breq	.+54     	; 0x620 <__vector_9+0x58>
+ 5ea:	1d c0       	rjmp	.+58     	; 0x626 <__vector_9+0x5e>
 	{
 		case 0x00:
 		if(PINB & (1<<PINB2)){					// clk = 0?
- 5de:	22 9b       	sbis	0x04, 2	; 4
- 5e0:	1b c0       	rjmp	.+54     	; 0x618 <__vector_9+0x5e>
+ 5ec:	22 9b       	sbis	0x04, 2	; 4
+ 5ee:	1b c0       	rjmp	.+54     	; 0x626 <__vector_9+0x5e>
 			if(PINB & (1<<PINB1)){				// data = 0
- 5e2:	21 9b       	sbis	0x04, 1	; 4
- 5e4:	0b c0       	rjmp	.+22     	; 0x5fc <__vector_9+0x42>
+ 5f0:	21 9b       	sbis	0x04, 1	; 4
+ 5f2:	0b c0       	rjmp	.+22     	; 0x60a <__vector_9+0x42>
 				if(volume >= 5){
- 5e6:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
- 5ea:	85 30       	cpi	r24, 0x05	; 5
- 5ec:	18 f0       	brcs	.+6      	; 0x5f4 <__vector_9+0x3a>
+ 5f4:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
+ 5f8:	85 30       	cpi	r24, 0x05	; 5
+ 5fa:	18 f0       	brcs	.+6      	; 0x602 <__vector_9+0x3a>
 					volume -= 5;
- 5ee:	85 50       	subi	r24, 0x05	; 5
- 5f0:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <volume>
+ 5fc:	85 50       	subi	r24, 0x05	; 5
+ 5fe:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <volume>
 				}
 				volumeSwitchState = 0x01;
- 5f4:	81 e0       	ldi	r24, 0x01	; 1
- 5f6:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1823>
- 5fa:	0e c0       	rjmp	.+28     	; 0x618 <__vector_9+0x5e>
+ 602:	81 e0       	ldi	r24, 0x01	; 1
+ 604:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1827>
+ 608:	0e c0       	rjmp	.+28     	; 0x626 <__vector_9+0x5e>
 			}
 			else{								// data = 1
 				if(volume <= 250){
- 5fc:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
- 600:	8b 3f       	cpi	r24, 0xFB	; 251
- 602:	18 f4       	brcc	.+6      	; 0x60a <__vector_9+0x50>
+ 60a:	80 91 75 01 	lds	r24, 0x0175	; 0x800175 <volume>
+ 60e:	8b 3f       	cpi	r24, 0xFB	; 251
+ 610:	18 f4       	brcc	.+6      	; 0x618 <__vector_9+0x50>
 					volume += 5;
- 604:	8b 5f       	subi	r24, 0xFB	; 251
- 606:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <volume>
+ 612:	8b 5f       	subi	r24, 0xFB	; 251
+ 614:	80 93 75 01 	sts	0x0175, r24	; 0x800175 <volume>
 				}
 				volumeSwitchState = 0x01;
- 60a:	81 e0       	ldi	r24, 0x01	; 1
- 60c:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1823>
- 610:	03 c0       	rjmp	.+6      	; 0x618 <__vector_9+0x5e>
+ 618:	81 e0       	ldi	r24, 0x01	; 1
+ 61a:	80 93 70 01 	sts	0x0170, r24	; 0x800170 <volumeSwitchState.1827>
+ 61e:	03 c0       	rjmp	.+6      	; 0x626 <__vector_9+0x5e>
 			}
 		}
 		break;
 		
 		case 0x01:
 		if(PINB & (1<<PINB2)){					// clk still low?
- 612:	22 9b       	sbis	0x04, 2	; 4
+ 620:	22 9b       	sbis	0x04, 2	; 4
 			//stay
 		}
 		else{
 			volumeSwitchState = 0x00;
- 614:	10 92 70 01 	sts	0x0170, r1	; 0x800170 <volumeSwitchState.1823>
+ 622:	10 92 70 01 	sts	0x0170, r1	; 0x800170 <volumeSwitchState.1827>
 		}
 		break;
 	}
 	
 }
- 618:	9f 91       	pop	r25
- 61a:	8f 91       	pop	r24
- 61c:	0f 90       	pop	r0
- 61e:	0f be       	out	0x3f, r0	; 63
- 620:	0f 90       	pop	r0
- 622:	1f 90       	pop	r1
- 624:	18 95       	reti
+ 626:	9f 91       	pop	r25
+ 628:	8f 91       	pop	r24
+ 62a:	0f 90       	pop	r0
+ 62c:	0f be       	out	0x3f, r0	; 63
+ 62e:	0f 90       	pop	r0
+ 630:	1f 90       	pop	r1
+ 632:	18 95       	reti
 
-00000626 <__udivmodqi4>:
- 626:	99 1b       	sub	r25, r25
- 628:	79 e0       	ldi	r23, 0x09	; 9
- 62a:	04 c0       	rjmp	.+8      	; 0x634 <__udivmodqi4_ep>
+00000634 <convert4bits>:
+*/
 
-0000062c <__udivmodqi4_loop>:
- 62c:	99 1f       	adc	r25, r25
- 62e:	96 17       	cp	r25, r22
- 630:	08 f0       	brcs	.+2      	; 0x634 <__udivmodqi4_ep>
- 632:	96 1b       	sub	r25, r22
 
-00000634 <__udivmodqi4_ep>:
- 634:	88 1f       	adc	r24, r24
- 636:	7a 95       	dec	r23
- 638:	c9 f7       	brne	.-14     	; 0x62c <__udivmodqi4_loop>
- 63a:	80 95       	com	r24
- 63c:	08 95       	ret
+uint8_t convert4bits(uint8_t input){
+	return(input >> 4);
+}
+ 634:	82 95       	swap	r24
+ 636:	8f 70       	andi	r24, 0x0F	; 15
+ 638:	08 95       	ret
 
-0000063e <_exit>:
- 63e:	f8 94       	cli
+0000063a <convert6bits>:
 
-00000640 <__stop_program>:
- 640:	ff cf       	rjmp	.-2      	; 0x640 <__stop_program>
+uint8_t convert6bits(uint8_t input){
+	return(input >> 6);
+ 63a:	82 95       	swap	r24
+ 63c:	86 95       	lsr	r24
+ 63e:	86 95       	lsr	r24
+ 640:	83 70       	andi	r24, 0x03	; 3
+ 642:	08 95       	ret
+
+00000644 <__udivmodqi4>:
+ 644:	99 1b       	sub	r25, r25
+ 646:	79 e0       	ldi	r23, 0x09	; 9
+ 648:	04 c0       	rjmp	.+8      	; 0x652 <__udivmodqi4_ep>
+
+0000064a <__udivmodqi4_loop>:
+ 64a:	99 1f       	adc	r25, r25
+ 64c:	96 17       	cp	r25, r22
+ 64e:	08 f0       	brcs	.+2      	; 0x652 <__udivmodqi4_ep>
+ 650:	96 1b       	sub	r25, r22
+
+00000652 <__udivmodqi4_ep>:
+ 652:	88 1f       	adc	r24, r24
+ 654:	7a 95       	dec	r23
+ 656:	c9 f7       	brne	.-14     	; 0x64a <__udivmodqi4_loop>
+ 658:	80 95       	com	r24
+ 65a:	08 95       	ret
+
+0000065c <_exit>:
+ 65c:	f8 94       	cli
+
+0000065e <__stop_program>:
+ 65e:	ff cf       	rjmp	.-2      	; 0x65e <__stop_program>
