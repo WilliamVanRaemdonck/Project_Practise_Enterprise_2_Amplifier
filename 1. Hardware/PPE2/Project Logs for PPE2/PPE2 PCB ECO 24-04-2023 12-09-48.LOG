@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=20V Pin=AMP_9V-2
+Change Component Designator: OldDesignator=AMP_20V NewDesignator=AMP_15V
+Change Component Designator: OldDesignator=PSU_20V NewDesignator=PSU_15V
+Added Pin To Net: NetName=+9 Pin=AMP_9V-2
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Add Class: Class already exists: Designator
+Change Room Name: Old Name=Designator_5 New Name=Designator
+Change Room Name: Old Name=Designator_4 New Name=Designator
+Change Room Name: Old Name=Designator_6 New Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator

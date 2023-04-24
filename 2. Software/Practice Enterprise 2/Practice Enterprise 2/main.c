@@ -27,6 +27,9 @@ uint8_t treble = 0x00;
 
 int main(void)
 {
+	//power on delay
+	_delay_us(100);
+	
 	//IO
 	initIO();
 	
@@ -51,7 +54,7 @@ int main(void)
 	//unmute TDA IC
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_L, 0x00);
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_R, 0x00);
-	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
+	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, 0x00);
 	
 	while (1)
 	{
@@ -60,7 +63,6 @@ int main(void)
 		bass = ReadADCPinValue(0b00001011);		//PB3
 		midRange = ReadADCPinValue(0b00001100);	//PB4
 		treble = ReadADCPinValue(0b00001101);	//PB5
-		
 		
 		//mux PC2 PC3 PC4 PC5
 		uint8_t PINC2v = PINC & (1 << PINC2);
@@ -83,26 +85,14 @@ int main(void)
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
-		/*
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(gain));
 		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
 		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(bass));
 		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(midRange));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(treble));*/
-		
-		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(100));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Volume,convert6bits(150));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(50));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(50));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(50));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(treble));
 		
 		//Display update -> parallel
 		updateDisplay(volume, mux);
-	
-		/*
-		for(int i = 0; i < 4;i++){
-			updateDisplay((i*50), i);
-		}*/
 	
 		//write to EEPROM
 		EEPROM_write(0x00, volume);
@@ -115,12 +105,10 @@ void initIO(){
 	DDRA = 0b11111111;	//output
 	PUEA = 0xff;		//Set pull ups
 	PORTA = 0x00;		//write zero
-	
 	//PORT B
 	DDRB = 0b11000000;	//output
 	PUEB = 0xff;		//Set pull ups
 	PORTB = 0b00000000;	//write zero
-	
 	//PORT C
 	DDRC = 0b11000000;	//output
 	PUEC = 0xff;		//Set pull ups
@@ -137,9 +125,15 @@ void initADC(){
 }
 
 uint8_t ReadADCPinValue(uint8_t ADCReadPin){
-	ADMUXA	|= ADCReadPin;
-	ADMUXB	&= 0b11111110;
-	ADCSRA	|= 0b01000000;		//ADSC on
+	ADMUXA = ADCReadPin;
+	
+	// Start ADC conversion
+	ADCSRA |= (1 << ADSC);
+	
+	// Wait for ADC conversion to complete
+	while (ADCSRA & (1 << ADSC));
+	
+	// Return ADC result
 	return ADCH;
 }
 

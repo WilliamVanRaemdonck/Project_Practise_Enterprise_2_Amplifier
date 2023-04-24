@@ -8,7 +8,7 @@
 #ifndef I2C_H_
 #define I2C_H_
 
-#define I2CSpeed 100		
+#define I2CSpeed 52	//BAUDRATE = 9600		
 
 /*function declaration*/
 void	initI2C();

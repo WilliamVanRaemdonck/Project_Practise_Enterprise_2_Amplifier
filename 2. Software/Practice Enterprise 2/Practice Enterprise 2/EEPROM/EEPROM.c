@@ -15,7 +15,7 @@ void EEPROM_write(uint8_t ucAddress, uint8_t ucData)
 	/* Set Programming mode */
 	EECR = (0<<EEPM1)|(0<<EEPM0);
 	/* Set up address and data registers */
-	EEAR = ucAddress;
+	EEAR = ucAddress; 
 	EEDR = ucData;
 	/* Write logical one to EEMPE */
 	EECR |= (1<<EEMPE);
