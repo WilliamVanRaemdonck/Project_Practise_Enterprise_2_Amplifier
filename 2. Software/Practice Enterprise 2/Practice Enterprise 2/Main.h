@@ -16,7 +16,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-
 /*typedefs*/
 typedef unsigned char uint8_t;
 

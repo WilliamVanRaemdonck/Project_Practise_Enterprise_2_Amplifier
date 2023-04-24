@@ -16,7 +16,6 @@
 
 //variables
 uint8_t mux = 0x00;
-uint8_t muxInput = 0x00;
 
 //input values
 uint8_t volume = 0x00;
