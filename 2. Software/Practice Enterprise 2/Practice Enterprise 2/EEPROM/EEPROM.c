@@ -7,9 +7,11 @@
 
 #include "../main.h"
 #include "EEPROM.h"
+#include <avr/interrupt.h>
 
 void EEPROM_write(uint8_t ucAddress, uint8_t ucData)
 {
+	cli();
 	/* Wait for completion of previous write */
 	while(EECR & (1<<EEPE));
 	/* Set Programming mode */
@@ -21,10 +23,12 @@ void EEPROM_write(uint8_t ucAddress, uint8_t ucData)
 	EECR |= (1<<EEMPE);
 	/* Start eeprom write by setting EEPE */
 	EECR |= (1<<EEPE);
+	sei();
 }
 
 uint8_t EEPROM_read(uint8_t ucAddress)
 {
+	cli();
 	/* Wait for completion of previous write */
 	while(EECR & (1<<EEPE));
 	/* Set up address register */
@@ -32,5 +36,6 @@ uint8_t EEPROM_read(uint8_t ucAddress)
 	/* Start eeprom read by writing EERE */
 	EECR |= (1<<EERE);
 	/* Return data from data register */
+	sei();
 	return EEDR;
 }

@@ -23,6 +23,7 @@
 #include "../main.h"
 #include "Display.h"
 #include <string.h>
+#include <stdio.h>
 
 //vars
 char inpStrText[] = "INPUT:";
@@ -81,7 +82,7 @@ void initDisplay(void){
 	sendNibble(RETURN_HOME);	// return home
 	_delay_ms(2);	//>1.67ms
 	
-	_delay_ms(1000);
+	clearLCD();
 	
 	writeToDisplay(volStrText, strlen(volStrText), 0x80);
 	writeToDisplay(inpStrText, strlen(inpStrText), 0x94);
@@ -96,6 +97,7 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	// volume string
 	bars = displayValueF / 12; // 0 - 255 => 0 - 20 => / 12.75 ~ 13
 	blanks = 20 - bars;
+	
 	//assemble string
 	strcpy(barStr, "");
 	for(int i = 0; i < bars; i++){
@@ -107,25 +109,29 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	
 	//mux string
 	muxStr = muxTable[mux];
-
+	
+	//writeToDisplay(volStrText, strlen(volStrText), 0x80);
 	writeToDisplay(barStr, strlen(barStr), 0xc0);
+	//writeToDisplay(inpStrText, strlen(inpStrText), 0x94);
 	writeToDisplay(muxStr, strlen(muxStr), 0xd4);
 }
 
 void writeToDisplay(char data[], uint8_t length, uint8_t DDRAMaddress){
-	uint8_t address = DDRAMaddress;
+	uint8_t addressF = DDRAMaddress;
+	
 	cursorHome();
+	
 	for(int i = 0; i < length;i++){
-		sendNibble(address);		//address = 0 DDRAM
-		_delay_us(50);				//>1.67ms
+		sendNibble(addressF);		//address = 0 DDRAM
+		//_delay_us(2);				
+		_delay_ms(2);				//>1.67ms
 		
 		setRS();
 		sendNibble(data[i]);
 		clearRS();
 		
-		address++;
+		addressF++;
 	}
-	address = DDRAMaddress;
 }
 
 void sendByte(char data){
@@ -158,8 +164,10 @@ void sendNibble(char data){
 	}
 	else{
 		input = (uint8_t)data;
+		
 		leftNibble = (input & 0b11110000);
-		input = (data << 4);
+		
+		input = (((uint8_t)data) << 4);
 		rightNibble = (input & 0b11110000);
 	}
 	

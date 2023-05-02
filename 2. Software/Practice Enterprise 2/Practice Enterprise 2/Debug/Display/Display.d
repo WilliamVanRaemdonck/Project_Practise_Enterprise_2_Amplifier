@@ -16,7 +16,9 @@ Display/Display.d Display/Display.o: ../Display/Display.c \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../Display/Display.h \
  c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h
+ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h
 
 ../Display/../main.h:
 
@@ -53,3 +55,7 @@ c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolch
 c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
+c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+c:\users\willi\documents\12.\ microshipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:

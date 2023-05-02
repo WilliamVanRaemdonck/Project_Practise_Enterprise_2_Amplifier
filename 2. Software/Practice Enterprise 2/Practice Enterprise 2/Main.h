@@ -1,6 +1,5 @@
 /*
  * Main.h
- *
  * Created: 03/03/2023 12:22:17
  *  Author: William VR
  */ 
@@ -10,14 +9,11 @@
 #define MAIN_H_
 
 /*defines*/
-#define F_CPU 1000000UL
+#define F_CPU 8000000UL
 #define CHIP_ADDRESS 0x88
 
 #include <avr/io.h>
 #include <util/delay.h>
-
-/*typedefs*/
-typedef unsigned char uint8_t;
 
 /*functions*/
 
@@ -32,5 +28,8 @@ uint8_t	ReadADCPinValue(uint8_t);
 
 //TIMER0
 void initTimer1(void);
+
+//clk
+void initclk(void);
 
 #endif /* MAIN_H_ */

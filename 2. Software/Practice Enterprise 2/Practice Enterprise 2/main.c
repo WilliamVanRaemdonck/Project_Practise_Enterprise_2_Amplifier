@@ -8,26 +8,34 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/wdt.h>
+#include <math.h>
 
 #include "I2C/I2C.h"
 #include "TDA/TDA.h"
 #include "Display/Display.h"
 #include "EEPROM/EEPROM.h"
 
-//variables
-uint8_t mux = 0x00;
 
-//input values
-uint8_t volume = 0x00;
+
+//variables	input values
+volatile uint8_t volume = 0x00;
+uint8_t mux = 0x00;
 uint8_t gain = 0x00;
 uint8_t bass = 0x00;
 uint8_t midRange = 0x00;
 uint8_t treble = 0x00;
+uint8_t muteLeds = 0x00;
 
 int main(void)
-{
-	//power on delay
-	_delay_us(100);
+{	
+	//watch dog timer
+	//wdt_enable(WDTO_2S);
+	//wdt_reset(); // optional, to prevent the watchdog from triggering an unwanted reset
+	//WDTCSR |= (1 << WDE) | (1 << WDCE);
+	//WDTCSR = (1 << RESET);
+	
+	initclk();
 	
 	//IO
 	initIO();
@@ -54,45 +62,32 @@ int main(void)
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_L, 0x00);
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_R, 0x00);
 	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, 0x00);
-	
+		
 	while (1)
 	{
 		//read inputs
-		gain = ReadADCPinValue(0b00001000);		//PB0
-		bass = ReadADCPinValue(0b00001011);		//PB3
-		midRange = ReadADCPinValue(0b00001100);	//PB4
-		treble = ReadADCPinValue(0b00001101);	//PB5
+		gain = ReadADCPinValue(0b00001000);			//PB0
+		bass = ReadADCPinValue(0b00001011);			//PB3
+		midRange = ReadADCPinValue(0b00001100);		//PB4
+		treble = 255 - ReadADCPinValue(0b00001101);	//PB5
 		
 		//mux PC2 PC3 PC4 PC5
-		uint8_t PINC2v = PINC & (1 << PINC2);
-		uint8_t PINC3v = PINC & (1 << PINC3);
-		uint8_t PINC4v = PINC & (1 << PINC4);
-		uint8_t PINC5v = PINC & (1 << PINC5);
-		
-		if(PINC2v){
-			mux = 0;
-		}
-		else if(PINC3v){
-			mux = 1;
-		}
-		else if(PINC4v){
-			mux = 2;
-		}
-		else if(PINC5v){
-			mux = 3;
-		}
+		mux = 0;
+		if (PINC & (1 << PINC3)) mux = 1;
+		if (PINC & (1 << PINC4)) mux = 2;
+		if (PINC & (1 << PINC5)) mux = 3;
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(gain));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits(volume));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert6bits(bass));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert6bits(midRange));
-		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert6bits(treble));
-		
+		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits((255 - volume)));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert4bits(bass));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert4bits(midRange));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Treble_gain,  convert4bits(treble));
+			
 		//Display update -> parallel
 		updateDisplay(volume, mux);
-	
+		
 		//write to EEPROM
 		EEPROM_write(0x00, volume);
 	}
@@ -101,9 +96,9 @@ int main(void)
 //-----------------------------------------------------------------------------------------	IO
 void initIO(){
 	//PORT A
-	DDRA = 0b11111111;	//output
-	PUEA = 0xff;		//Set pull ups
-	PORTA = 0x00;		//write zero
+	DDRA = 0xff;	//output			
+	PUEA = 0xff;	//Set pull ups
+	PORTA = 0x00;	//write zero
 	//PORT B
 	DDRB = 0b11000000;	//output
 	PUEB = 0xff;		//Set pull ups
@@ -157,6 +152,12 @@ uint8_t reverse(uint8_t b) {
 	return b;
 }
 
+void initclk(void){
+	//Set prescaler to 1;
+	CCP	= 0xD8;		
+	CLKPR = 0x00;
+}
+
 //-----------------------------------------------------------------------------------------	ISR
 ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 	static uint8_t volumeSwitchState = 0x00;
@@ -198,8 +199,6 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 	}
 	
 }
-
-
 //-----------------------------------------------------------------------------------------	back burner
 /*
 int ADCreadPin = 0b00010000;
@@ -207,8 +206,11 @@ int var = 0;
 var = ReadADCPinValue(ADCreadPin);
 PORTA = var;
 
-PORTB &= ~(1 << PINB7);
-PORTB |= (1 << PINB7);
+DDRB = 0xff
+_delay_ms(500);
+PORTB &= 0xff
+_delay_ms(500);
+PORTB |= 0xff
 
 PORTB &= ~(1 << PINB6);
 PORTB |= (1 << PINB6);
