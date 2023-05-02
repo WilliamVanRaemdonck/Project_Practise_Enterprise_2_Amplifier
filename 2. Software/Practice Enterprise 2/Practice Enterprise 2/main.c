@@ -79,7 +79,7 @@ int main(void)
 		
 		//TDA update
 		setTDAValue(CHIP_ADDRESS, SubAdr_Input_selector, mux);
-		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, convert4bits(gain));
+		setTDAValue(CHIP_ADDRESS, SubAdr_Input_gain, ((gain >> 4) & 0b00001111));
 		setTDAValue(CHIP_ADDRESS, SubAdr_Volume, convert6bits((255 - volume)));
 		setTDAValue(CHIP_ADDRESS, SubAdr_Bass_gain,  convert4bits(bass));
 		setTDAValue(CHIP_ADDRESS, SubAdr_Mid_range_gain,  convert4bits(midRange));

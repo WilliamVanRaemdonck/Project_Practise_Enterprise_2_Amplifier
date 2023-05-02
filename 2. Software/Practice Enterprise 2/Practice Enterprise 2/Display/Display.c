@@ -95,7 +95,7 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	//4 [] [] [?] []			address: 0xd4
 
 	// volume string
-	bars = displayValueF / 12; // 0 - 255 => 0 - 20 => / 12.75 ~ 13
+	bars = displayValueF / 12; // 0 - 255 => 0 - 20 => / 12.75 ~ 12
 	blanks = 20 - bars;
 	
 	//assemble string
