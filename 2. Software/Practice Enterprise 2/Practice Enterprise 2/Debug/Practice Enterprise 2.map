@@ -228,7 +228,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x676
+.text           0x00000000      0x6ee
  *(.vectors)
  .vectors       0x00000000       0x34 C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
                 0x00000000                __vector_default
@@ -324,90 +324,90 @@ END GROUP
  .text.clearEnable
                 0x00000084        0x8 Display/Display.o
                 0x00000084                clearEnable
- .text.sendByte
-                0x0000008c       0x1e Display/Display.o
-                0x0000008c                sendByte
- .text.sendNibble
-                0x000000aa       0x4c Display/Display.o
-                0x000000aa                sendNibble
+ .text.sendByteByNibble
+                0x0000008c       0x4c Display/Display.o
+                0x0000008c                sendByteByNibble
  .text.clearLCD
-                0x000000f6       0x12 Display/Display.o
-                0x000000f6                clearLCD
+                0x000000d8       0x12 Display/Display.o
+                0x000000d8                clearLCD
  .text.cursorHome
-                0x00000108       0x12 Display/Display.o
-                0x00000108                cursorHome
+                0x000000ea       0x12 Display/Display.o
+                0x000000ea                cursorHome
  .text.writeToDisplay
-                0x0000011a       0x54 Display/Display.o
-                0x0000011a                writeToDisplay
+                0x000000fc       0x50 Display/Display.o
+                0x000000fc                writeToDisplay
  .text.updateDisplay
-                0x0000016e       0xba Display/Display.o
-                0x0000016e                updateDisplay
+                0x0000014c      0x11a Display/Display.o
+                0x0000014c                updateDisplay
+ .text.loadingScreen
+                0x00000266       0x98 Display/Display.o
+                0x00000266                loadingScreen
  .text.initDisplay
-                0x00000228       0xf6 Display/Display.o
-                0x00000228                initDisplay
+                0x000002fe       0xa2 Display/Display.o
+                0x000002fe                initDisplay
  .text.EEPROM_write
-                0x0000031e       0x1c EEPROM/EEPROM.o
-                0x0000031e                EEPROM_write
+                0x000003a0       0x1c EEPROM/EEPROM.o
+                0x000003a0                EEPROM_write
  .text.EEPROM_read
-                0x0000033a       0x14 EEPROM/EEPROM.o
-                0x0000033a                EEPROM_read
- .text.clkLow   0x0000034e        0x8 I2C/I2C.o
-                0x0000034e                clkLow
- .text.clkHigh  0x00000356        0x8 I2C/I2C.o
-                0x00000356                clkHigh
+                0x000003bc       0x14 EEPROM/EEPROM.o
+                0x000003bc                EEPROM_read
+ .text.clkLow   0x000003d0        0x8 I2C/I2C.o
+                0x000003d0                clkLow
+ .text.clkHigh  0x000003d8        0x8 I2C/I2C.o
+                0x000003d8                clkHigh
  .text.clkPulse
-                0x0000035e       0x16 I2C/I2C.o
-                0x0000035e                clkPulse
- .text.sdaLow   0x00000374        0x8 I2C/I2C.o
-                0x00000374                sdaLow
+                0x000003e0       0x16 I2C/I2C.o
+                0x000003e0                clkPulse
+ .text.sdaLow   0x000003f6        0x8 I2C/I2C.o
+                0x000003f6                sdaLow
  .text.startCom
-                0x0000037c       0x16 I2C/I2C.o
-                0x0000037c                startCom
- .text.sdaHigh  0x00000392        0x8 I2C/I2C.o
-                0x00000392                sdaHigh
- .text.initI2C  0x0000039a        0xe I2C/I2C.o
-                0x0000039a                initI2C
- .text.sendI2C  0x000003a8       0x2a I2C/I2C.o
-                0x000003a8                sendI2C
+                0x000003fe       0x16 I2C/I2C.o
+                0x000003fe                startCom
+ .text.sdaHigh  0x00000414        0x8 I2C/I2C.o
+                0x00000414                sdaHigh
+ .text.initI2C  0x0000041c        0xe I2C/I2C.o
+                0x0000041c                initI2C
+ .text.sendI2C  0x0000042a       0x2a I2C/I2C.o
+                0x0000042a                sendI2C
  .text.finishCom
-                0x000003d2       0x16 I2C/I2C.o
-                0x000003d2                finishCom
+                0x00000454       0x16 I2C/I2C.o
+                0x00000454                finishCom
  .text.setTDAValue
-                0x000003e8       0x24 I2C/I2C.o
-                0x000003e8                setTDAValue
- .text.initIO   0x0000040c       0x18 main.o
-                0x0000040c                initIO
- .text.initADC  0x00000424       0x2e main.o
-                0x00000424                initADC
+                0x0000046a       0x24 I2C/I2C.o
+                0x0000046a                setTDAValue
+ .text.initIO   0x0000048e       0x18 main.o
+                0x0000048e                initIO
+ .text.initADC  0x000004a6       0x2e main.o
+                0x000004a6                initADC
  .text.ReadADCPinValue
-                0x00000452       0x1c main.o
-                0x00000452                ReadADCPinValue
+                0x000004d4       0x1c main.o
+                0x000004d4                ReadADCPinValue
  .text.initTimer1
-                0x0000046e       0x2e main.o
-                0x0000046e                initTimer1
- .text.reverse  0x0000049c       0x4c main.o
-                0x0000049c                reverse
- .text.initclk  0x000004e8        0xa main.o
-                0x000004e8                initclk
- .text.main     0x000004f2       0xd8 main.o
-                0x000004f2                main
+                0x000004f0       0x2e main.o
+                0x000004f0                initTimer1
+ .text.reverse  0x0000051e       0x4c main.o
+                0x0000051e                reverse
+ .text.initclk  0x0000056a        0xa main.o
+                0x0000056a                initclk
+ .text.main     0x00000574       0xda main.o
+                0x00000574                main
  .text.__vector_9
-                0x000005ca       0x74 main.o
-                0x000005ca                __vector_9
+                0x0000064e       0x68 main.o
+                0x0000064e                __vector_9
  .text.convert4bits
-                0x0000063e       0x10 TDA/TDA.o
-                0x0000063e                convert4bits
+                0x000006b6       0x10 TDA/TDA.o
+                0x000006b6                convert4bits
  .text.convert6bits
-                0x0000064e        0xc TDA/TDA.o
-                0x0000064e                convert6bits
+                0x000006c6        0xc TDA/TDA.o
+                0x000006c6                convert6bits
  .text.libgcc.div
-                0x0000065a       0x18 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_udivmodqi4.o)
-                0x0000065a                __udivmodqi4
-                0x00000672                . = ALIGN (0x2)
+                0x000006d2       0x18 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_udivmodqi4.o)
+                0x000006d2                __udivmodqi4
+                0x000006ea                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000672        0x0 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
-                0x00000672                _exit
-                0x00000672                exit
+ .fini9         0x000006ea        0x0 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+                0x000006ea                _exit
+                0x000006ea                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -426,71 +426,82 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000672        0x4 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
+ .fini0         0x000006ea        0x4 c:/users/willi/documents/12. microshipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr25\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000676                _etext = .
+                0x000006ee                _etext = .
 
-.data           0x00800100       0x7e load address 0x00000676
+.data           0x00800100       0xc8 load address 0x000006ee
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  .data.muxTable
                 0x00800100        0x8 Display/Display.o
                 0x00800100                muxTable
+ .data.fullbarStrText
+                0x00800108       0x15 Display/Display.o
+                0x00800108                fullbarStrText
+ .data.emptyStrText
+                0x0080011d       0x14 Display/Display.o
+                0x0080011d                emptyStrText
+ .data.loadingStrText
+                0x00800131       0x16 Display/Display.o
+                0x00800131                loadingStrText
  .data.volStrText
-                0x00800108        0xb Display/Display.o
-                0x00800108                volStrText
+                0x00800147        0x8 Display/Display.o
+                0x00800147                volStrText
  .data.inpStrText
-                0x00800113        0x7 Display/Display.o
-                0x00800113                inpStrText
- .data.steps    0x0080011a        0xf TDA/TDA.o
-                0x0080011a                steps
+                0x0080014f       0x15 Display/Display.o
+                0x0080014f                inpStrText
+ .data.steps    0x00800164        0xf TDA/TDA.o
+                0x00800164                steps
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800129       0x54 Display/Display.o
+                0x00800173       0x54 Display/Display.o
  *(.gnu.linkonce.r*)
-                0x0080017e                . = ALIGN (0x2)
- *fill*         0x0080017d        0x1 
-                0x0080017e                _edata = .
-                0x0080017e                PROVIDE (__data_end, .)
+                0x008001c8                . = ALIGN (0x2)
+ *fill*         0x008001c7        0x1 
+                0x008001c8                _edata = .
+                0x008001c8                PROVIDE (__data_end, .)
 
-.bss            0x0080017e       0x1f
-                0x0080017e                PROVIDE (__bss_start, .)
+.bss            0x008001c8       0x20
+                0x008001c8                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.blanks    0x0080017e        0x1 Display/Display.o
-                0x0080017e                blanks
- .bss.bars      0x0080017f        0x1 Display/Display.o
-                0x0080017f                bars
- .bss.volumeSwitchState.1840
-                0x00800180        0x1 main.o
- .bss.treble    0x00800181        0x1 main.o
-                0x00800181                treble
- .bss.midRange  0x00800182        0x1 main.o
-                0x00800182                midRange
- .bss.bass      0x00800183        0x1 main.o
-                0x00800183                bass
- .bss.gain      0x00800184        0x1 main.o
-                0x00800184                gain
- .bss.mux       0x00800185        0x1 main.o
-                0x00800185                mux
- .bss.volume    0x00800186        0x1 main.o
-                0x00800186                volume
+ .bss.first     0x008001c8        0x1 Display/Display.o
+                0x008001c8                first
+ .bss.blanks    0x008001c9        0x1 Display/Display.o
+                0x008001c9                blanks
+ .bss.bars      0x008001ca        0x1 Display/Display.o
+                0x008001ca                bars
+ .bss.volumeSwitchState.1838
+                0x008001cb        0x1 main.o
+ .bss.treble    0x008001cc        0x1 main.o
+                0x008001cc                treble
+ .bss.midRange  0x008001cd        0x1 main.o
+                0x008001cd                midRange
+ .bss.bass      0x008001ce        0x1 main.o
+                0x008001ce                bass
+ .bss.gain      0x008001cf        0x1 main.o
+                0x008001cf                gain
+ .bss.mux       0x008001d0        0x1 main.o
+                0x008001d0                mux
+ .bss.volume    0x008001d1        0x1 main.o
+                0x008001d1                volume
  *(COMMON)
- COMMON         0x00800187       0x16 Display/Display.o
-                0x00800187                barStr
-                0x0080019b                muxStr
-                0x0080019d                PROVIDE (__bss_end, .)
-                0x00000676                __data_load_start = LOADADDR (.data)
-                0x000006f4                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008001d2       0x16 Display/Display.o
+                0x008001d2                barStr
+                0x008001e6                muxStr
+                0x008001e8                PROVIDE (__bss_end, .)
+                0x000006ee                __data_load_start = LOADADDR (.data)
+                0x000007b6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080019d        0x0
+.noinit         0x008001e8        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080019d                _end = .
+                0x008001e8                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -575,14 +586,14 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1bb7
+.debug_info     0x00000000     0x1c9b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x6cc C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_info    0x000006cc      0xa44 Display/Display.o
- .debug_info    0x00001110       0xce EEPROM/EEPROM.o
- .debug_info    0x000011de      0x4ab I2C/I2C.o
- .debug_info    0x00001689      0x420 main.o
- .debug_info    0x00001aa9      0x10e TDA/TDA.o
+ .debug_info    0x000006cc      0xb12 Display/Display.o
+ .debug_info    0x000011de       0xce EEPROM/EEPROM.o
+ .debug_info    0x000012ac      0x4ab I2C/I2C.o
+ .debug_info    0x00001757      0x436 main.o
+ .debug_info    0x00001b8d      0x10e TDA/TDA.o
 
 .debug_abbrev   0x00000000      0xc11
  *(.debug_abbrev)
@@ -593,44 +604,44 @@ END GROUP
  .debug_abbrev  0x00000a19      0x153 main.o
  .debug_abbrev  0x00000b6c       0xa5 TDA/TDA.o
 
-.debug_line     0x00000000      0xdb9
+.debug_line     0x00000000      0xdff
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_line    0x00000134      0x47c Display/Display.o
- .debug_line    0x000005b0      0x11d EEPROM/EEPROM.o
- .debug_line    0x000006cd      0x2ca I2C/I2C.o
- .debug_line    0x00000997      0x343 main.o
- .debug_line    0x00000cda       0xdf TDA/TDA.o
+ .debug_line    0x00000134      0x4c2 Display/Display.o
+ .debug_line    0x000005f6      0x11d EEPROM/EEPROM.o
+ .debug_line    0x00000713      0x2ca I2C/I2C.o
+ .debug_line    0x000009dd      0x343 main.o
+ .debug_line    0x00000d20       0xdf TDA/TDA.o
 
-.debug_frame    0x00000000      0x2cc
+.debug_frame    0x00000000      0x2d0
  *(.debug_frame)
- .debug_frame   0x00000000       0xec Display/Display.o
- .debug_frame   0x000000ec       0x34 EEPROM/EEPROM.o
- .debug_frame   0x00000120       0xd0 I2C/I2C.o
- .debug_frame   0x000001f0       0xa8 main.o
- .debug_frame   0x00000298       0x34 TDA/TDA.o
+ .debug_frame   0x00000000       0xf4 Display/Display.o
+ .debug_frame   0x000000f4       0x34 EEPROM/EEPROM.o
+ .debug_frame   0x00000128       0xd0 I2C/I2C.o
+ .debug_frame   0x000001f8       0xa4 main.o
+ .debug_frame   0x0000029c       0x34 TDA/TDA.o
 
-.debug_str      0x00000000      0x6fe
+.debug_str      0x00000000      0x73a
  *(.debug_str)
  .debug_str     0x00000000      0x25e C:/Users/willi/Documents/12. MicroShipStudio/7.0/Packs/atmel/ATtiny_DFP/1.8.332/gcc/dev/attiny828/avr25/crtattiny828.o
- .debug_str     0x0000025e      0x2fe Display/Display.o
-                                0x337 (size before relaxing)
- .debug_str     0x0000055c       0x3d EEPROM/EEPROM.o
+ .debug_str     0x0000025e      0x33a Display/Display.o
+                                0x373 (size before relaxing)
+ .debug_str     0x00000598       0x3d EEPROM/EEPROM.o
                                 0x1fc (size before relaxing)
- .debug_str     0x00000599       0x9a I2C/I2C.o
+ .debug_str     0x000005d5       0x9a I2C/I2C.o
                                 0x2af (size before relaxing)
- .debug_str     0x00000633       0xb8 main.o
-                                0x2c6 (size before relaxing)
- .debug_str     0x000006eb       0x13 TDA/TDA.o
+ .debug_str     0x0000066f       0xb8 main.o
+                                0x2d4 (size before relaxing)
+ .debug_str     0x00000727       0x13 TDA/TDA.o
                                 0x201 (size before relaxing)
 
-.debug_loc      0x00000000      0xd48
+.debug_loc      0x00000000      0xd09
  *(.debug_loc)
- .debug_loc     0x00000000      0x83b Display/Display.o
- .debug_loc     0x0000083b       0x4e EEPROM/EEPROM.o
- .debug_loc     0x00000889      0x366 I2C/I2C.o
- .debug_loc     0x00000bef       0xe2 main.o
- .debug_loc     0x00000cd1       0x77 TDA/TDA.o
+ .debug_loc     0x00000000      0x809 Display/Display.o
+ .debug_loc     0x00000809       0x4e EEPROM/EEPROM.o
+ .debug_loc     0x00000857      0x366 I2C/I2C.o
+ .debug_loc     0x00000bbd       0xd5 main.o
+ .debug_loc     0x00000c92       0x77 TDA/TDA.o
 
 .debug_macinfo
  *(.debug_macinfo)

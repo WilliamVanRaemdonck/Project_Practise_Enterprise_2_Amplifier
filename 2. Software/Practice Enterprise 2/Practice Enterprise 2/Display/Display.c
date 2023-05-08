@@ -16,8 +16,6 @@
 *   pin 6 enable	-	PINC7
 *   X/0 enable writing
 *   X/1 enable reading
-*
-*   data sheet X = 1
 */
 
 #include "../main.h"
@@ -26,8 +24,12 @@
 #include <stdio.h>
 
 //vars
-char inpStrText[] = "INPUT:";
-char volStrText[] = "VOLUME:   ";
+char inpStrText[] = "INPUT:              ";
+char volStrText[] = "VOLUME:";
+
+char loadingStrText[] = "       Loading       ";
+char emptyStrText[] = "                   ";
+char fullbarStrText[] = "YYYYYYYYYYYYYYYYYYY_";
 
 char* muxTable[4] = {
 	" [X]  [_]  [_]  [_] ",
@@ -39,8 +41,9 @@ char* muxTable[4] = {
 char barStr[20];
 char* muxStr;
 
-uint8_t bars = 0;
-uint8_t blanks = 0;
+uint8_t bars = 0x00;
+uint8_t blanks = 0x00;
+uint8_t first = 0x00;
 
 void initDisplay(void){
 	//init
@@ -55,37 +58,28 @@ void initDisplay(void){
 	_delay_ms(500);
 	
 	//send function set 3 times
-	sendByte(0b00110000);//Function set
+	sendByteByNibble(0b00110000);	//Function set
 	_delay_ms(5);	//>4.1
 	
-	sendByte(0b00110000);//Function set
+	sendByteByNibble(0b00110000);	//Function set
 	_delay_ms(2);	//>1.67ms
 	
-	sendByte(0b00110000);//Function set
+	sendByteByNibble(0b00110000);	//Function set
 	_delay_ms(2);	//>1.67ms
 	
-	sendByte(0b00100000);//Function set	- 4bit mode
+	sendByteByNibble(0b00100000);	//Function set	- 4bit mode
 	_delay_ms(2);	//>1.67ms
 	
-	sendNibble(FUNCTION_SET);	// interface length and Character font	- 4 bit en 5*8
+	sendByteByNibble(CURSOR_ON_BLINK);	// display on, cursor on, blink on
 	_delay_ms(2);	//>1.67ms
 	
-	sendNibble(CURSOR_ON_BLINK);// display on, cursor on, blink on
+	sendByteByNibble(ENTRY_MODE);	// ready to write
 	_delay_ms(2);	//>1.67ms
 	
-	sendNibble(CLEAR_DISPLAY);	// clear display
-	_delay_ms(2);	//>1.67ms
-	
-	sendNibble(ENTRY_MODE);		// ready to write
-	_delay_ms(2);	//>1.67ms
-	
-	sendNibble(RETURN_HOME);	// return home
+	sendByteByNibble(RETURN_HOME);	// return home
 	_delay_ms(2);	//>1.67ms
 	
 	clearLCD();
-	
-	writeToDisplay(volStrText, strlen(volStrText), 0x80);
-	writeToDisplay(inpStrText, strlen(inpStrText), 0x94);
 }
 
 void updateDisplay(uint8_t displayValueF, uint8_t mux){
@@ -100,19 +94,32 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	
 	//assemble string
 	strcpy(barStr, "");
-	for(int i = 0; i < bars; i++){
+	for(uint8_t i = 0; i < bars; i++){
 		strcat(barStr, "Y");
 	}
-	for(int i = 0; i < blanks; i++){
+	for(uint8_t i = 0; i < blanks; i++){
 		strcat(barStr, "_");
 	}
 	
 	//mux string
 	muxStr = muxTable[mux];
 	
-	//writeToDisplay(volStrText, strlen(volStrText), 0x80);
-	writeToDisplay(barStr, strlen(barStr), 0xc0);
-	//writeToDisplay(inpStrText, strlen(inpStrText), 0x94);
+	sendByteByNibble(ENTRY_MODE);		// ready to write
+	_delay_ms(2);	//>1.67ms
+	cursorHome();
+	
+	writeToDisplay(volStrText, strlen(volStrText), 0x80);
+	
+	// write entire bar on reset
+	if(first == 0x00){
+		writeToDisplay(fullbarStrText, strlen(fullbarStrText), 0xc0);
+		first = 0x01;
+	}
+	else{
+		writeToDisplay(barStr, strlen(barStr), 0xc0);
+	}
+	
+	writeToDisplay(inpStrText, strlen(inpStrText), 0x94);
 	writeToDisplay(muxStr, strlen(muxStr), 0xd4);
 }
 
@@ -122,37 +129,40 @@ void writeToDisplay(char data[], uint8_t length, uint8_t DDRAMaddress){
 	cursorHome();
 	
 	for(int i = 0; i < length;i++){
-		sendNibble(addressF);		//address = 0 DDRAM
-		//_delay_us(2);				
-		_delay_ms(2);				//>1.67ms
+		sendByteByNibble(addressF);
+		_delay_us(2);
 		
 		setRS();
-		sendNibble(data[i]);
+		sendByteByNibble(data[i]);
 		clearRS();
 		
 		addressF++;
 	}
 }
 
-void sendByte(char data){
-	//send data
-	PORTA = data;
+void loadingScreen(void){	
+	sendByteByNibble(CURSOR_ON_BLINK);	// display on, cursor on, blink on
+	_delay_ms(2);	//>1.67ms
 	
-	//pulse enable
-	setEnable();
-	_delay_us(50);
-	clearEnable();
-	_delay_us(50);
+	sendByteByNibble(ENTRY_MODE);		// ready to write
+	_delay_ms(2);	//>1.67ms
 	
-	//default position
-	clearEnable();
-	clearRS();
-	PORTA = 0x00;
+	clearLCD();
+	cursorHome();
+	
+	writeToDisplay(emptyStrText, strlen(emptyStrText), 0x80);
+	writeToDisplay(loadingStrText, strlen(loadingStrText), 0xc0);
+	
+	for(uint8_t i = 0; i < 20; i++){
+		strcat(barStr, "Y");
+		writeToDisplay(barStr, strlen(barStr), 0x94);
+	}
+	
+	clearLCD();
+	cursorHome();
 }
 
-void sendNibble(char data){
-	//data shift
-	
+void sendByteByNibble(char data){
 	uint8_t input = 0x00;
 	uint8_t leftNibble = 0x00;
 	uint8_t rightNibble = 0x00;
@@ -176,10 +186,8 @@ void sendNibble(char data){
 	
 	//pulse
 	setEnable();
-	//_delay_ms(2);
 	_delay_us(50);
 	clearEnable();
-	//_delay_ms(2);
 	_delay_us(50);
 	
 	//data send
@@ -187,10 +195,8 @@ void sendNibble(char data){
 	
 	//pulse
 	setEnable();
-	//_delay_ms(2);
 	_delay_us(50);
 	clearEnable();
-	//_delay_ms(2);
 	_delay_us(50);
 	
 	//default position
@@ -200,12 +206,12 @@ void sendNibble(char data){
 }
 
 void clearLCD(void){
-	sendNibble(CLEAR_DISPLAY);	// clear display
+	sendByteByNibble(CLEAR_DISPLAY);	// clear display
 	_delay_ms(2);	//>1.67ms
 }
 
 void cursorHome(void){
-	sendNibble(RETURN_HOME);	// return home
+	sendByteByNibble(RETURN_HOME);	// return home
 	_delay_ms(2);	//>1.67ms
 }
 

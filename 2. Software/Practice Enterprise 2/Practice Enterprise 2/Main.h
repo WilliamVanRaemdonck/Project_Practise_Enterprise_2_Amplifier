@@ -19,7 +19,7 @@
 
 //MISC
 void	initIO();
-void	printl(uint8_t);
+void initclk(void);
 uint8_t reverse(uint8_t);
 
 //ADC
@@ -29,7 +29,6 @@ uint8_t	ReadADCPinValue(uint8_t);
 //TIMER0
 void initTimer1(void);
 
-//clk
-void initclk(void);
+
 
 #endif /* MAIN_H_ */

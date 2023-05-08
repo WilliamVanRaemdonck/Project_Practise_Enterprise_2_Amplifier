@@ -70,20 +70,16 @@ void clkPulse(void){
 
 void clkLow(void){
 	PORTB &= 0b01111111;
-	//PORTB &= ~(1<<PINB6);
 }
 
 void clkHigh(void){
 	PORTB |= 0b10000000;
-	//PORTB |= (1<<PINB6);
 }
 
 void sdaLow(void){
 	PORTB &= 0b10111111;
-	//PORTB &= ~(1<<PINB7);
 }
 
 void sdaHigh(void){
 	PORTB |= 0b01000000;
-	//PORTB |= (1<<PINB7);
 }

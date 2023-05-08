@@ -30,7 +30,6 @@ I/D = 1; Increment by 1
 S = 0; No shift
 */
 
-#define FUNCTION_SET	0b00101000
 #define CURSOR_ON_BLINK	0b00001100
 #define DISPLAY_ON		0b00000001
 #define ENTRY_MODE		0b00000110
@@ -43,12 +42,12 @@ S = 0; No shift
 void initDisplay(void);
 void updateDisplay(uint8_t, uint8_t);
 void writeToDisplay(char[], uint8_t, uint8_t); // data; length, DDRAM address
+void loadingScreen(void);
 
 void clearLCD(void);
 void cursorHome(void);
 
-void sendByte(char);
-void sendNibble(char);
+void sendByteByNibble(char);
 
 void setRS(void);
 void clearRS(void);

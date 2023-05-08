@@ -16,8 +16,6 @@
 #include "Display/Display.h"
 #include "EEPROM/EEPROM.h"
 
-
-
 //variables	input values
 volatile uint8_t volume = 0x00;
 uint8_t mux = 0x00;
@@ -29,12 +27,7 @@ uint8_t muteLeds = 0x00;
 
 int main(void)
 {	
-	//watch dog timer
-	//wdt_enable(WDTO_2S);
-	//wdt_reset(); // optional, to prevent the watchdog from triggering an unwanted reset
-	//WDTCSR |= (1 << WDE) | (1 << WDCE);
-	//WDTCSR = (1 << RESET);
-	
+	//clk
 	initclk();
 	
 	//IO
@@ -63,6 +56,8 @@ int main(void)
 	setTDAValue(CHIP_ADDRESS, SubAdr_Speaker_attenuation_R, 0x00);
 	setTDAValue(CHIP_ADDRESS, SubAdr_Volume, 0x00);
 		
+	loadingScreen();
+	
 	while (1)
 	{
 		//read inputs
@@ -161,13 +156,11 @@ void initclk(void){
 //-----------------------------------------------------------------------------------------	ISR
 ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 	static uint8_t volumeSwitchState = 0x00;
+	
 	/*
 	0x00	READ
 	0x01	IDLE	*/
-
-	// Toggle LED on each interrupt
-	PORTA ^= 1 << PORTA1;
-
+	
 	//rotary encoder
 	switch (volumeSwitchState)
 	{
