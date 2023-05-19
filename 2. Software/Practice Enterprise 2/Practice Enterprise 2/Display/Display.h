@@ -30,6 +30,9 @@ I/D = 1; Increment by 1
 S = 0; No shift
 */
 
+#define FUNCTION_SET		0b00110000
+#define FUNCTION_SET_4BIT	0b00100000
+
 #define CURSOR_ON_BLINK	0b00001100
 #define DISPLAY_ON		0b00000001
 #define ENTRY_MODE		0b00000110

@@ -58,16 +58,16 @@ void initDisplay(void){
 	_delay_ms(500);
 	
 	//send function set 3 times
-	sendByteByNibble(0b00110000);	//Function set
-	_delay_ms(5);	//>4.1
+	sendByteByNibble(FUNCTION_SET);	//Function set
+	_delay_ms(15);	//>4.1
 	
-	sendByteByNibble(0b00110000);	//Function set
+	sendByteByNibble(FUNCTION_SET);	//Function set
+	_delay_ms(5);	//>1.67ms
+	
+	sendByteByNibble(FUNCTION_SET);	//Function set
 	_delay_ms(2);	//>1.67ms
 	
-	sendByteByNibble(0b00110000);	//Function set
-	_delay_ms(2);	//>1.67ms
-	
-	sendByteByNibble(0b00100000);	//Function set	- 4bit mode
+	sendByteByNibble(FUNCTION_SET_4BIT);	//Function set	- 4bit mode
 	_delay_ms(2);	//>1.67ms
 	
 	sendByteByNibble(CURSOR_ON_BLINK);	// display on, cursor on, blink on
@@ -104,8 +104,6 @@ void updateDisplay(uint8_t displayValueF, uint8_t mux){
 	//mux string
 	muxStr = muxTable[mux];
 	
-	sendByteByNibble(ENTRY_MODE);		// ready to write
-	_delay_ms(2);	//>1.67ms
 	cursorHome();
 	
 	writeToDisplay(volStrText, strlen(volStrText), 0x80);
@@ -166,6 +164,7 @@ void sendByteByNibble(char data){
 	uint8_t input = 0x00;
 	uint8_t leftNibble = 0x00;
 	uint8_t rightNibble = 0x00;
+	uint8_t mask = 0b11110000;
 	
 	//X to blok
 	if(data == 0b01011001){		//data == Y ?
@@ -175,10 +174,10 @@ void sendByteByNibble(char data){
 	else{
 		input = (uint8_t)data;
 		
-		leftNibble = (input & 0b11110000);
+		leftNibble = (input & mask);
 		
 		input = (((uint8_t)data) << 4);
-		rightNibble = (input & 0b11110000);
+		rightNibble = (input & mask);
 	}
 	
 	//data send
