@@ -82,9 +82,6 @@ int main(void)
 			
 		//Display update -> parallel
 		updateDisplay(volume, mux);
-		
-		//write to EEPROM
-		EEPROM_write(0x00, volume);
 	}
 }
 
@@ -156,6 +153,7 @@ void initclk(void){
 //-----------------------------------------------------------------------------------------	ISR
 ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 	static uint8_t volumeSwitchState = 0x00;
+	static uint8_t prevVolume = 0x00;
 	
 	/*
 	0x00	READ
@@ -178,7 +176,11 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 				}
 				volumeSwitchState = 0x01;
 			}
+			
+			//write to EEPROM
+			EEPROM_write(0x00, volume);
 		}
+		
 		break;
 		
 		case 0x01:
