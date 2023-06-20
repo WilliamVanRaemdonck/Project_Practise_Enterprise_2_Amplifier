@@ -11,7 +11,7 @@
 
 void EEPROM_write(uint8_t ucAddress, uint8_t ucData)
 {
-	//cli();
+	cli();
 	/* Wait for completion of previous write */
 	while(EECR & (1<<EEPE));
 	/* Set Programming mode */
@@ -23,7 +23,7 @@ void EEPROM_write(uint8_t ucAddress, uint8_t ucData)
 	EECR |= (1<<EEMPE);
 	/* Start eeprom write by setting EEPE */
 	EECR |= (1<<EEPE);
-	//sei();
+	sei();
 }
 
 uint8_t EEPROM_read(uint8_t ucAddress)
