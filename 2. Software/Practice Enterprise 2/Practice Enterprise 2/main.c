@@ -131,7 +131,8 @@ void initTimer1(void){
 	OCR1A = 0;
 	
 	TIMSK1 |= (1 << OCIE1A );					// Enable CTC interrupt
-	TCCR1B |= (1 << CS11 ) | (1 << CS10 );		// prescaler of 64
+	//TCCR1B |= (1 << CS11 ) | (1 << CS10 );		// prescaler of 64
+	TCCR1B |= (1 << CS12);
 	//TCCR1B |= (1 << CS00 );						// no prescaling
 }
 
@@ -153,7 +154,6 @@ void initclk(void){
 //-----------------------------------------------------------------------------------------	ISR
 ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 	static uint8_t volumeSwitchState = 0x00;
-	static uint8_t prevVolume = 0x00;
 	
 	/*
 	0x00	READ
@@ -167,20 +167,18 @@ ISR(TIMER1_COMPA_vect, ISR_BLOCK){
 			if(PINB & (1<<PINB1)){				// data = 0
 				if(volume >= 5){
 					volume -= 5;
+					EEPROM_write(0x00, volume);
 				}
 				volumeSwitchState = 0x01;
 			}
 			else{								// data = 1
 				if(volume <= 250){
 					volume += 5;
+					EEPROM_write(0x00, volume);
 				}
 				volumeSwitchState = 0x01;
 			}
-			
-			//write to EEPROM
-			EEPROM_write(0x00, volume);
 		}
-		
 		break;
 		
 		case 0x01:
